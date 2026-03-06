@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,8 +32,8 @@ const Navbar = () => {
       <nav
         className={`transition-all duration-300 ${
           scrolled
-            ? "bg-[hsl(220,18%,9%)] border-b border-white/[0.12] shadow-[0_4px_32px_-4px_rgba(0,0,0,0.9)]"
-            : "bg-[hsl(220,18%,9%)] border-b border-white/[0.08]"
+            ? "bg-white border-b border-gray-200 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.08)]"
+            : "bg-white border-b border-gray-200"
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between h-[68px] px-6 lg:px-8">
@@ -57,8 +57,8 @@ const Navbar = () => {
                   to={link.to}
                   className={`relative px-4 py-2.5 rounded-xl text-[14px] font-semibold tracking-wide transition-all duration-200 ${
                     active
-                      ? "text-white bg-white/[0.1]"
-                      : "text-white/70 hover:text-white hover:bg-white/[0.07]"
+                      ? "text-primary bg-primary/10"
+                      : "text-gray-500 hover:text-gray-900 hover:bg-gray-100"
                   }`}
                 >
                   {link.label}
@@ -80,7 +80,7 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] text-white transition-colors"
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-gray-300 bg-gray-100 hover:bg-gray-200 text-gray-900 transition-colors"
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -107,7 +107,7 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -6, scaleY: 0.97 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ transformOrigin: "top" }}
-            className="lg:hidden bg-[hsl(220,18%,9%)] border-b border-white/[0.12] shadow-[0_16px_48px_-8px_rgba(0,0,0,0.9)]"
+            className="lg:hidden bg-white border-b border-gray-200 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)]"
           >
             {/* Nav links */}
             <div className="flex flex-col gap-1 px-4 pt-4 pb-2">
@@ -121,11 +121,11 @@ const Navbar = () => {
                     className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-[15px] font-semibold transition-all duration-200 ${
                       active
                         ? "text-primary bg-primary/10 border border-primary/25"
-                        : "text-white/80 hover:text-white hover:bg-white/[0.07]"
+                        : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                     }`}
                   >
                     {link.label}
-                    <ChevronRight size={15} className={active ? "text-primary" : "text-white/30"} />
+                    <ChevronRight size={15} className={active ? "text-primary" : "text-gray-400"} />
                   </Link>
                 );
               })}

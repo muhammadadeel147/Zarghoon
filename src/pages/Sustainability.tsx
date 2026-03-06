@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import sustainImg from "@/assets/sustainability.jpg";
 import { Leaf, Recycle, Droplets, TreePine } from "lucide-react";
@@ -13,7 +13,7 @@ const fadeUp = {
 
 const practices = [
   { icon: Recycle, title: "Recycled Asphalt", desc: "We use up to 40% recycled asphalt pavement (RAP) in our mixes, reducing waste and conserving natural resources." },
-  { icon: Leaf, title: "Low Emission Processes", desc: "Our warm-mix asphalt technology reduces production temperatures, cutting CO₂ emissions by up to 30%." },
+  { icon: Leaf, title: "Low Emission Processes", desc: "Our warm-mix asphalt technology reduces production temperatures, cutting COâ‚‚ emissions by up to 30%." },
   { icon: Droplets, title: "Water Management", desc: "Permeable pavement solutions and sustainable drainage systems protect local water resources." },
   { icon: TreePine, title: "Environmental Restoration", desc: "We restore and replant vegetation along road corridors, preserving biodiversity and natural habitats." },
 ];

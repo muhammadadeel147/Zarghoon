@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Building2, Truck, Wrench, BarChart3, Shield, Zap, ArrowUpRight } from "lucide-react";
 
 const cardVariants = {
@@ -14,7 +14,7 @@ const services = [
   {
     icon: Building2,
     title: "Highway Construction",
-    desc: "Multi-lane highways engineered for heavy traffic, maximum safety, and decades of durability — from initial planning through final surfacing.",
+    desc: "Multi-lane highways engineered for heavy traffic, maximum safety, and decades of durability â€” from initial planning through final surfacing.",
     features: ["Multi-lane expressways", "Interchanges & ramps", "Safety barriers"],
     gold: false,
   },
@@ -60,7 +60,7 @@ const Services = () => (
 
     {/* Hero */}
     <section className="relative overflow-hidden py-24 px-6">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,5%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,90%)]" />
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`, backgroundSize: "28px 28px" }}
@@ -100,11 +100,11 @@ const Services = () => (
               transition={{ delay: 0.38, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-md"
             >
-              Comprehensive civil road construction and infrastructure services — powered by modern engineering and 35+ years of on-the-ground experience across Pakistan.
+              Comprehensive civil road construction and infrastructure services â€” powered by modern engineering and 35+ years of on-the-ground experience across Pakistan.
             </motion.p>
           </div>
 
-          {/* Right — glassmorphic stat grid */}
+          {/* Right â€” glassmorphic stat grid */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -120,7 +120,7 @@ const Services = () => (
               <div key={s.label} className={`relative rounded-2xl p-6 border backdrop-blur-sm overflow-hidden ${ s.gold ? "bg-accent/[0.06] border-accent/[0.18]" : "bg-primary/[0.06] border-primary/[0.18]" }`}>
                 <div className={`absolute -top-5 -right-5 w-24 h-24 rounded-full blur-[36px] pointer-events-none ${ s.gold ? "bg-accent/25" : "bg-primary/25" }`} />
                 <div className={`font-display text-[42px] font-black leading-none mb-1 ${ s.gold ? "text-accent" : "text-primary" }`}>{s.value}</div>
-                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/45">{s.label}</div>
+                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gray-500">{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -158,7 +158,7 @@ const Services = () => (
                 : "border-border hover:border-primary/35 hover:shadow-[0_12px_48px_-8px_hsl(122,47%,40%,0.28)]"
             }`}
           >
-            {/* Gradient top accent line — expands on hover */}
+            {/* Gradient top accent line â€” expands on hover */}
             <div
               className={`absolute top-0 left-8 right-8 h-[2px] rounded-b-full transition-all duration-500 ${
                 s.gold
@@ -201,7 +201,7 @@ const Services = () => (
             </div>
 
             {/* Text */}
-            <h3 className="relative font-display text-[19px] font-bold mb-3 leading-snug group-hover:text-white transition-colors duration-200">
+            <h3 className="relative font-display text-[19px] font-bold mb-3 leading-snug group-hover:text-gray-900 transition-colors duration-200">
               {s.title}
             </h3>
             <p className="relative text-[13.5px] text-muted-foreground leading-relaxed mb-5 flex-1">{s.desc}</p>

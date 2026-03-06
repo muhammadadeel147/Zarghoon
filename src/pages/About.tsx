@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+﻿import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Target, Eye, Award, Users, CheckCircle2, Zap, Shield, Clock } from "lucide-react";
 import MunirAhmedImg from "@/assets/MunirAhmed.jpeg";
@@ -15,19 +15,19 @@ const fadeUp = {
 
 const milestones = [
   { year: "1991", title: "Incorporated in Karachi", desc: "Zarghoon Enterprises (Private) Limited (ZEPL) is incorporated in Karachi as a NO LIMIT CONTRACTOR under the Pakistan Engineering Council in categories CE-01, CE-02, CE-04, CE-09, EE-06 and CE-10." },
-  { year: "2004", title: "Ziarat–Khanozai Road Widening", desc: "Completed the 14 km Ziarat More to Khanozai road widening in Balochistan for NHA — our first major national highway widening project under Government of Pakistan funding." },
-  { year: "2009", title: "Dual NHA Projects Underway", desc: "Simultaneously executed the Head Muhammad Wala Approach Road (Multan) and the Lakhi–Naudero–Larkana Road Improvement, totalling over 37 km of major national highway works." },
-  { year: "2013", title: "ADB Partnership Begins", desc: "Awarded the Rohri–Panu Aqil Road Rehabilitation (N-5) by the Asian Development Bank — the start of a long-term partnership with ADB on Pakistan's national road network." },
-  { year: "2016", title: "Largest Contracts Secured", desc: "Commenced two simultaneous ADB-funded upgradation projects: N-70 Loralai–Waighum Rud (49 km) and N-50 Zhob–Mughalkot (32 km) — totalling over PKR 7.8 billion in contract value." },
-  { year: "2021", title: "PKR 11 Billion Active Portfolio", desc: "Running the DHA Quetta Sector A-2 housing project and the 53 km N-50 Kuchlak–Zhob dualization (PKR 8.7 billion) concurrently — the largest active portfolio in company history." },
+  { year: "2004", title: "Ziaratâ€“Khanozai Road Widening", desc: "Completed the 14 km Ziarat More to Khanozai road widening in Balochistan for NHA â€” our first major national highway widening project under Government of Pakistan funding." },
+  { year: "2009", title: "Dual NHA Projects Underway", desc: "Simultaneously executed the Head Muhammad Wala Approach Road (Multan) and the Lakhiâ€“Nauderoâ€“Larkana Road Improvement, totalling over 37 km of major national highway works." },
+  { year: "2013", title: "ADB Partnership Begins", desc: "Awarded the Rohriâ€“Panu Aqil Road Rehabilitation (N-5) by the Asian Development Bank â€” the start of a long-term partnership with ADB on Pakistan's national road network." },
+  { year: "2016", title: "Largest Contracts Secured", desc: "Commenced two simultaneous ADB-funded upgradation projects: N-70 Loralaiâ€“Waighum Rud (49 km) and N-50 Zhobâ€“Mughalkot (32 km) â€” totalling over PKR 7.8 billion in contract value." },
+  { year: "2021", title: "PKR 11 Billion Active Portfolio", desc: "Running the DHA Quetta Sector A-2 housing project and the 53 km N-50 Kuchlakâ€“Zhob dualization (PKR 8.7 billion) concurrently â€” the largest active portfolio in company history." },
 ];
 
 const values = [
   { icon: Shield,  title: "Safety First",       desc: "Zero-compromise safety protocols protect every worker and road user across all project sites at every phase.",       gold: false },
   { icon: Award,   title: "Quality Precision",   desc: "Every road we build meets international AASHTO standards, verified by independent third-party quality audits.",     gold: true  },
   { icon: Zap,     title: "Innovation",          desc: "GPS-guided machinery, drone surveying, and IoT road sensors define our forward-thinking engineering approach.",       gold: false },
-  { icon: Clock,   title: "On-Time Delivery",    desc: "98% of our projects are delivered on schedule — our track record speaks louder than any promise ever could.",        gold: true  },
-  { icon: Users,   title: "Community Focus",     desc: "We build more than roads — we build connections that strengthen communities and unlock long-term economic potential.", gold: false },
+  { icon: Clock,   title: "On-Time Delivery",    desc: "98% of our projects are delivered on schedule â€” our track record speaks louder than any promise ever could.",        gold: true  },
+  { icon: Users,   title: "Community Focus",     desc: "We build more than roads â€” we build connections that strengthen communities and unlock long-term economic potential.", gold: false },
   { icon: Target,  title: "Full Accountability", desc: "End-to-end transparent reporting and milestone tracking keeps every stakeholder fully informed at all times.",        gold: true  },
 ];
 
@@ -117,7 +117,7 @@ const Counter = ({ value, suffix = "" }: CounterProps) => {
 const About = () => (
   <div className="bg-background text-foreground">
     <section className="relative overflow-hidden min-h-[80vh] flex items-center px-6 py-24">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,5%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,90%)]" />
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`, backgroundSize: "28px 28px" }}
@@ -159,7 +159,7 @@ const About = () => (
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-lg mb-8"
             >
-              For over 35 years, Zarghoon Construction has been Pakistan's foremost road infrastructure company — transforming landscapes, connecting communities, and setting engineering benchmarks that others strive to follow.
+              For over 35 years, Zarghoon Construction has been Pakistan's foremost road infrastructure company â€” transforming landscapes, connecting communities, and setting engineering benchmarks that others strive to follow.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -168,7 +168,7 @@ const About = () => (
               className="flex flex-wrap gap-2.5"
             >
               {["ISO Certified", "AASHTO Standards", "50+ Engineers", "Karachi Based"].map((tag) => (
-                <span key={tag} className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.09] text-white/65">
+                <span key={tag} className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-600">
                   <CheckCircle2 size={11} className="text-primary shrink-0" />
                   {tag}
                 </span>
@@ -176,7 +176,7 @@ const About = () => (
             </motion.div>
           </div>
 
-          {/* Right — glassmorphic stat grid */}
+          {/* Right â€” glassmorphic stat grid */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -196,7 +196,7 @@ const About = () => (
                 <div className={`font-display text-[42px] font-black leading-none mb-1 ${i % 2 === 0 ? "text-primary" : "text-accent"}`}>
                   <Counter value={s.value} suffix={s.suffix} />
                 </div>
-                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/45">{s.label}</div>
+                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gray-500">{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -204,9 +204,9 @@ const About = () => (
       </div>
     </section>
 
-    {/* ── ABOUT · VISION · CEO ───────────────────────────────────── */}
+    {/* â”€â”€ ABOUT Â· VISION Â· CEO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-20 px-6">
-      <div className="absolute inset-0 bg-[hsl(220,15%,8%)]" />
+      <div className="absolute inset-0 bg-[hsl(210,40%,97%)]" />
       <div
         className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
@@ -245,7 +245,7 @@ const About = () => (
                 </p>
                 <p className="text-muted-foreground text-[14px] leading-relaxed">
                   As one of Pakistan's leading construction companies, we combine disciplined planning, strong
-                  supervision and modern technology to convert even the most complex designs into reality on site —
+                  supervision and modern technology to convert even the most complex designs into reality on site â€”
                   in a hassle-free and cooperative manner.
                 </p>
               </div>
@@ -274,10 +274,10 @@ const About = () => (
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-primary tracking-[0.2em] uppercase mb-1">Chief Executive</p>
-                  <p className="font-display text-[16px] font-bold leading-tight text-white">Munir A. Kakar</p>
+                  <p className="font-display text-[16px] font-bold leading-tight text-gray-900">Munir A. Kakar</p>
                 </div>
               </div>
-              <h3 className="text-[13px] font-semibold text-white/85 tracking-[0.18em] uppercase">CEO Message</h3>
+              <h3 className="text-[13px] font-semibold text-gray-800 tracking-[0.18em] uppercase">CEO Message</h3>
               <p className="text-[13px] text-muted-foreground leading-relaxed">
                 Since its establishment in 1991, Zarghoon Enterprises (Private) Limited has been committed to
                 building strong and lasting relationships with our clients. Over the years, we have assembled a
@@ -297,7 +297,7 @@ const About = () => (
               <p className="text-[13px] text-muted-foreground leading-relaxed">
                 Yours sincerely,
                 <br />
-                <span className="font-semibold text-white/90">Munir A. Kakar</span>
+                <span className="font-semibold text-gray-900">Munir A. Kakar</span>
                 <br />
                 Chief Executive
               </p>
@@ -307,9 +307,9 @@ const About = () => (
       </div>
     </section>
 
-    {/* ── VISION · MISSION · VALUES · COMMITMENT ───────────────────── */}
+    {/* â”€â”€ VISION Â· MISSION Â· VALUES Â· COMMITMENT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-24 px-6">
-      <div className="absolute inset-0 bg-[hsl(220,15%,6%)]" />
+      <div className="absolute inset-0 bg-[hsl(210,40%,96%)]" />
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{ backgroundImage: `linear-gradient(135deg, hsl(122,47%,50%) 0.5px, transparent 0.5px), linear-gradient(225deg, hsl(122,47%,50%) 0.5px, transparent 0.5px)`, backgroundSize: "40px 40px" }}
@@ -409,7 +409,7 @@ const About = () => (
       </div>
     </section>
 
-    {/* ── TIMELINE ─────────────────────────────────────────────────── */}
+    {/* â”€â”€ TIMELINE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-24 px-6">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[640px] h-[320px] bg-primary/[0.05] rounded-full blur-[110px] pointer-events-none" />
       <div className="relative z-10 max-w-4xl mx-auto">
@@ -452,7 +452,7 @@ const About = () => (
                     {/* Top accent line */}
                     <div className={`absolute top-0 h-[2px] rounded-b-full bg-gradient-to-r from-transparent via-primary/60 to-transparent transition-all duration-500 opacity-0 group-hover:opacity-100 inset-x-0`} />
                     <span className="font-display text-[42px] font-black text-gradient leading-none block mb-2">{m.year}</span>
-                    <h4 className="font-display text-[17px] font-bold mb-2 text-white">{m.title}</h4>
+                    <h4 className="font-display text-[17px] font-bold mb-2 text-gray-900">{m.title}</h4>
                     <p className="text-[13px] text-muted-foreground leading-relaxed">{m.desc}</p>
                   </div>
 
@@ -474,7 +474,7 @@ const About = () => (
       </div>
     </section>
 
-    {/* ── CORE VALUES ──────────────────────────────────────────────── */}
+    {/* â”€â”€ CORE VALUES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-24 px-6">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/40 to-transparent pointer-events-none" />
       <div
@@ -530,7 +530,7 @@ const About = () => (
               <div className={`relative w-[46px] h-[46px] rounded-xl flex items-center justify-center mb-5 transition-all duration-300 ${v.gold ? "bg-accent/10 border border-accent/20 group-hover:bg-accent/[0.18] group-hover:border-accent/50 group-hover:rotate-6 group-hover:scale-110 group-hover:shadow-[0_0_22px_-4px_hsl(42,92%,52%,0.5)]" : "bg-primary/10 border border-primary/20 group-hover:bg-primary/[0.18] group-hover:border-primary/50 group-hover:rotate-6 group-hover:scale-110 group-hover:shadow-[0_0_22px_-4px_hsl(122,47%,40%,0.5)]"}`}>
                 <v.icon size={20} className={v.gold ? "text-accent" : "text-primary"} />
               </div>
-              <h3 className="relative font-display text-[17px] font-bold mb-2.5 group-hover:text-white transition-colors duration-200">{v.title}</h3>
+              <h3 className="relative font-display text-[17px] font-bold mb-2.5 group-hover:text-gray-900 transition-colors duration-200">{v.title}</h3>
               <p className="relative text-[13px] text-muted-foreground leading-relaxed">{v.desc}</p>
             </motion.div>
           ))}
@@ -538,7 +538,7 @@ const About = () => (
       </div>
     </section>
 
-    {/* ── LEADERSHIP ───────────────────────────────────────────────── */}
+    {/* â”€â”€ LEADERSHIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-24 px-6">
       <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[700px] h-[280px] bg-primary/[0.04] rounded-full blur-[100px] pointer-events-none" />
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -574,9 +574,9 @@ const About = () => (
               viewport={{ once: true, margin: "-40px" }}
               variants={fadeUp}
               whileHover={{ y: -6, transition: { duration: 0.22, ease: "easeOut" } }}
-              className="group relative rounded-2xl overflow-hidden border border-white/[0.07] bg-card hover:border-primary/45 transition-all duration-300 hover:shadow-[0_20px_64px_-20px_hsl(122,47%,40%,0.32)]"
+              className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-card hover:border-primary/45 transition-all duration-300 hover:shadow-[0_20px_64px_-20px_hsl(122,47%,40%,0.32)]"
             >
-              {/* ── Photo / Initials ── */}
+              {/* â”€â”€ Photo / Initials â”€â”€ */}
               <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${member.gradient}`}>
                 {member.image ? (
                   <img
@@ -586,7 +586,7 @@ const About = () => (
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
-                    <span className="font-display text-7xl font-black text-white/20 select-none tracking-tight">
+                    <span className="font-display text-7xl font-black text-gray-300 select-none tracking-tight">
                       {member.initials}
                     </span>
                   </div>
@@ -604,7 +604,7 @@ const About = () => (
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-primary/10 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* ── Body ── */}
+              {/* â”€â”€ Body â”€â”€ */}
               <div className="px-5 pt-4 pb-5">
                 <p className="text-[13px] text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
                 <div className="flex items-center gap-2">

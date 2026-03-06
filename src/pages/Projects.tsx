@@ -256,7 +256,7 @@ const ProjectCard = ({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="group relative rounded-2xl overflow-hidden border border-white/[0.07] bg-[hsl(220,16%,9%)] hover:border-white/[0.14] transition-all duration-400 hover:shadow-[0_24px_72px_-16px_rgba(0,0,0,0.7)]"
+      className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-gray-300 transition-all duration-400 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.12)]"
     >
       {/* â”€â”€ IMAGE HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="relative overflow-hidden" style={{ aspectRatio: "16/7" }}>
@@ -266,7 +266,7 @@ const ProjectCard = ({
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
         />
         {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,16%,9%)] via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
         {/* Subtle shimmer sweep */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -279,7 +279,7 @@ const ProjectCard = ({
         {/* â”€â”€ TOP ROW badges â”€â”€ */}
         <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
           {/* Project number */}
-          <span className="font-display text-[11px] font-black tracking-[0.35em] uppercase px-3 py-1.5 rounded-full bg-black/50 border border-white/10 text-white/50 backdrop-blur-sm">
+          <span className="font-display text-[11px] font-black tracking-[0.35em] uppercase px-3 py-1.5 rounded-full bg-black/50 border border-gray-200 text-gray-500 backdrop-blur-sm">
             {String(project.number).padStart(2, "0")}
           </span>
           {/* Status badge */}
@@ -321,10 +321,10 @@ const ProjectCard = ({
 
       {/* â”€â”€ TITLE STRIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="px-5 pt-4 pb-3 border-b border-white/[0.055]">
-        <h3 className="font-display text-[15.5px] font-bold leading-snug text-white/90 group-hover:text-white transition-colors duration-200 line-clamp-2">
+        <h3 className="font-display text-[15.5px] font-bold leading-snug text-gray-900 group-hover:text-gray-900 transition-colors duration-200 line-clamp-2">
           {project.title}
         </h3>
-        <div className="flex items-center gap-1.5 mt-1.5 text-[12px] text-white/38">
+        <div className="flex items-center gap-1.5 mt-1.5 text-[12px] text-gray-500">
           <MapPin size={10} className={isOngoing ? "text-accent/60" : "text-primary/60"} />
           {project.location}
         </div>
@@ -342,11 +342,11 @@ const ProjectCard = ({
             key={ri}
             className={`px-4 py-3 flex flex-col gap-0.5 ${ri < 2 ? "border-b border-white/[0.055]" : ""}`}
           >
-            <span className="flex items-center gap-1.5 text-[9.5px] font-bold uppercase tracking-[0.22em] text-white/28">
+            <span className="flex items-center gap-1.5 text-[9.5px] font-bold uppercase tracking-[0.22em] text-gray-400">
               <row.icon size={9} className={isOngoing ? "text-accent/50" : "text-primary/50"} />
               {row.label}
             </span>
-            <span className="text-[12.5px] text-white/72 leading-tight font-medium line-clamp-1">{row.value}</span>
+            <span className="text-[12.5px] text-gray-700 leading-tight font-medium line-clamp-1">{row.value}</span>
           </div>
         ))}
       </div>
@@ -379,7 +379,7 @@ const SectionDivider = ({ label, count, isOngoing = false }: { label: string; co
     </div>
     <div className={`hidden sm:flex items-center gap-3 shrink-0 px-5 py-3 rounded-2xl border ${isOngoing ? "bg-accent/[0.06] border-accent/20" : "bg-primary/[0.06] border-primary/20"}`}>
       <span className={`font-display text-4xl font-black leading-none ${isOngoing ? "text-accent" : "text-gradient"}`}>{String(count).padStart(2, "0")}</span>
-      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35 leading-tight">{isOngoing ? "Active\nProjects" : "Completed\nProjects"}</span>
+      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-500 leading-tight">{isOngoing ? "Active\nProjects" : "Completed\nProjects"}</span>
     </div>
   </motion.div>
 );
@@ -389,7 +389,7 @@ const Projects = () => (
 
     {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-24 px-6">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,5%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,90%)]" />
       <div
         className="absolute inset-0 opacity-[0.038] pointer-events-none"
         style={{ backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`, backgroundSize: "30px 30px" }}
@@ -451,7 +451,7 @@ const Projects = () => (
               >
                 <div className={`absolute -top-5 -right-5 w-24 h-24 rounded-full blur-[36px] pointer-events-none ${s.gold ? "bg-accent/25" : "bg-primary/25"}`} />
                 <div className={`font-display text-[40px] font-black leading-none mb-1 ${s.gold ? "text-accent" : "text-primary"}`}>{s.value}</div>
-                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/45">{s.label}</div>
+                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gray-500">{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -477,7 +477,7 @@ const Projects = () => (
 
     {/* â”€â”€ ONGOING PROJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-20 pb-28 px-6">
-      <div className="absolute inset-0 bg-[hsl(220,15%,6%)]" />
+      <div className="absolute inset-0 bg-[hsl(210,40%,96%)]" />
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{ backgroundImage: `radial-gradient(circle, hsl(42,92%,55%) 1px, transparent 1px)`, backgroundSize: "26px 26px" }}

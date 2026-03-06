@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { useState } from "react";
 import equipmentImg from "@/assets/equipment.jpg";
 import { Cog, Gauge, Cpu, ScanLine, Truck, Factory, CheckCircle2, ArrowUpRight, X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -18,24 +18,24 @@ const equipment = [
   {
     icon: Truck,    name: "Asphalt Pavers",    category: "Paving",
     desc: "GPS-guided precision paving machines delivering millimetre-accurate surface uniformity at highway speeds.",
-    specs: ["GPS ±2 mm accuracy", "Up to 10 m paving width", "Digital grade control"],
+    specs: ["GPS Â±2 mm accuracy", "Up to 10 m paving width", "Digital grade control"],
     gold: false,
   },
   {
     icon: Gauge,    name: "Road Rollers",       category: "Compaction",
     desc: "Vibratory and static compaction rollers ensuring optimal density ratios for every road layer from sub-base to wearing course.",
-    specs: ["Vibratory & static modes", "Real-time density readout", "12–26 tonne capacity"],
+    specs: ["Vibratory & static modes", "Real-time density readout", "12â€“26 tonne capacity"],
     gold: true,
   },
   {
     icon: Cog,      name: "Excavators",         category: "Earthworks",
     desc: "Heavy-duty hydraulic excavators handling bulk earthworks, trench cutting, and sub-grade preparation at full project scale.",
-    specs: ["20–50 tonne class", "GPS 3D grade control", "Quick coupler attachments"],
+    specs: ["20â€“50 tonne class", "GPS 3D grade control", "Quick coupler attachments"],
     gold: false,
   },
   {
     icon: Factory,  name: "Asphalt Plants",     category: "Production",
-    desc: "Mobile and stationary drum-mix and batch plants producing 100–300 TPH of hot-mix asphalt to exact recipe specifications.",
+    desc: "Mobile and stationary drum-mix and batch plants producing 100â€“300 TPH of hot-mix asphalt to exact recipe specifications.",
     specs: ["300 TPH capacity", "Recycled asphalt capable", "Remote mix monitoring"],
     gold: true,
   },
@@ -47,7 +47,7 @@ const equipment = [
   },
   {
     icon: Cpu,      name: "IoT Road Sensors",   category: "Smart",
-    desc: "Embedded pavement sensors monitoring surface stress, temperature, and moisture — feeding live analytics to our operations centre.",
+    desc: "Embedded pavement sensors monitoring surface stress, temperature, and moisture â€” feeding live analytics to our operations centre.",
     specs: ["24/7 live monitoring", "Predictive maintenance", "Cloud dashboard"],
     gold: true,
   },
@@ -56,9 +56,9 @@ const equipment = [
 const Equipment = () => (
   <div className="pt-[68px]">
 
-    {/* ── HERO ────────────────────────────────────────────────── */}
+    {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden py-24 px-6">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,5%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,90%)]" />
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`, backgroundSize: "28px 28px" }}
@@ -98,7 +98,7 @@ const Equipment = () => (
               transition={{ delay: 0.38, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-md mb-8"
             >
-              State-of-the-art machinery and intelligent engineering technology powering every kilometre Zarghoon builds — from sub-grade to surface.
+              State-of-the-art machinery and intelligent engineering technology powering every kilometre Zarghoon builds â€” from sub-grade to surface.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -107,7 +107,7 @@ const Equipment = () => (
               className="flex flex-wrap gap-2.5"
             >
               {["GPS-Guided Machinery", "Drone Surveying", "IoT Monitoring", "50+ Machines"].map((tag) => (
-                <span key={tag} className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.09] text-white/65">
+                <span key={tag} className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-600">
                   <CheckCircle2 size={11} className="text-primary shrink-0" />
                   {tag}
                 </span>
@@ -115,7 +115,7 @@ const Equipment = () => (
             </motion.div>
           </div>
 
-          {/* Right — cinematic image */}
+          {/* Right â€” cinematic image */}
           <motion.div
             initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
             animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
@@ -138,15 +138,15 @@ const Equipment = () => (
             ))}
             <div className="absolute bottom-6 left-6">
               <span className="inline-block text-[10px] font-black tracking-[0.25em] uppercase px-2.5 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary backdrop-blur-sm">Active Fleet</span>
-              <p className="font-display text-2xl font-bold text-white mt-2">50+ Machines</p>
-              <p className="text-white/45 text-xs">Across all project sites</p>
+              <p className="font-display text-2xl font-bold text-gray-900 mt-2">50+ Machines</p>
+              <p className="text-gray-500 text-xs">Across all project sites</p>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
 
-    {/* ── EQUIPMENT GRID ─────────────────────────────────────── */}
+    {/* â”€â”€ EQUIPMENT GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <section className="relative overflow-hidden pb-28 px-6">
       <div
         className="absolute inset-0 opacity-[0.022] pointer-events-none"
@@ -217,13 +217,13 @@ const Equipment = () => (
                 </div>
               </div>
 
-              <h3 className="relative font-display text-[18px] font-bold mb-2.5 group-hover:text-white transition-colors duration-200">{e.name}</h3>
+              <h3 className="relative font-display text-[18px] font-bold mb-2.5 group-hover:text-gray-900 transition-colors duration-200">{e.name}</h3>
               <p className="relative text-[13px] text-muted-foreground leading-relaxed mb-5 flex-1">{e.desc}</p>
 
               {/* Spec chips */}
               <div className="relative flex flex-col gap-2">
                 {e.specs.map((spec) => (
-                  <div key={spec} className="flex items-center gap-2 text-[12px] text-white/55">
+                  <div key={spec} className="flex items-center gap-2 text-[12px] text-gray-500">
                     <div className={`w-1 h-1 rounded-full shrink-0 ${ e.gold ? "bg-accent" : "bg-primary" }`} />
                     {spec}
                   </div>
@@ -235,7 +235,7 @@ const Equipment = () => (
       </div>
     </section>
 
-    {/* ── PHOTO GALLERY ──────────────────────────────────────── */}
+    {/* â”€â”€ PHOTO GALLERY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
     <GallerySection />
 
   </div>
@@ -277,7 +277,7 @@ function GallerySection() {
           </p>
         </motion.div>
 
-        {/* Uniform grid — 4-column, fixed aspect ratio, perfect alignment */}
+        {/* Uniform grid â€” 4-column, fixed aspect ratio, perfect alignment */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
           {galleryImages.map((src, i) => (
             <motion.div
@@ -299,15 +299,15 @@ function GallerySection() {
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
               {/* Expand icon */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-300">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                <div className="w-9 h-9 rounded-full bg-gray-200 backdrop-blur-sm border border-gray-300 flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-900">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                   </svg>
                 </div>
               </div>
               {/* Index tag */}
               <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <span className="text-[9px] font-bold text-white/70 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 rounded">
+                <span className="text-[9px] font-bold text-gray-600 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 rounded">
                   {String(i + 1).padStart(2, '0')}
                 </span>
               </div>
@@ -326,17 +326,17 @@ function GallerySection() {
         >
           {/* Close */}
           <button
-            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-colors z-10"
+            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-gray-300/60 border border-gray-300 flex items-center justify-center transition-colors z-10"
             onClick={() => setLightbox(null)}
           >
-            <X size={18} className="text-white" />
+            <X size={18} className="text-gray-900" />
           </button>
           {/* Prev */}
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-colors z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-gray-300/60 border border-gray-300 flex items-center justify-center transition-colors z-10"
             onClick={e => { e.stopPropagation(); prev(); }}
           >
-            <ChevronLeft size={22} className="text-white" />
+            <ChevronLeft size={22} className="text-gray-900" />
           </button>
           {/* Image */}
           <img
@@ -347,13 +347,13 @@ function GallerySection() {
           />
           {/* Next */}
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-colors z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-gray-300/60 border border-gray-300 flex items-center justify-center transition-colors z-10"
             onClick={e => { e.stopPropagation(); next(); }}
           >
-            <ChevronRight size={22} className="text-white" />
+            <ChevronRight size={22} className="text-gray-900" />
           </button>
           {/* Counter */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-widest">
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-gray-500 text-xs tracking-widest">
             {lightbox + 1} / {galleryImages.length}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+﻿import { motion, useInView } from "framer-motion";
 import { useState, useRef, useEffect, ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -72,9 +72,9 @@ const services = [
 ];
 
 const projects = [
-  { img: highwayImg, title: "N-50 Zhob – Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar – Mughal Kot, Balochistan", type: "Highway" },
-  { img: bridgeImg,  title: "N-70 Loralai – Waigum Rud Road Upgradation", location: "Loralai – Waighum Rud Section, Balochistan", type: "Highway" },
-  { img: asphaltImg, title: "Rohri – Panu Aqil Road Rehabilitation (N-5)", location: "Rohri to Panu Aqil, Sukkur, Sindh", type: "Rehabilitation" },
+  { img: highwayImg, title: "N-50 Zhob â€“ Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar â€“ Mughal Kot, Balochistan", type: "Highway" },
+  { img: bridgeImg,  title: "N-70 Loralai â€“ Waigum Rud Road Upgradation", location: "Loralai â€“ Waighum Rud Section, Balochistan", type: "Highway" },
+  { img: asphaltImg, title: "Rohri â€“ Panu Aqil Road Rehabilitation (N-5)", location: "Rohri to Panu Aqil, Sukkur, Sindh", type: "Rehabilitation" },
 ];
 
 const fadeUp = {
@@ -135,14 +135,14 @@ const Index = () => (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroImage} alt="Road construction at dusk" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
       </div>
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="inline-block text-xs font-semibold tracking-[0.3em] uppercase text-primary mb-6"
+          className="inline-block text-xs font-semibold tracking-[0.3em] uppercase text-accent mb-6"
         >
           Zarghoon Construction
         </motion.span>
@@ -150,7 +150,7 @@ const Index = () => (
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="font-display text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6"
+          className="font-display text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6 text-white"
         >
           Building Roads That<br />
           <span className="text-gradient">Connect the Future</span>
@@ -159,7 +159,7 @@ const Index = () => (
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="text-muted-foreground text-lg md:text-xl mb-10 max-w-2xl mx-auto"
+          className="text-white/75 text-lg md:text-xl mb-10 max-w-2xl mx-auto"
         >
           Engineering excellence in civil road construction. From highways to smart roads,
           we build infrastructure that moves nations forward.
@@ -187,17 +187,17 @@ const Index = () => (
         >
           <a
             href="tel:+922134978326"
-            className="flex items-center gap-2 text-foreground/60 hover:text-primary transition-colors duration-200"
+            className="flex items-center gap-2 text-white/70 hover:text-accent transition-colors duration-200"
           >
-            <Phone size={14} className="text-primary" />
+            <Phone size={14} className="text-accent" />
             +9221-34978326
           </a>
-          <span className="hidden sm:block w-px h-4 bg-foreground/20" />
+          <span className="hidden sm:block w-px h-4 bg-white/25" />
           <a
             href="mailto:Info@zarghoon.pk"
-            className="flex items-center gap-2 text-foreground/60 hover:text-primary transition-colors duration-200"
+            className="flex items-center gap-2 text-white/70 hover:text-accent transition-colors duration-200"
           >
-            <Mail size={14} className="text-primary" />
+            <Mail size={14} className="text-accent" />
             Info@zarghoon.pk
           </a>
         </motion.div>
@@ -205,7 +205,7 @@ const Index = () => (
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 text-foreground/40"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 text-white/50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
@@ -334,7 +334,7 @@ const Index = () => (
                   />
                 </div>
 
-                <h3 className="relative font-display text-[17px] font-bold mb-2.5 leading-snug group-hover:text-white transition-colors duration-200">
+                <h3 className="relative font-display text-[17px] font-bold mb-2.5 leading-snug group-hover:text-gray-900 transition-colors duration-200">
                   {s.title}
                 </h3>
                 <p className="relative text-[13px] text-muted-foreground leading-relaxed">{s.desc}</p>
@@ -389,7 +389,7 @@ const Index = () => (
         {/* Asymmetric bento grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
-          {/* Large hero card — clip-path wipe from bottom */}
+          {/* Large hero card â€” clip-path wipe from bottom */}
           <motion.div
             initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
             whileInView={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
@@ -404,7 +404,7 @@ const Index = () => (
             />
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
-            {/* Shimmer sweep — always running subtly */}
+            {/* Shimmer sweep â€” always running subtly */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div
                 className="absolute inset-y-0 w-[55%] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent -skew-x-12"
@@ -412,7 +412,7 @@ const Index = () => (
                 transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", repeatDelay: 2.5 }}
               />
             </div>
-            {/* Corner brackets — expand on hover */}
+            {/* Corner brackets â€” expand on hover */}
             {[
               "top-4 left-4 border-t-[2px] border-l-[2px]",
               "top-4 right-4 border-t-[2px] border-r-[2px]",
@@ -425,17 +425,17 @@ const Index = () => (
               />
             ))}
             {/* Number watermark */}
-            <span className="absolute top-5 right-6 font-display text-[7rem] font-black text-white/[0.05] leading-none select-none pointer-events-none">01</span>
+            <span className="absolute top-5 right-6 font-display text-[7rem] font-black text-white/[0.07] leading-none select-none pointer-events-none">01</span>
             {/* Type badge */}
             <div className="absolute top-5 left-5">
               <span className="inline-flex items-center text-[11px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary backdrop-blur-sm">
                 {projects[0].type}
               </span>
             </div>
-            {/* Bottom info — subtle lift on hover */}
+            {/* Bottom info â€” subtle lift on hover */}
             <div className="absolute bottom-0 inset-x-0 p-6 lg:p-8 translate-y-1 group-hover:translate-y-0 transition-transform duration-300 ease-out">
               <h3 className="font-display text-2xl lg:text-3xl font-bold text-white mb-1.5">{projects[0].title}</h3>
-              <div className="flex items-center gap-1.5 text-white/50 text-sm">
+              <div className="flex items-center gap-1.5 text-white/65 text-sm">
                 <MapPin size={12} />
                 {projects[0].location}
               </div>
@@ -450,7 +450,7 @@ const Index = () => (
             </div>
           </motion.div>
 
-          {/* Right column — two stacked cards with opposing wipe directions */}
+          {/* Right column â€” two stacked cards with opposing wipe directions */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             {projects.slice(1).map((p, i) => (
               <motion.div
@@ -494,7 +494,7 @@ const Index = () => (
                   />
                 ))}
                 {/* Number */}
-                <span className="absolute top-3 right-5 font-display text-[4.5rem] font-black text-white/[0.05] leading-none select-none pointer-events-none">
+                <span className="absolute top-3 right-5 font-display text-[4.5rem] font-black text-white/[0.08] leading-none select-none pointer-events-none">
                   {String(i + 2).padStart(2, "0")}
                 </span>
                 {/* Type badge */}
@@ -506,7 +506,7 @@ const Index = () => (
                 {/* Info */}
                 <div className="absolute bottom-0 inset-x-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-300 ease-out">
                   <h3 className="font-display text-lg font-bold text-white mb-1">{p.title}</h3>
-                  <div className="flex items-center gap-1 text-white/45 text-xs">
+                  <div className="flex items-center gap-1 text-white/65 text-xs">
                     <MapPin size={10} />
                     {p.location}
                   </div>
@@ -561,7 +561,7 @@ const Index = () => (
               viewport={{ once: true, margin: "-40px" }}
               variants={fadeUp}
               whileHover={{ y: -6, transition: { duration: 0.22, ease: "easeOut" } }}
-              className="group relative rounded-2xl overflow-hidden border border-white/[0.07] bg-card hover:border-primary/45 transition-all duration-300 hover:shadow-[0_20px_64px_-20px_hsl(122,47%,40%,0.32)]"
+              className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-card hover:border-primary/45 transition-all duration-300 hover:shadow-[0_20px_64px_-20px_hsl(122,47%,40%,0.32)]"
             >
               {/* Photo / Initials */}
               <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${member.gradient}`}>
@@ -573,7 +573,7 @@ const Index = () => (
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
-                    <span className="font-display text-7xl font-black text-white/20 select-none tracking-tight">
+                    <span className="font-display text-7xl font-black text-gray-300 select-none tracking-tight">
                       {member.initials}
                     </span>
                   </div>
@@ -607,7 +607,7 @@ const Index = () => (
     {/* CTA */}
     <section className="relative overflow-hidden py-24 px-6">
       {/* Animated background grid */}
-      <div className="absolute inset-0 bg-[hsl(220,15%,6%)]" />
+      <div className="absolute inset-0 bg-[hsl(210,40%,96%)]" />
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
@@ -622,7 +622,7 @@ const Index = () => (
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* Left — headline */}
+          {/* Left â€” headline */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -636,8 +636,8 @@ const Index = () => (
               Ready to Build<br />
               <span className="text-gradient">Something Great?</span>
             </h2>
-            <p className="text-white/60 text-base leading-relaxed mb-8 max-w-md">
-              From planning to delivery — our experienced team turns ambitious infrastructure visions into lasting reality.
+            <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
+              From planning to delivery â€” our experienced team turns ambitious infrastructure visions into lasting reality.
             </p>
             <Link
               to="/contact"
@@ -653,7 +653,7 @@ const Index = () => (
             </Link>
           </motion.div>
 
-          {/* Right — contact cards */}
+          {/* Right â€” contact cards */}
           <div className="flex flex-col gap-4">
             {[
               {
@@ -661,7 +661,7 @@ const Index = () => (
                 icon: Phone,
                 label: "Call Us Directly",
                 value: "+9221-34978326",
-                sub: "Available Mon–Sat, 9am–6pm",
+                sub: "Available Monâ€“Sat, 9amâ€“6pm",
                 delay: 0.15,
               },
               {
@@ -681,7 +681,7 @@ const Index = () => (
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: item.delay, ease: "easeOut" }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                className="group flex items-center gap-5 p-5 rounded-2xl bg-white/[0.04] border border-white/[0.1] hover:border-primary/50 hover:bg-primary/[0.06] transition-all duration-300 cursor-pointer"
+                className="group flex items-center gap-5 p-5 rounded-2xl bg-gray-900/[0.04] border border-gray-200 hover:border-primary/50 hover:bg-primary/[0.06] transition-all duration-300 cursor-pointer"
               >
                 <div className="relative shrink-0">
                   <div className="w-14 h-14 rounded-2xl bg-primary/15 border border-primary/25 group-hover:bg-primary/25 group-hover:border-primary/50 flex items-center justify-center transition-all duration-300">
@@ -695,12 +695,12 @@ const Index = () => (
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary/80 mb-0.5">{item.label}</div>
-                  <div className="text-[17px] font-bold text-white truncate">{item.value}</div>
-                  <div className="text-[12px] text-white/40 mt-0.5">{item.sub}</div>
+                  <div className="text-[17px] font-bold text-gray-900 truncate">{item.value}</div>
+                  <div className="text-[12px] text-gray-500 mt-0.5">{item.sub}</div>
                 </div>
                 <ChevronDown
                   size={16}
-                  className="text-white/20 group-hover:text-primary -rotate-90 shrink-0 transition-colors duration-200"
+                  className="text-gray-300 group-hover:text-primary -rotate-90 shrink-0 transition-colors duration-200"
                 />
               </motion.a>
             ))}
@@ -713,8 +713,8 @@ const Index = () => (
               transition={{ duration: 0.7, delay: 0.45 }}
               className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
             />
-            <p className="text-center text-[12px] text-white/30 tracking-wide">
-              Karachi, Pakistan &nbsp;·&nbsp; Est. 1991
+            <p className="text-center text-[12px] text-gray-400 tracking-wide">
+              Karachi, Pakistan &nbsp;Â·&nbsp; Est. 1991
             </p>
           </div>
         </div>
