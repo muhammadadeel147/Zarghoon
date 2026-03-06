@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
-import { ArrowRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Trophy, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Trophy, Users } from "lucide-react";
 import heroImage from "@/assets/hero-road.jpg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
@@ -215,65 +215,298 @@ const Index = () => (
     </section>
 
     {/* Services */}
-    <section className="section-padding">
-      <SectionHeading label="What We Do" title="Our Services" description="Comprehensive road construction and infrastructure development services." />
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s, i) => (
-          <motion.div
-            key={s.title}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="relative bg-card border border-border rounded-lg p-8 card-hover group overflow-hidden"
-          >
-            <span className="absolute top-4 right-5 font-display text-7xl font-black text-foreground/[0.04] leading-none select-none pointer-events-none">
-              {String(i + 1).padStart(2, "0")}
+    <section className="relative overflow-hidden section-padding">
+      {/* Diagonal bg texture */}
+      <div
+        className="absolute inset-0 opacity-[0.022] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(135deg, hsl(122,47%,50%) 0.5px, transparent 0.5px), linear-gradient(225deg, hsl(122,47%,50%) 0.5px, transparent 0.5px)`,
+          backgroundSize: "38px 38px",
+        }}
+      />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/[0.05] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-accent/[0.04] rounded-full blur-[90px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Header row */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
+        >
+          <div>
+            <span className="flex items-center gap-2.5 text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">
+              <span className="w-7 h-px bg-primary inline-block" />
+              What We Do
             </span>
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-              <s.icon className="text-primary" size={24} />
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-2.5">
+              Our <span className="text-gradient">Services</span>
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+              Comprehensive road construction and infrastructure development services.
+            </p>
+          </div>
+          <div className="flex items-center gap-5 shrink-0">
+            <div className="text-right hidden sm:block">
+              <p className="font-display text-5xl font-black text-gradient leading-none">06</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">Capabilities</p>
             </div>
-            <h3 className="font-display text-lg font-semibold mb-2">{s.title}</h3>
-            <p className="text-sm text-muted-foreground">{s.desc}</p>
-          </motion.div>
-        ))}
+            <Button variant="heroOutline" asChild className="shrink-0">
+              <Link to="/services">All Services <ArrowRight size={14} className="ml-1.5" /></Link>
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((s, i) => {
+            const gold = i % 2 === 1;
+            return (
+              <motion.div
+                key={s.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={fadeUp}
+                whileHover={{ y: -8, transition: { duration: 0.22, ease: "easeOut" } }}
+                className={`group relative bg-card rounded-2xl p-7 overflow-hidden flex flex-col border transition-all duration-300 ${
+                  gold
+                    ? "border-border hover:border-accent/35 hover:shadow-[0_10px_40px_-8px_hsl(42,92%,52%,0.2)]"
+                    : "border-border hover:border-primary/35 hover:shadow-[0_10px_40px_-8px_hsl(122,47%,40%,0.25)]"
+                }`}
+              >
+                {/* Top gradient line */}
+                <div
+                  className={`absolute top-0 left-8 right-8 h-[2px] rounded-b-full transition-all duration-500 ${
+                    gold
+                      ? "bg-gradient-to-r from-transparent via-accent to-transparent opacity-40 group-hover:opacity-100 group-hover:left-0 group-hover:right-0"
+                      : "bg-gradient-to-r from-transparent via-primary to-transparent opacity-40 group-hover:opacity-100 group-hover:left-0 group-hover:right-0"
+                  }`}
+                />
+                {/* Hover glow wash */}
+                <div
+                  className={`absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${
+                    gold
+                      ? "bg-gradient-to-br from-accent/[0.06] via-transparent to-transparent"
+                      : "bg-gradient-to-br from-primary/[0.06] via-transparent to-transparent"
+                  }`}
+                />
+                {/* Watermark step */}
+                <span className="absolute -bottom-1 right-4 font-display text-[6.5rem] font-black leading-none select-none pointer-events-none text-foreground/[0.025] group-hover:text-foreground/[0.04] transition-colors duration-300">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+
+                {/* Icon */}
+                <div className="relative flex items-start justify-between mb-5">
+                  <div
+                    className={`w-[48px] h-[48px] rounded-xl flex items-center justify-center transition-all duration-300 ${
+                      gold
+                        ? "bg-accent/10 border border-accent/20 group-hover:bg-accent/[0.18] group-hover:border-accent/50 group-hover:shadow-[0_0_24px_-4px_hsl(42,92%,52%,0.5)] group-hover:rotate-6 group-hover:scale-110"
+                        : "bg-primary/10 border border-primary/20 group-hover:bg-primary/[0.18] group-hover:border-primary/50 group-hover:shadow-[0_0_24px_-4px_hsl(122,47%,40%,0.5)] group-hover:rotate-6 group-hover:scale-110"
+                    }`}
+                  >
+                    <s.icon size={20} className={gold ? "text-accent" : "text-primary"} />
+                  </div>
+                  <ArrowUpRight
+                    size={14}
+                    className={`mt-1.5 transition-all duration-300 ${
+                      gold
+                        ? "text-foreground/[0.15] group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        : "text-foreground/[0.15] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    }`}
+                  />
+                </div>
+
+                <h3 className="relative font-display text-[17px] font-bold mb-2.5 leading-snug group-hover:text-white transition-colors duration-200">
+                  {s.title}
+                </h3>
+                <p className="relative text-[13px] text-muted-foreground leading-relaxed">{s.desc}</p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
 
     {/* Featured Projects */}
-    <section className="section-padding bg-secondary/50">
-      <SectionHeading label="Portfolio" title="Featured Projects" description="A selection of our most impactful road construction projects." />
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {projects.map((p, i) => (
+    <section className="relative overflow-hidden section-padding">
+      {/* Background texture */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/60 to-transparent pointer-events-none" />
+      <div
+        className="absolute inset-0 opacity-[0.018] pointer-events-none"
+        style={{ backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`, backgroundSize: "24px 24px" }}
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Header row */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
+        >
+          <div>
+            <span className="flex items-center gap-2.5 text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">
+              <span className="w-7 h-px bg-primary inline-block" />
+              Portfolio
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-2.5">
+              Featured <span className="text-gradient">Projects</span>
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+              A selection of our most impactful road construction projects.
+            </p>
+          </div>
+          <div className="flex items-center gap-5 shrink-0">
+            <div className="text-right hidden sm:block">
+              <p className="font-display text-5xl font-black text-gradient leading-none">03</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">Selected Works</p>
+            </div>
+            <Button variant="heroOutline" asChild className="shrink-0">
+              <Link to="/projects">View All <ArrowRight size={14} className="ml-1.5" /></Link>
+            </Button>
+          </div>
+        </motion.div>
+
+        {/* Asymmetric bento grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+          {/* Large hero card — clip-path wipe from bottom */}
           <motion.div
-            key={p.title}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="group overflow-hidden rounded-lg border border-border bg-card card-hover"
+            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
+            whileInView={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] rounded-2xl overflow-hidden group cursor-pointer"
           >
-            <div className="overflow-hidden aspect-[4/3]">
-              <img
-                src={p.img}
-                alt={p.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            <img
+              src={projects[0].img}
+              alt={projects[0].title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.07]"
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
+            {/* Shimmer sweep — always running subtly */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div
+                className="absolute inset-y-0 w-[55%] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent -skew-x-12"
+                animate={{ x: ["-90%", "260%"] }}
+                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", repeatDelay: 2.5 }}
               />
             </div>
-            <div className="p-6">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wider">{p.type}</span>
-              <h3 className="font-display text-lg font-semibold mt-1 mb-1">{p.title}</h3>
-              <p className="text-sm text-muted-foreground">{p.location}</p>
+            {/* Corner brackets — expand on hover */}
+            {[
+              "top-4 left-4 border-t-[2px] border-l-[2px]",
+              "top-4 right-4 border-t-[2px] border-r-[2px]",
+              "bottom-[90px] left-4 border-b-[2px] border-l-[2px]",
+              "bottom-[90px] right-4 border-b-[2px] border-r-[2px]",
+            ].map((cls, bi) => (
+              <div
+                key={bi}
+                className={`absolute w-4 h-4 border-primary/50 opacity-0 group-hover:opacity-100 group-hover:w-7 group-hover:h-7 transition-all duration-300 ${cls}`}
+              />
+            ))}
+            {/* Number watermark */}
+            <span className="absolute top-5 right-6 font-display text-[7rem] font-black text-white/[0.05] leading-none select-none pointer-events-none">01</span>
+            {/* Type badge */}
+            <div className="absolute top-5 left-5">
+              <span className="inline-flex items-center text-[11px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary backdrop-blur-sm">
+                {projects[0].type}
+              </span>
+            </div>
+            {/* Bottom info — subtle lift on hover */}
+            <div className="absolute bottom-0 inset-x-0 p-6 lg:p-8 translate-y-1 group-hover:translate-y-0 transition-transform duration-300 ease-out">
+              <h3 className="font-display text-2xl lg:text-3xl font-bold text-white mb-1.5">{projects[0].title}</h3>
+              <div className="flex items-center gap-1.5 text-white/50 text-sm">
+                <MapPin size={12} />
+                {projects[0].location}
+              </div>
+              {/* Animated underline reveals on scroll */}
+              <motion.div
+                className="h-[1px] bg-gradient-to-r from-primary/70 to-transparent mt-4 origin-left"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, delay: 0.7, ease: "easeOut" }}
+              />
             </div>
           </motion.div>
-        ))}
-      </div>
-      <div className="text-center mt-12">
-        <Button variant="heroOutline" asChild>
-          <Link to="/projects">View All Projects <ArrowRight className="ml-2" size={16} /></Link>
-        </Button>
+
+          {/* Right column — two stacked cards with opposing wipe directions */}
+          <div className="lg:col-span-5 flex flex-col gap-4">
+            {projects.slice(1).map((p, i) => (
+              <motion.div
+                key={p.title}
+                initial={{
+                  clipPath: i === 0 ? "inset(0 100% 0 0)" : "inset(100% 0 0 0)",
+                  opacity: 0,
+                }}
+                whileInView={{
+                  clipPath: i === 0 ? "inset(0 0% 0 0)" : "inset(0% 0 0 0)",
+                  opacity: 1,
+                }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.95, delay: 0.1 + i * 0.14, ease: [0.16, 1, 0.3, 1] }}
+                className="relative flex-1 min-h-[245px] rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/87 via-black/38 to-black/5" />
+                {/* Shimmer */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <motion.div
+                    className="absolute inset-y-0 w-[55%] bg-gradient-to-r from-transparent via-white/[0.035] to-transparent -skew-x-12"
+                    animate={{ x: ["-90%", "260%"] }}
+                    transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", repeatDelay: 1.5 + i * 1.2 }}
+                  />
+                </div>
+                {/* Corner brackets (gold / accent) */}
+                {[
+                  "top-3 left-3 border-t-[2px] border-l-[2px]",
+                  "top-3 right-3 border-t-[2px] border-r-[2px]",
+                  "bottom-[78px] left-3 border-b-[2px] border-l-[2px]",
+                  "bottom-[78px] right-3 border-b-[2px] border-r-[2px]",
+                ].map((cls, bi) => (
+                  <div
+                    key={bi}
+                    className={`absolute w-3.5 h-3.5 border-accent/50 opacity-0 group-hover:opacity-100 group-hover:w-5 group-hover:h-5 transition-all duration-300 ${cls}`}
+                  />
+                ))}
+                {/* Number */}
+                <span className="absolute top-3 right-5 font-display text-[4.5rem] font-black text-white/[0.05] leading-none select-none pointer-events-none">
+                  {String(i + 2).padStart(2, "0")}
+                </span>
+                {/* Type badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="inline-flex items-center text-[10px] font-bold tracking-[0.2em] uppercase px-2.5 py-1 rounded-full bg-accent/15 border border-accent/25 text-accent backdrop-blur-sm">
+                    {p.type}
+                  </span>
+                </div>
+                {/* Info */}
+                <div className="absolute bottom-0 inset-x-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                  <h3 className="font-display text-lg font-bold text-white mb-1">{p.title}</h3>
+                  <div className="flex items-center gap-1 text-white/45 text-xs">
+                    <MapPin size={10} />
+                    {p.location}
+                  </div>
+                  <motion.div
+                    className="h-[1px] bg-gradient-to-r from-accent/60 to-transparent mt-3 origin-left"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.5 + i * 0.15, ease: "easeOut" }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
 
@@ -311,51 +544,120 @@ const Index = () => (
     </section>
 
     {/* CTA */}
-    <section className="section-padding text-center bg-secondary/50">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-2xl mx-auto"
-      >
-        <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
-          Ready to Build the <span className="text-gradient">Future?</span>
-        </h2>
-        <p className="text-muted-foreground mb-8">
-          Let's discuss your next infrastructure project. Our team is ready to deliver excellence.
-        </p>
-        <Button variant="hero" size="lg" asChild>
-          <Link to="/contact">Start Your Project <ArrowRight className="ml-2" size={18} /></Link>
-        </Button>
+    <section className="relative overflow-hidden py-24 px-6">
+      {/* Animated background grid */}
+      <div className="absolute inset-0 bg-[hsl(220,15%,6%)]" />
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `linear-gradient(hsl(122,47%,40%) 1px, transparent 1px), linear-gradient(90deg, hsl(122,47%,40%) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
+        }}
+      />
+      {/* Glow orbs */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-accent/8 rounded-full blur-[80px] pointer-events-none" />
 
-        {/* Contact cards */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12 pt-8 border-t border-border">
-          <a
-            href="tel:+922134978326"
-            className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-border hover:border-primary/40 card-hover group text-left"
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          {/* Left — headline */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
-              <Phone size={18} className="text-primary" />
-            </div>
-            <div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Call Us</div>
-              <div className="text-sm font-semibold">+9221-34978326</div>
-            </div>
-          </a>
-          <a
-            href="mailto:Info@zarghoon.pk"
-            className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-border hover:border-primary/40 card-hover group text-left"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
-              <Mail size={18} className="text-primary" />
-            </div>
-            <div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Email Us</div>
-              <div className="text-sm font-semibold">Info@zarghoon.pk</div>
-            </div>
-          </a>
+            <span className="inline-block text-xs font-bold tracking-[0.25em] uppercase text-primary mb-5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10">
+              Start a Project
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
+              Ready to Build<br />
+              <span className="text-gradient">Something Great?</span>
+            </h2>
+            <p className="text-white/60 text-base leading-relaxed mb-8 max-w-md">
+              From planning to delivery — our experienced team turns ambitious infrastructure visions into lasting reality.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-[14px] font-bold text-white tracking-wide shadow-[0_0_32px_-4px_hsl(122,47%,40%,0.6)] hover:shadow-[0_0_44px_-4px_hsl(122,47%,40%,0.8)] transition-all duration-300 group"
+            >
+              Start Your Project
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+              >
+                <ArrowRight size={17} />
+              </motion.span>
+            </Link>
+          </motion.div>
+
+          {/* Right — contact cards */}
+          <div className="flex flex-col gap-4">
+            {[
+              {
+                href: "tel:+922134978326",
+                icon: Phone,
+                label: "Call Us Directly",
+                value: "+9221-34978326",
+                sub: "Available Mon–Sat, 9am–6pm",
+                delay: 0.15,
+              },
+              {
+                href: "mailto:Info@zarghoon.pk",
+                icon: Mail,
+                label: "Drop an Email",
+                value: "Info@zarghoon.pk",
+                sub: "We reply within 24 hours",
+                delay: 0.3,
+              },
+            ].map((item) => (
+              <motion.a
+                key={item.href}
+                href={item.href}
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: item.delay, ease: "easeOut" }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                className="group flex items-center gap-5 p-5 rounded-2xl bg-white/[0.04] border border-white/[0.1] hover:border-primary/50 hover:bg-primary/[0.06] transition-all duration-300 cursor-pointer"
+              >
+                <div className="relative shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/15 border border-primary/25 group-hover:bg-primary/25 group-hover:border-primary/50 flex items-center justify-center transition-all duration-300">
+                    <item.icon size={22} className="text-primary" />
+                  </div>
+                  <motion.span
+                    className="absolute inset-0 rounded-2xl border border-primary/40"
+                    animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
+                    transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary/80 mb-0.5">{item.label}</div>
+                  <div className="text-[17px] font-bold text-white truncate">{item.value}</div>
+                  <div className="text-[12px] text-white/40 mt-0.5">{item.sub}</div>
+                </div>
+                <ChevronDown
+                  size={16}
+                  className="text-white/20 group-hover:text-primary -rotate-90 shrink-0 transition-colors duration-200"
+                />
+              </motion.a>
+            ))}
+
+            {/* Divider strip */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.45 }}
+              className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+            />
+            <p className="text-center text-[12px] text-white/30 tracking-wide">
+              Karachi, Pakistan &nbsp;·&nbsp; Est. 1998
+            </p>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   </div>
 );
