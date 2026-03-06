@@ -21,25 +21,44 @@ const stats = [
 
 const teamMembers = [
   {
-    name: "Munir",
+    name: "Munir A. Kakar",
     role: "Chief Executive",
-    bio: "Provides strategic leadership and overall direction for Zarghoon Construction across all major projects.",
-    image: MunirAhmedImg,
-    gradient: "from-[#2d7a2d] to-[#1a5c1a]",
+    initials: "MK",
+    bio: "Provides strategic vision and leadership that has driven ZEPL's growth since 1991.",
+    image: MunirAhmedImg as string | null,
+    gradient: "from-[#1a5c1a] via-[#2d7a2d] to-[#0f3d0f]",
   },
   {
-    name: "Jalil Ahmed",
+    name: "Jalil A. Kakar",
     role: "Director",
-    bio: "Oversees operations, project delivery, and client relationships to ensure every job meets our standards.",
-    image: JalilImg,
-    gradient: "from-[#1a5c8a] to-[#0f3d5c]",
+    initials: "JK",
+    bio: "Leads operations and client delivery, ensuring every project runs to exacting standards.",
+    image: JalilImg as string | null,
+    gradient: "from-[#0f3d5c] via-[#1a5c8a] to-[#092d44]",
   },
   {
-    name: "EngBashirAhmed",
-    role: "Senior Engineer",
-    bio: "Leads on-ground engineering, site supervision, and technical quality control for complex road works.",
-    image: EngBashirAhmedImg,
-    gradient: "from-[#7a4a1a] to-[#5c3010]",
+    name: "Jamil A. Kakar",
+    role: "Director",
+    initials: "JAK",
+    bio: "Oversees business development and key stakeholder relationships across Zarghoon's project portfolio.",
+    image: null,
+    gradient: "from-[#264653] via-[#2a5f70] to-[#1a3a45]",
+  },
+  {
+    name: "Akhlaq A. Kakar",
+    role: "General Manager",
+    initials: "AK",
+    bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
+    image: null,
+    gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
+  },
+  {
+    name: "Eng. Bashir Ahmed",
+    role: "Director",
+    initials: "BE",
+    bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
+    image: EngBashirAhmedImg as string | null,
+    gradient: "from-[#7a3a0a] via-[#9a5015] to-[#5c2a08]",
   },
 ];
 
@@ -507,36 +526,81 @@ const Index = () => (
     </section>
 
     {/* Team */}
-    <section className="section-padding">
-      <SectionHeading label="Our People" title="Meet the Team" description="The leadership and engineering talent behind Zarghoon's road construction projects." />
-      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {teamMembers.map((member, i) => (
-          <motion.div
-            key={member.name}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="text-center bg-card border border-border rounded-xl overflow-hidden card-hover"
-          >
-            {/* Avatar photo area */}
-            <div className={`relative h-44 bg-gradient-to-br ${member.gradient} flex items-end justify-center pb-0 overflow-hidden`}>
-              <div className="absolute inset-0 opacity-20 mix-blend-soft-light" />
-              {/* shirt collar shape */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-16 bg-background/30 rounded-t-full" />
-              {/* circular photo */}
-              <div className="absolute top-8 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white/10 border-2 border-white/25 overflow-hidden shadow-lg">
-                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+    <section className="relative overflow-hidden py-24 px-6">
+      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[700px] h-[280px] bg-primary/[0.04] rounded-full blur-[100px] pointer-events-none" />
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
+        >
+          <div>
+            <span className="flex items-center gap-2.5 text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">
+              <span className="w-7 h-px bg-primary inline-block" />
+              Leadership
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold">
+              Meet the <span className="text-gradient">Team</span>
+            </h2>
+          </div>
+          <div className="text-right hidden sm:block shrink-0">
+            <p className="font-display text-5xl font-black text-gradient leading-none">05</p>
+            <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">Leaders</p>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {teamMembers.map((member, i) => (
+            <motion.div
+              key={member.name}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              variants={fadeUp}
+              whileHover={{ y: -6, transition: { duration: 0.22, ease: "easeOut" } }}
+              className="group relative rounded-2xl overflow-hidden border border-white/[0.07] bg-card hover:border-primary/45 transition-all duration-300 hover:shadow-[0_20px_64px_-20px_hsl(122,47%,40%,0.32)]"
+            >
+              {/* Photo / Initials */}
+              <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${member.gradient}`}>
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover [object-position:50%_15%] group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="font-display text-7xl font-black text-white/20 select-none tracking-tight">
+                      {member.initials}
+                    </span>
+                  </div>
+                )}
+                <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/95 via-black/55 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 px-5 pb-4">
+                  <p className="font-display text-[17px] font-bold text-white leading-tight tracking-[-0.01em]">{member.name}</p>
+                  <span className="inline-block mt-1 text-[10px] font-black uppercase tracking-[0.28em] text-primary bg-primary/15 border border-primary/30 rounded-full px-2.5 py-[3px]">
+                    {member.role}
+                  </span>
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-primary/10 via-transparent to-transparent pointer-events-none" />
               </div>
-            </div>
-            <div className="p-6">
-              <h3 className="font-display text-base font-semibold mb-1">{member.name}</h3>
-              <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">{member.role}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
-            </div>
-          </motion.div>
-        ))}
+
+              {/* Body */}
+              <div className="px-5 pt-4 pb-5">
+                <p className="text-[13px] text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
+                <div className="flex items-center gap-2">
+                  <span className="w-[6px] h-[6px] rounded-full bg-primary shrink-0" />
+                  <span className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-primary/70">Zarghoon Enterprises (Pvt.) Ltd.</span>
+                </div>
+              </div>
+
+              <div className="pointer-events-none absolute top-0 inset-x-6 h-[2px] bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 group-hover:opacity-100 group-hover:inset-x-0 transition-all duration-400" />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
