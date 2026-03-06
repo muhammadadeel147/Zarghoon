@@ -222,9 +222,9 @@ const Projects = () => {
                       {/* Gradient underline */}
                       <div className={`h-[1px] bg-gradient-to-r to-transparent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ${ gold ? "from-accent/60" : "from-primary/60" }`} />
                       <div className="flex items-center justify-end mt-3">
-                        <span className={`flex items-center gap-1 text-[11px] font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 ${ gold ? "text-accent" : "text-primary" }`}>
+                        {/* <span className={`flex items-center gap-1 text-[11px] font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 ${ gold ? "text-accent" : "text-primary" }`}>
                           View Detail <ArrowUpRight size={12} />
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                   </motion.div>

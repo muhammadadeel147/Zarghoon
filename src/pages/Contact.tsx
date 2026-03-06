@@ -11,10 +11,10 @@ const cardVariants = {
 };
 
 const contactCards = [
-  { icon: Phone,  label: "Call Us",       value: "+9221-34978326",  sub: "Mon–Sat, 9am–6pm PKT",   href: "tel:+922134978326",       gold: false },
+  { icon: Phone,  label: "Call Us",       value: "+92-21-34978326",  sub: "Mon–Sat, 9am–6pm PKT",   href: "tel:+922134978326",       gold: false },
   { icon: Mail,   label: "Email Us",      value: "Info@zarghoon.pk", sub: "We reply within 24 hours", href: "mailto:Info@zarghoon.pk", gold: true  },
-  { icon: MapPin, label: "Our Office",    value: "Karachi, Pakistan", sub: "Head office location",     href: null,                     gold: false },
-  { icon: Clock,  label: "Working Hours", value: "Mon – Sat",        sub: "9:00 AM to 6:00 PM PKT",   href: null,                     gold: true  },
+  { icon: MapPin, label: "Head Office",   value: "B-97, Block 4-A, Gulshan-e-Iqbal", sub: "Karachi · +92-21-34978326, 34987588", href: null, gold: false },
+  { icon: MapPin, label: "Regional Office", value: "House #198, Phase 1, Shahbaz Town", sub: "Quetta · +92-81-2820470-1", href: null, gold: false },
 ];
 
 type Status = "idle" | "loading" | "success" | "error";

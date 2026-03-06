@@ -1,6 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Target, Eye, Award, Users, CheckCircle2, Zap, Shield, Clock } from "lucide-react";
+import MunirAhmedImg from "@/assets/MunirAhmed.jpeg";
+import JalilImg from "@/assets/jalil.jpeg";
+import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
@@ -11,7 +14,7 @@ const fadeUp = {
 };
 
 const milestones = [
-  { year: "1998", title: "Founded in Karachi", desc: "Ahmad Zarghoon establishes Zarghoon Construction with a bold vision to modernise Pakistan's road infrastructure from the ground up." },
+  { year: "1991", title: "Incorporated in Karachi", desc: "Zarghoon Enterprises (Private) Limited (ZEPL) is incorporated in Karachi as a NO LIMIT CONTRACTOR under the Pakistan Engineering Council." },
   { year: "2004", title: "First Major Highway", desc: "Completed our inaugural 50 km highway stretch — setting a new regional benchmark for surface quality and structural durability." },
   { year: "2010", title: "100 Projects Milestone", desc: "Reached 100 completed projects across 5 provinces while maintaining a perfect on-site safety record throughout." },
   { year: "2016", title: "Smart Road Division", desc: "Launched Pakistan's first IoT-integrated road infrastructure division, merging civil engineering with intelligent technology." },
@@ -28,41 +31,90 @@ const values = [
 ];
 
 const team = [
-  { name: "Ahmad Zarghoon", role: "CEO & Founder",       initials: "AZ", bio: "25+ years of visionary leadership shaping Pakistan's road infrastructure landscape.",            gradient: "from-[#2d7a2d] to-[#1a5c1a]" },
-  { name: "Sara Rashid",    role: "Chief Engineer",      initials: "SR", bio: "Structural engineering expert with 18 years on large-scale civil infrastructure projects.",       gradient: "from-[#1a5c8a] to-[#0f3d5c]" },
-  { name: "Omar Farooq",    role: "Operations Director", initials: "OF", bio: "Masters complex multi-site logistics and precision on-ground project execution.",                  gradient: "from-[#7a4a1a] to-[#5c3010]" },
-  { name: "Layla Khan",     role: "Project Manager",     initials: "LK", bio: "Consistently delivers on-time, within-budget results across 40+ major highway contracts.",        gradient: "from-[#4a1a7a] to-[#2d0f5c]" },
+  {
+    name: "Munir A. Kakar",
+    role: "Chief Executive",
+    initials: "MK",
+    bio: "Provides strategic vision and leadership that has driven ZEPL's growth since 1991.",
+    image: MunirAhmedImg as string | null,
+    gradient: "from-[#1a5c1a] via-[#2d7a2d] to-[#0f3d0f]",
+  },
+  {
+    name: "Jalil A. Kakar",
+    role: "Director",
+    initials: "JK",
+    bio: "Leads operations and client delivery, ensuring every project runs to exacting standards.",
+    image: JalilImg as string | null,
+    gradient: "from-[#0f3d5c] via-[#1a5c8a] to-[#092d44]",
+  },
+  {
+    name: "Jamil A. Kakar",
+    role: "Director",
+    initials: "JAK",
+    bio: "Oversees business development and key stakeholder relationships across Zarghoon's project portfolio.",
+    image: null,
+    gradient: "from-[#264653] via-[#2a5f70] to-[#1a3a45]",
+  },
+  {
+    name: "Akhlaq A. Kakar",
+    role: "General Manager",
+    initials: "AK",
+    bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
+    image: null,
+    gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
+  },
+  {
+    name: "Eng. Bashir Ahmed",
+    role: "Director",
+    initials: "BE",
+    bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
+    image: EngBashirAhmedImg as string | null,
+    gradient: "from-[#7a3a0a] via-[#9a5015] to-[#5c2a08]",
+  },
 ];
-
 const heroStats = [
   { value: 500, suffix: "+", label: "KM Roads" },
   { value: 120, suffix: "+", label: "Projects" },
-  { value: 25,  suffix: "+", label: "Years"    },
-  { value: 50,  suffix: "+", label: "Engineers" },
+  { value: 35, suffix: "+", label: "Years" },
+  { value: 50, suffix: "+", label: "Engineers" },
 ];
 
-const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
+type CounterProps = {
+  value: number;
+  suffix?: string;
+};
+
+const Counter = ({ value, suffix = "" }: CounterProps) => {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const [display, setDisplay] = useState(0);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
   useEffect(() => {
     if (!isInView) return;
-    let current = 0;
-    const inc = value / 70;
-    const timer = setInterval(() => {
-      current += inc;
-      if (current >= value) { setCount(value); clearInterval(timer); }
-      else setCount(Math.floor(current));
-    }, 2000 / 70);
-    return () => clearInterval(timer);
+
+    const duration = 1200;
+    const start = performance.now();
+
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(value * eased));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
   }, [isInView, value]);
-  return <span ref={ref}>{count}{suffix}</span>;
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
 };
 
 const About = () => (
-  <div className="pt-[68px]">
-
-    {/* ── HERO ─────────────────────────────────────────────────────── */}
+  <div className="bg-background text-foreground">
     <section className="relative overflow-hidden min-h-[80vh] flex items-center px-6 py-24">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,5%)]" />
       <div
@@ -98,7 +150,7 @@ const About = () => (
             >
               Engineering<br />
               <span className="text-gradient">Excellence</span><br />
-              Since 1998
+              Since 1991
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -106,7 +158,7 @@ const About = () => (
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-lg mb-8"
             >
-              For over 25 years, Zarghoon Construction has been Pakistan's foremost road infrastructure company — transforming landscapes, connecting communities, and setting engineering benchmarks that others strive to follow.
+              For over 35 years, Zarghoon Construction has been Pakistan's foremost road infrastructure company — transforming landscapes, connecting communities, and setting engineering benchmarks that others strive to follow.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -151,7 +203,110 @@ const About = () => (
       </div>
     </section>
 
-    {/* ── MISSION & VISION ─────────────────────────────────────────── */}
+    {/* ── ABOUT · VISION · CEO ───────────────────────────────────── */}
+    <section className="relative overflow-hidden py-20 px-6">
+      <div className="absolute inset-0 bg-[hsl(220,15%,8%)]" />
+      <div
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(135deg, hsl(122,47%,50%) 0.5px, transparent 0.5px), linear-gradient(225deg, hsl(122,47%,50%) 0.5px, transparent 0.5px)` ,
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="bg-card/80 border border-border rounded-3xl p-7 md:p-10 shadow-[0_20px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur-md"
+        >
+          <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] gap-10 lg:gap-12 items-start">
+            {/* Left: About + Values/Commitment/Manpower */}
+            <div className="space-y-6">
+              <div>
+                <span className="flex items-center gap-2.5 text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">
+                  <span className="w-7 h-px bg-primary inline-block" />
+                  About ZEPL
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">
+                  Zarghoon Enterprises (Private) Limited
+                </h2>
+                <p className="text-muted-foreground text-[14px] leading-relaxed mb-3">
+                  Zarghoon Enterprises (Private) Limited (ZEPL) was incorporated in 1991 in Karachi as a NO LIMIT
+                  contractor registered with the Pakistan Engineering Council in categories CE-01, CE-02, CE-04,
+                  CE-09, EE-06 and CE-10.
+                </p>
+                <p className="text-muted-foreground text-[14px] leading-relaxed mb-3">
+                  ZEPL offers a full range of construction and engineering services. We have successfully completed
+                  highways, bridges, mining projects, water supply schemes, buildings, dams and airstrips under a
+                  strict, well-regulated Quality, Health, Safety & Environmental (QHSE) policy.
+                </p>
+                <p className="text-muted-foreground text-[14px] leading-relaxed">
+                  As one of Pakistan's leading construction companies, we combine disciplined planning, strong
+                  supervision and modern technology to convert even the most complex designs into reality on site —
+                  in a hassle-free and cooperative manner.
+                </p>
+              </div>
+
+              {/* Manpower */}
+              <div className="mt-4">
+                <h3 className="text-xs font-semibold tracking-[0.3em] uppercase text-primary mb-2">Manpower</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed mb-2">
+                  Our professional manpower consists of experienced engineers, financial experts and a dedicated
+                  team of quality workers committed to our core values. We focus on developing employees from within,
+                  while also attracting talented individuals who bring new ideas and approaches.
+                </p>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  This managerial team and workforce have the trade experience to execute complex designs on site
+                  with maximum cooperation. We enjoy working with leading architects and consultants and continue to
+                  build long-term, trust-based relationships.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: CEO message inside same card */}
+            <div className="space-y-4 lg:pl-4 border-t lg:border-t-0 lg:border-l border-white/[0.06] pt-6 lg:pt-0 lg:mt-0">
+              <div className="flex items-center gap-4">
+                <div className="w-18 h-18 md:w-20 md:h-20 rounded-full overflow-hidden border border-primary/50 shadow-lg">
+                  <img src={MunirAhmedImg} alt="Munir A. Kakar, Chief Executive" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-primary tracking-[0.2em] uppercase mb-1">Chief Executive</p>
+                  <p className="font-display text-[16px] font-bold leading-tight text-white">Munir A. Kakar</p>
+                </div>
+              </div>
+              <h3 className="text-[13px] font-semibold text-white/85 tracking-[0.18em] uppercase">CEO Message</h3>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                Since its establishment in 1991, Zarghoon Enterprises (Private) Limited has been committed to
+                building strong and lasting relationships with our clients. Over the years, we have assembled a
+                team of highly skilled professionals who share a single vision: delivering excellence in every
+                project.
+              </p>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                Our tradition of ingenuity and dedication has driven continuous improvement in the way we operate,
+                supporting our growth and development. Zarghoon Enterprises was founded to deliver hassle-free
+                projects in a timely and cost-effective manner.
+              </p>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                As a company contributing to the future of construction, we focus on fast-track services while
+                keeping sustainability at the core of our mission. Today, we stand ready to take on any construction
+                challenge, no matter how complex or large, with confidence and commitment.
+              </p>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                Yours sincerely,
+                <br />
+                <span className="font-semibold text-white/90">Munir A. Kakar</span>
+                <br />
+                Chief Executive
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* ── VISION · MISSION · VALUES · COMMITMENT ───────────────────── */}
     <section className="relative overflow-hidden py-24 px-6">
       <div className="absolute inset-0 bg-[hsl(220,15%,6%)]" />
       <div
@@ -176,57 +331,79 @@ const About = () => (
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {[
-            {
-              icon: Target, tag: "Mission", title: "Why We Work",
-              text: "To deliver world-class road infrastructure that is safe, durable, and sustainable — empowering communities and driving economic growth across Pakistan.",
-              points: ["Safe infrastructure", "Long-term durability", "Economic growth"],
-              gold: false,
-            },
-            {
-              icon: Eye, tag: "Vision", title: "Where We're Going",
-              text: "To become the most trusted and technologically advanced civil infrastructure company in South Asia — setting new standards in quality, innovation, and environmental stewardship.",
-              points: ["Regional leader", "Technology-forward", "Sustainable roads"],
-              gold: true,
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={item.tag}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className={`group relative rounded-2xl p-8 border overflow-hidden backdrop-blur-sm transition-all duration-300 ${
-                item.gold
-                  ? "bg-accent/[0.05] border-accent/[0.15] hover:border-accent/40 hover:shadow-[0_12px_48px_-8px_hsl(42,92%,52%,0.22)]"
-                  : "bg-primary/[0.05] border-primary/[0.15] hover:border-primary/40 hover:shadow-[0_12px_48px_-8px_hsl(122,47%,40%,0.28)]"
-              }`}
-            >
-              {/* Corner glow */}
-              <div className={`absolute -top-10 -right-10 w-40 h-40 rounded-full blur-[55px] pointer-events-none transition-opacity duration-300 opacity-50 group-hover:opacity-100 ${item.gold ? "bg-accent/20" : "bg-primary/20"}`} />
-              {/* Top border line */}
-              <div className={`absolute top-0 left-8 right-8 h-[2px] rounded-b-full transition-all duration-500 ${item.gold ? "bg-gradient-to-r from-transparent via-accent to-transparent opacity-40 group-hover:opacity-100 group-hover:left-0 group-hover:right-0" : "bg-gradient-to-r from-transparent via-primary to-transparent opacity-40 group-hover:opacity-100 group-hover:left-0 group-hover:right-0"}`} />
+        <div className="grid md:grid-cols-3 gap-5">
+          {/* Vision & Mission */}
+          <motion.div
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="group relative rounded-2xl p-8 border bg-primary/[0.05] border-primary/[0.18] overflow-hidden backdrop-blur-sm hover:border-primary/40 hover:shadow-[0_12px_48px_-8px_hsl(122,47%,40%,0.26)] transition-all duration-300"
+          >
+            <div className="absolute -top-12 -right-10 w-40 h-40 rounded-full bg-primary/20 blur-[60px] pointer-events-none opacity-60 group-hover:opacity-100" />
+            <span className="inline-block text-[10px] font-black tracking-[0.3em] uppercase px-2.5 py-1 rounded-full mb-5 bg-primary/15 border border-primary/25 text-primary">
+              Vision &amp; Mission
+            </span>
+            <div className="w-[50px] h-[50px] rounded-xl flex items-center justify-center mb-5 bg-primary/10 border border-primary/20 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <Target size={22} className="text-primary" />
+            </div>
+            <h3 className="font-display text-2xl font-bold mb-3">Vision &amp; Mission</h3>
+            <p className="text-muted-foreground text-[14px] leading-relaxed mb-4">
+              We visualize ourselves at the forefront of all divisions of the construction industry by delivering the
+              best to our clients via harnessing highly competent manpower and employing state-of-the-art technologies.
+            </p>
+          </motion.div>
 
-              <span className={`inline-block text-[10px] font-black tracking-[0.3em] uppercase px-2.5 py-1 rounded-full mb-5 ${item.gold ? "bg-accent/15 border border-accent/25 text-accent" : "bg-primary/15 border border-primary/25 text-primary"}`}>
-                {item.tag}
-              </span>
-              <div className={`w-[50px] h-[50px] rounded-xl flex items-center justify-center mb-5 transition-all duration-300 ${item.gold ? "bg-accent/10 border border-accent/20 group-hover:rotate-6 group-hover:scale-110" : "bg-primary/10 border border-primary/20 group-hover:rotate-6 group-hover:scale-110"}`}>
-                <item.icon size={22} className={item.gold ? "text-accent" : "text-primary"} />
-              </div>
-              <h3 className="font-display text-2xl font-bold mb-3">{item.title}</h3>
-              <p className="text-muted-foreground text-[14px] leading-relaxed mb-6">{item.text}</p>
-              <div className="flex flex-col gap-2">
-                {item.points.map((p) => (
-                  <div key={p} className="flex items-center gap-2.5 text-[13px] text-white/65">
-                    <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${item.gold ? "bg-accent" : "bg-primary"}`} />
-                    {p}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          {/* Our Values */}
+          <motion.div
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="group relative rounded-2xl p-8 border bg-accent/[0.05] border-accent/[0.18] overflow-hidden backdrop-blur-sm hover:border-accent/40 hover:shadow-[0_12px_48px_-8px_hsl(42,92%,52%,0.24)] transition-all duration-300"
+          >
+            <div className="absolute -top-12 -right-10 w-40 h-40 rounded-full bg-accent/20 blur-[60px] pointer-events-none opacity-60 group-hover:opacity-100" />
+            <span className="inline-block text-[10px] font-black tracking-[0.3em] uppercase px-2.5 py-1 rounded-full mb-5 bg-accent/15 border border-accent/25 text-accent">
+              Our Values
+            </span>
+            <div className="w-[50px] h-[50px] rounded-xl flex items-center justify-center mb-5 bg-accent/10 border border-accent/20 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <Eye size={22} className="text-accent" />
+            </div>
+            <h3 className="font-display text-2xl font-bold mb-3">What We Believe In</h3>
+            <p className="text-muted-foreground text-[14px] leading-relaxed mb-4">
+              Our values emanate from our people, providing proactive construction-based business solutions to our
+              clients through successful synergetic partnerships with our clients. They are based on integrity,
+              honesty, accountability, reliability and excellence. We wish to take up new challenges and scale further
+              heights of excellence guided by these core values.
+            </p>
+          </motion.div>
+
+          {/* Commitment */}
+          <motion.div
+            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="group relative rounded-2xl p-8 border bg-primary/[0.04] border-primary/[0.2] overflow-hidden backdrop-blur-sm hover:border-primary/45 hover:shadow-[0_12px_48px_-8px_hsl(122,47%,40%,0.25)] transition-all duration-300"
+          >
+            <div className="absolute -top-12 -right-10 w-40 h-40 rounded-full bg-primary/18 blur-[60px] pointer-events-none opacity-60 group-hover:opacity-100" />
+            <span className="inline-block text-[10px] font-black tracking-[0.3em] uppercase px-2.5 py-1 rounded-full mb-5 bg-primary/12 border border-primary/25 text-primary">
+              Commitment
+            </span>
+            <div className="w-[50px] h-[50px] rounded-xl flex items-center justify-center mb-5 bg-primary/10 border border-primary/20 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <CheckCircle2 size={22} className="text-primary" />
+            </div>
+            <h3 className="font-display text-2xl font-bold mb-3">How We Deliver</h3>
+            <p className="text-muted-foreground text-[14px] leading-relaxed mb-4">
+              We at Zarghoon Enterprises believe that mutual trust and ethical practices can yield successful outcome
+              for our goal oriented projects. We commit our manpower, technological capabilities and our core values to
+              satisfy our esteemed clients' requirements by providing comprehensive time-bound and integrated
+              solutions in the construction field.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -248,7 +425,7 @@ const About = () => (
             <span className="w-7 h-px bg-primary inline-block" />
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold">
-            25+ Years of <span className="text-gradient">Impact</span>
+            35+ Years of <span className="text-gradient">Impact</span>
           </h2>
         </motion.div>
 
@@ -381,42 +558,62 @@ const About = () => (
             </h2>
           </div>
           <div className="text-right hidden sm:block shrink-0">
-            <p className="font-display text-5xl font-black text-gradient leading-none">04</p>
+            <p className="font-display text-5xl font-black text-gradient leading-none">05</p>
             <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">Leaders</p>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {team.map((member, i) => (
             <motion.div
               key={member.name}
               custom={i}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-40px" }}
               variants={fadeUp}
-              whileHover={{ y: -7, transition: { duration: 0.2 } }}
-              className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-[0_10px_44px_-8px_hsl(122,47%,40%,0.22)] transition-all duration-300"
+              whileHover={{ y: -6, transition: { duration: 0.22, ease: "easeOut" } }}
+              className="group relative rounded-2xl overflow-hidden border border-white/[0.07] bg-card hover:border-primary/45 transition-all duration-300 hover:shadow-[0_20px_64px_-20px_hsl(122,47%,40%,0.32)]"
             >
-              {/* Portrait */}
-              <div className={`relative h-44 bg-gradient-to-br ${member.gradient} overflow-hidden`}>
-                {/* Shimmer */}
-                <motion.div
-                  className="absolute inset-y-0 w-[60%] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent -skew-x-12 pointer-events-none"
-                  animate={{ x: ["-100%", "260%"] }}
-                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", repeatDelay: 2 + i * 0.9 }}
-                />
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/[0.07] rounded-full blur-[20px]" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-14 bg-background/20 rounded-t-full" />
-                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full bg-white/10 border-2 border-white/22 flex items-center justify-center shadow-lg">
-                  <span className="font-display text-2xl font-bold text-white drop-shadow">{member.initials}</span>
+              {/* ── Photo / Initials ── */}
+              <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${member.gradient}`}>
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover [object-position:50%_15%] group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="font-display text-7xl font-black text-white/20 select-none tracking-tight">
+                      {member.initials}
+                    </span>
+                  </div>
+                )}
+                {/* Bottom photo gradient */}
+                <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/95 via-black/55 to-transparent pointer-events-none" />
+                {/* Name + role floating on photo */}
+                <div className="absolute inset-x-0 bottom-0 px-5 pb-4">
+                  <p className="font-display text-[17px] font-bold text-white leading-tight tracking-[-0.01em]">{member.name}</p>
+                  <span className="inline-block mt-1 text-[10px] font-black uppercase tracking-[0.28em] text-primary bg-primary/15 border border-primary/30 rounded-full px-2.5 py-[3px]">
+                    {member.role}
+                  </span>
+                </div>
+                {/* Hover glow overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-primary/10 via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* ── Body ── */}
+              <div className="px-5 pt-4 pb-5">
+                <p className="text-[13px] text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
+                <div className="flex items-center gap-2">
+                  <span className="w-[6px] h-[6px] rounded-full bg-primary shrink-0" />
+                  <span className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-primary/70">Zarghoon Enterprises (Pvt.) Ltd.</span>
                 </div>
               </div>
-              <div className="p-5">
-                <h4 className="font-display text-[15px] font-bold mb-0.5">{member.name}</h4>
-                <p className="text-[11px] font-bold text-primary uppercase tracking-wider mb-3">{member.role}</p>
-                <p className="text-[12.5px] text-muted-foreground leading-relaxed">{member.bio}</p>
-              </div>
+
+              {/* Subtle top rule on card hover */}
+              <div className="pointer-events-none absolute top-0 inset-x-6 h-[2px] bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 group-hover:opacity-100 group-hover:inset-x-0 transition-all duration-400" />
             </motion.div>
           ))}
         </div>

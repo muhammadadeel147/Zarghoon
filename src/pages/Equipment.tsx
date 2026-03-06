@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import equipmentImg from "@/assets/equipment.jpg";
-import { Cog, Gauge, Cpu, ScanLine, Truck, Factory, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { Cog, Gauge, Cpu, ScanLine, Truck, Factory, CheckCircle2, ArrowUpRight, X, ChevronLeft, ChevronRight } from "lucide-react";
+
+const imageModules = import.meta.glob<{ default: string }>('../assets/equipment/*.jpeg', { eager: true });
+const galleryImages: string[] = Object.values(imageModules).map(m => m.default);
 
 const cardVariants = {
   hidden: { opacity: 0, y: 44 },
@@ -230,7 +234,132 @@ const Equipment = () => (
         </div>
       </div>
     </section>
+
+    {/* ── PHOTO GALLERY ──────────────────────────────────────── */}
+    <GallerySection />
+
   </div>
 );
+
+function GallerySection() {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const prev = () => setLightbox(i => i !== null ? (i - 1 + galleryImages.length) % galleryImages.length : null);
+  const next = () => setLightbox(i => i !== null ? (i + 1) % galleryImages.length : null);
+
+  return (
+    <section className="relative overflow-hidden py-20 px-6 bg-black/20">
+      <div
+        className="absolute inset-0 opacity-[0.022] pointer-events-none"
+        style={{ backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`, backgroundSize: "32px 32px" }}
+      />
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/[0.05] rounded-full blur-[100px] pointer-events-none" />
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10"
+        >
+          <div>
+            <span className="flex items-center gap-2.5 text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">
+              <span className="w-7 h-px bg-primary inline-block" />
+              Photo Gallery
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold">
+              Equipment <span className="text-gradient">in Action</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-[13.5px] max-w-xs text-right hidden sm:block">
+            Real machinery from our active project sites across Pakistan.
+          </p>
+        </motion.div>
+
+        {/* Uniform grid — 4-column, fixed aspect ratio, perfect alignment */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+          {galleryImages.map((src, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 18, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.42, delay: (i % 10) * 0.04, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="group relative aspect-[4/3] overflow-hidden rounded-xl cursor-pointer"
+              onClick={() => setLightbox(i)}
+            >
+              <img
+                src={src}
+                alt={`Zarghoon equipment ${i + 1}`}
+                className="w-full h-full object-cover group-hover:scale-[1.07] transition-transform duration-500 ease-out"
+                loading="lazy"
+              />
+              {/* Dark overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
+              {/* Expand icon */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              {/* Index tag */}
+              <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <span className="text-[9px] font-bold text-white/70 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 rounded">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+              {/* Green ring on hover */}
+              <div className="absolute inset-0 rounded-xl ring-1 ring-primary/0 group-hover:ring-primary/45 transition-all duration-300 pointer-events-none" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/92 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
+        >
+          {/* Close */}
+          <button
+            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-colors z-10"
+            onClick={() => setLightbox(null)}
+          >
+            <X size={18} className="text-white" />
+          </button>
+          {/* Prev */}
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-colors z-10"
+            onClick={e => { e.stopPropagation(); prev(); }}
+          >
+            <ChevronLeft size={22} className="text-white" />
+          </button>
+          {/* Image */}
+          <img
+            src={galleryImages[lightbox]}
+            alt={`Equipment ${lightbox + 1}`}
+            className="max-h-[88vh] max-w-[90vw] object-contain rounded-xl shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          />
+          {/* Next */}
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-colors z-10"
+            onClick={e => { e.stopPropagation(); next(); }}
+          >
+            <ChevronRight size={22} className="text-white" />
+          </button>
+          {/* Counter */}
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-widest">
+            {lightbox + 1} / {galleryImages.length}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
 
 export default Equipment;

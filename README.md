@@ -11,7 +11,7 @@ Zarghoon Construction has over **25 years** of experience delivering world-class
 - **500+ KM** of roads built
 - **120+ Projects** successfully completed
 - **50+ Expert engineers** on staff
-- Established **1998**, Karachi, Pakistan
+- Established **1991**, Karachi, Pakistan
 
 ---
 

@@ -13,7 +13,7 @@ const Footer = () => (
         <div>
           <img src={logoSrc} alt="Zarghoon Construction" className="h-10 w-auto mb-3" />
           <p className="text-[13px] text-white/50 leading-relaxed max-w-[220px]">
-            Building roads that connect communities across Pakistan since 1998.
+            Building roads that connect communities across Pakistan since 1991.
           </p>
         </div>
 
@@ -56,9 +56,13 @@ const Footer = () => (
               <Mail size={13} className="text-primary shrink-0" />
               Info@zarghoon.pk
             </a>
-            <span className="flex items-center gap-2.5 text-[13px] text-white/65">
-              <MapPin size={13} className="text-primary shrink-0" />
-              Karachi, Pakistan
+            <span className="flex items-start gap-2.5 text-[13px] text-white/65">
+              <MapPin size={13} className="text-primary shrink-0 mt-[2px]" />
+              <span className="leading-snug">
+                <span className="font-semibold">Head Office:</span> B-97, Block 4-A, Gulshan-e-Iqbal, Karachi.
+                <br />
+                <span className="font-semibold">Regional Office:</span> House #198, Phase 1, Shahbaz Town, Quetta.
+              </span>
             </span>
           </div>
         </div>
@@ -69,7 +73,7 @@ const Footer = () => (
         <p className="text-[12px] text-white/30">
           © {new Date().getFullYear()} Zarghoon Construction. All rights reserved.
         </p>
-        <p className="text-[12px] text-white/20">Karachi · Est. 1998</p>
+        <p className="text-[12px] text-white/20">Karachi · Est. 1991</p>
       </div>
     </div>
   </footer>

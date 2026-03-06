@@ -100,7 +100,7 @@ const Services = () => (
               transition={{ delay: 0.38, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-md"
             >
-              Comprehensive civil road construction and infrastructure services — powered by modern engineering and 25+ years of on-the-ground experience across Pakistan.
+              Comprehensive civil road construction and infrastructure services — powered by modern engineering and 35+ years of on-the-ground experience across Pakistan.
             </motion.p>
           </div>
 
@@ -113,7 +113,7 @@ const Services = () => (
           >
             {[
               { value: "06",   label: "Service Domains",  gold: false },
-              { value: "25+",  label: "Years Experience",  gold: true  },
+              { value: "35+",  label: "Years Experience",  gold: true  },
               { value: "120+", label: "Projects Delivered", gold: false },
               { value: "ISO",  label: "Certified Quality",  gold: true  },
             ].map((s) => (

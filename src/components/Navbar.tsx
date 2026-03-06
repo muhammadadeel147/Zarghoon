@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoSrc from "@/assets/logo.png";
 
@@ -74,23 +74,8 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="tel:+922134978326"
-              className="hidden xl:flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/20 hover:border-primary/60 bg-white/[0.05] hover:bg-white/[0.09] text-[13px] font-semibold text-white/85 hover:text-white transition-all duration-200"
-            >
-              <Phone size={13} className="text-primary" />
-              +9221-34978326
-            </a>
-            <Link
-              to="/contact"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-[13px] font-bold text-white tracking-wide shadow-[0_0_24px_-4px_hsl(122,47%,40%,0.55)] hover:shadow-[0_0_32px_-4px_hsl(122,47%,40%,0.75)] transition-all duration-300"
-            >
-              Get a Quote
-              <ChevronRight size={14} />
-            </Link>
-          </div>
+          {/* Desktop CTA removed per request */}
+          <div className="hidden lg:flex items-center gap-3" />
 
           {/* Mobile toggle */}
           <button
@@ -146,31 +131,7 @@ const Navbar = () => {
               })}
             </div>
 
-            {/* Bottom contact + CTA */}
-            <div className="mx-4 my-3 h-px bg-white/[0.1]" />
-            <div className="px-4 pb-5 flex flex-col gap-2.5">
-              <div className="flex gap-2">
-                <a
-                  href="tel:+922134978326"
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-[13px] font-semibold text-white/80 hover:text-white hover:border-primary/50 transition-all"
-                >
-                  <Phone size={13} className="text-primary" /> +9221-34978326
-                </a>
-                <a
-                  href="mailto:Info@zarghoon.pk"
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-[13px] font-semibold text-white/80 hover:text-white hover:border-primary/50 transition-all"
-                >
-                  <Mail size={13} className="text-primary" /> Email Us
-                </a>
-              </div>
-              <Link
-                to="/contact"
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-[14px] font-bold text-white tracking-wide transition-all duration-200"
-              >
-                Get a Quote <ChevronRight size={15} />
-              </Link>
-            </div>
+            {/* Bottom contact + CTA removed per request */}
           </motion.div>
         )}
       </AnimatePresence>

@@ -8,42 +8,38 @@ import heroImage from "@/assets/hero-road.jpg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
 import asphaltImg from "@/assets/asphalt-paving.jpg";
+import MunirAhmedImg from "@/assets/MunirAhmed.jpeg";
+import JalilImg from "@/assets/jalil.jpeg";
+import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
 
 const stats = [
   { value: 500, suffix: "+", label: "KM Roads Built", icon: MapPin },
   { value: 120, suffix: "+", label: "Projects Completed", icon: Layers },
-  { value: 25, suffix: "+", label: "Years Experience", icon: Trophy },
+  { value: 35, suffix: "+", label: "Years Experience", icon: Trophy },
   { value: 50, suffix: "+", label: "Expert Engineers", icon: Users },
 ];
 
 const teamMembers = [
   {
-    name: "Ahmad Zarghoon",
-    role: "CEO & Founder",
-    initials: "AZ",
-    bio: "Visionary leader with 25+ years building the region's most critical road infrastructure.",
+    name: "Munir",
+    role: "Chief Executive",
+    bio: "Provides strategic leadership and overall direction for Zarghoon Construction across all major projects.",
+    image: MunirAhmedImg,
     gradient: "from-[#2d7a2d] to-[#1a5c1a]",
   },
   {
-    name: "Sarah Mitchell",
-    role: "Chief Engineer",
-    initials: "SM",
-    bio: "Expert in highway design, structural engineering, and large-scale civil works.",
+    name: "Jalil Ahmed",
+    role: "Director",
+    bio: "Oversees operations, project delivery, and client relationships to ensure every job meets our standards.",
+    image: JalilImg,
     gradient: "from-[#1a5c8a] to-[#0f3d5c]",
   },
   {
-    name: "Mohammad Karimi",
-    role: "Project Manager",
-    initials: "MK",
-    bio: "Delivering complex multi-million dollar projects on time and within budget.",
+    name: "EngBashirAhmed",
+    role: "Senior Engineer",
+    bio: "Leads on-ground engineering, site supervision, and technical quality control for complex road works.",
+    image: EngBashirAhmedImg,
     gradient: "from-[#7a4a1a] to-[#5c3010]",
-  },
-  {
-    name: "Elena Rodriguez",
-    role: "Head of Operations",
-    initials: "ER",
-    bio: "Streamlining on-site operations and quality control across all project sites.",
-    gradient: "from-[#4a1a7a] to-[#2d0f5c]",
   },
 ];
 
@@ -512,7 +508,7 @@ const Index = () => (
 
     {/* Team */}
     <section className="section-padding">
-      <SectionHeading label="Our People" title="Meet the Team" description="The experienced professionals driving Zarghoon's mission forward." />
+      <SectionHeading label="Our People" title="Meet the Team" description="The leadership and engineering talent behind Zarghoon's road construction projects." />
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {teamMembers.map((member, i) => (
           <motion.div
@@ -526,11 +522,12 @@ const Index = () => (
           >
             {/* Avatar photo area */}
             <div className={`relative h-44 bg-gradient-to-br ${member.gradient} flex items-end justify-center pb-0 overflow-hidden`}>
+              <div className="absolute inset-0 opacity-20 mix-blend-soft-light" />
               {/* shirt collar shape */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-16 bg-background/20 rounded-t-full" />
-              {/* head circle */}
-              <div className="absolute top-8 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center shadow-lg">
-                <span className="font-display text-3xl font-bold text-white drop-shadow">{member.initials}</span>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-16 bg-background/30 rounded-t-full" />
+              {/* circular photo */}
+              <div className="absolute top-8 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white/10 border-2 border-white/25 overflow-hidden shadow-lg">
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="p-6">
@@ -653,7 +650,7 @@ const Index = () => (
               className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
             />
             <p className="text-center text-[12px] text-white/30 tracking-wide">
-              Karachi, Pakistan &nbsp;·&nbsp; Est. 1998
+              Karachi, Pakistan &nbsp;·&nbsp; Est. 1991
             </p>
           </div>
         </div>
