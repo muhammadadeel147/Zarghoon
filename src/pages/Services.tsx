@@ -59,39 +59,73 @@ const Services = () => (
   <div className="pt-[68px]">
 
     {/* Hero */}
-    <section className="relative overflow-hidden py-24 px-6 text-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.08] via-transparent to-transparent pointer-events-none" />
+    <section className="relative overflow-hidden py-24 px-6">
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,5%)]" />
       <div
-        className="absolute inset-0 opacity-[0.045] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`,
-          backgroundSize: "28px 28px",
-        }}
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{ backgroundImage: `radial-gradient(circle, hsl(122,47%,55%) 1px, transparent 1px)`, backgroundSize: "28px 28px" }}
       />
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[640px] h-[280px] bg-primary/[0.09] rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-[520px] h-[520px] bg-primary/[0.08] rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-20 w-[380px] h-[380px] bg-accent/[0.06] rounded-full blur-[90px] pointer-events-none" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 max-w-3xl mx-auto"
-      >
-        <motion.span
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.15, duration: 0.5 }}
-          className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-primary mb-5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10"
-        >
-          Our Services
-        </motion.span>
-        <h1 className="font-display text-5xl md:text-[68px] font-bold mb-6 leading-[1.1]">
-          What We <span className="text-gradient">Build</span>
-        </h1>
-        <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
-          Comprehensive civil road construction and infrastructure services powered by modern engineering
-          and decades of on-the-ground experience across Pakistan.
-        </p>
-      </motion.div>
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left */}
+          <div>
+            <motion.span
+              initial={{ opacity: 0, x: -18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10"
+            >
+              <motion.span
+                className="w-1.5 h-1.5 rounded-full bg-primary"
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ repeat: Infinity, duration: 1.8 }}
+              />
+              Our Services
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 26 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.14, duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="font-display text-5xl md:text-[62px] font-bold leading-[1.07] mb-6"
+            >
+              What We<br />
+              <span className="text-gradient">Build</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.38, duration: 0.6 }}
+              className="text-muted-foreground text-[15px] leading-relaxed max-w-md"
+            >
+              Comprehensive civil road construction and infrastructure services — powered by modern engineering and 25+ years of on-the-ground experience across Pakistan.
+            </motion.p>
+          </div>
+
+          {/* Right — glassmorphic stat grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="grid grid-cols-2 gap-3"
+          >
+            {[
+              { value: "06",   label: "Service Domains",  gold: false },
+              { value: "25+",  label: "Years Experience",  gold: true  },
+              { value: "120+", label: "Projects Delivered", gold: false },
+              { value: "ISO",  label: "Certified Quality",  gold: true  },
+            ].map((s) => (
+              <div key={s.label} className={`relative rounded-2xl p-6 border backdrop-blur-sm overflow-hidden ${ s.gold ? "bg-accent/[0.06] border-accent/[0.18]" : "bg-primary/[0.06] border-primary/[0.18]" }`}>
+                <div className={`absolute -top-5 -right-5 w-24 h-24 rounded-full blur-[36px] pointer-events-none ${ s.gold ? "bg-accent/25" : "bg-primary/25" }`} />
+                <div className={`font-display text-[42px] font-black leading-none mb-1 ${ s.gold ? "text-accent" : "text-primary" }`}>{s.value}</div>
+                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/45">{s.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
     </section>
 
     {/* Services Grid */}
