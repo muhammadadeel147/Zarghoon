@@ -82,3 +82,28 @@
     @apply transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_hsl(122,47%,40%,0.18)];
   }
 }
+
+/* ── Custom scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220, 15%, 8%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(122, 47%, 28%);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(122, 47%, 40%);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(122, 47%, 28%) hsl(220, 15%, 8%);
+}
