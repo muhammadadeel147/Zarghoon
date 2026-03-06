@@ -21,7 +21,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[68px]">
       <section className="section-padding">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,9 +46,9 @@ const Contact = () => {
             className="md:col-span-2 space-y-8"
           >
             {[
-              { icon: MapPin, label: "Address", value: "123 Construction Ave\nMetro City, MC 10001" },
-              { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-              { icon: Mail, label: "Email", value: "info@zarghoon.com" },
+              { icon: MapPin, label: "Address", value: "Karachi, Pakistan" },
+              { icon: Phone, label: "Phone", value: "+9221-34978326" },
+              { icon: Mail, label: "Email", value: "Info@zarghoon.pk" },
             ].map((item) => (
               <div key={item.label} className="flex gap-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">

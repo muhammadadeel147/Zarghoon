@@ -21,7 +21,7 @@ const equipment = [
 ];
 
 const Equipment = () => (
-  <div className="pt-16">
+  <div className="pt-[68px]">
     <section className="section-padding">
       <SectionHeading label="Our Fleet" title="Equipment & Technology" description="State-of-the-art machinery and modern engineering tools powering every project." />
       

@@ -20,7 +20,7 @@ const services = [
 ];
 
 const Services = () => (
-  <div className="pt-16">
+  <div className="pt-[68px]">
     <section className="section-padding text-center">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
         <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary mb-4 block">Our Services</span>

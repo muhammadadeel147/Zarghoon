@@ -32,9 +32,9 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-semibold text-foreground mb-4">Contact</h4>
           <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <span>info@zarghoon.com</span>
-            <span>+1 (555) 123-4567</span>
-            <span>123 Construction Ave</span>
+            <a href="mailto:Info@zarghoon.pk" className="hover:text-primary transition-colors">Info@zarghoon.pk</a>
+            <a href="tel:+922134978326" className="hover:text-primary transition-colors">+9221-34978326</a>
+            <span>Karachi, Pakistan</span>
           </div>
         </div>
       </div>

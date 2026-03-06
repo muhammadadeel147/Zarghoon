@@ -30,7 +30,7 @@ const Projects = () => {
   const filtered = filter === "All" ? allProjects : allProjects.filter((p) => p.type === filter);
 
   return (
-    <div className="pt-16">
+    <div className="pt-[68px]">
       <section className="section-padding">
         <SectionHeading label="Portfolio" title="Our Projects" description="Explore our completed and ongoing infrastructure projects." />
         <div className="flex justify-center gap-3 mb-12">

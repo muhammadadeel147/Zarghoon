@@ -1,53 +1,83 @@
-# Welcome to your Lovable project
+# Zarghoon Construction
 
-## Project info
+Pakistan's leading civil infrastructure company — building highways, bridges, and road networks that connect communities.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## About
 
-There are several ways of editing your application.
+Zarghoon Construction has over **25 years** of experience delivering world-class civil infrastructure across Pakistan. From high-speed motorways to urban road networks and engineered bridge systems, we build infrastructure that moves people and nations forward.
 
-**Use Lovable**
+- **500+ KM** of roads built
+- **120+ Projects** successfully completed
+- **50+ Expert engineers** on staff
+- Established **1998**, Karachi, Pakistan
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+- **React 18** + TypeScript
+- **Vite** — dev server & bundler
+- **Tailwind CSS** — styling
+- **Framer Motion** — animations
+- **shadcn/ui** — component library
+- **React Router v6** — routing
+- **TanStack Query** — data fetching
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Getting Started
 
-Follow these steps:
+```bash
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run tests
+npm run test
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+  assets/          # Images and static assets
+  components/      # Shared components (Navbar, Footer, SectionHeading, etc.)
+  components/ui/   # shadcn/ui component library
+  hooks/           # Custom React hooks
+  lib/             # Utility functions
+  pages/           # Page components (Index, About, Services, Projects, Equipment, Contact)
+  test/            # Test files
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
+---
+
+## Pages
+
+| Route | Page |
+|-------|------|
+| `/` | Home — Hero, Stats, Services, Projects, Team, CTA |
+| `/about` | Company history, mission, values |
+| `/services` | Full list of construction services |
+| `/projects` | Portfolio with filterable project cards |
+| `/equipment` | Equipment fleet & technology |
+| `/contact` | Contact form + office details |
+
+---
+
+© 2026 Zarghoon Construction. All rights reserved.
+
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
 ## What technologies are used for this project?
@@ -60,14 +90,3 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

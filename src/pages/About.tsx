@@ -18,7 +18,7 @@ const team = [
 ];
 
 const About = () => (
-  <div className="pt-16">
+  <div className="pt-[68px]">
     {/* Hero */}
     <section className="section-padding text-center">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>

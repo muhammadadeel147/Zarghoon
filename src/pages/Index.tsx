@@ -1,19 +1,19 @@
 import { motion, useInView } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
-import { ArrowRight, Building2, Truck, Wrench, BarChart3, Shield, Zap } from "lucide-react";
+import { ArrowRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Trophy, Users } from "lucide-react";
 import heroImage from "@/assets/hero-road.jpg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
 import asphaltImg from "@/assets/asphalt-paving.jpg";
 
 const stats = [
-  { value: 500, suffix: "+", label: "KM Roads Built" },
-  { value: 120, suffix: "+", label: "Projects Completed" },
-  { value: 25, suffix: "+", label: "Years Experience" },
-  { value: 50, suffix: "+", label: "Expert Engineers" },
+  { value: 500, suffix: "+", label: "KM Roads Built", icon: MapPin },
+  { value: 120, suffix: "+", label: "Projects Completed", icon: Layers },
+  { value: 25, suffix: "+", label: "Years Experience", icon: Trophy },
+  { value: 50, suffix: "+", label: "Expert Engineers", icon: Users },
 ];
 
 const teamMembers = [
@@ -70,7 +70,7 @@ const fadeUp = {
   }),
 };
 
-const CounterStat = ({ value, suffix, label, index }: { value: number; suffix: string; label: string; index: number }) => {
+const CounterStat = ({ value, suffix, label, index, icon: Icon }: { value: number; suffix: string; label: string; index: number; icon: ElementType }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const [count, setCount] = useState(0);
@@ -101,8 +101,11 @@ const CounterStat = ({ value, suffix, label, index }: { value: number; suffix: s
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={fadeUp}
-      className="text-center"
+      className="text-center py-10 px-6"
     >
+      <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+        <Icon className="text-primary" size={22} />
+      </div>
       <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
         {count}{suffix}
       </div>
@@ -159,14 +162,54 @@ const Index = () => (
             <Link to="/contact">Get a Quote</Link>
           </Button>
         </motion.div>
+
+        {/* Contact quick-access */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-8 text-sm"
+        >
+          <a
+            href="tel:+922134978326"
+            className="flex items-center gap-2 text-foreground/60 hover:text-primary transition-colors duration-200"
+          >
+            <Phone size={14} className="text-primary" />
+            +9221-34978326
+          </a>
+          <span className="hidden sm:block w-px h-4 bg-foreground/20" />
+          <a
+            href="mailto:Info@zarghoon.pk"
+            className="flex items-center gap-2 text-foreground/60 hover:text-primary transition-colors duration-200"
+          >
+            <Mail size={14} className="text-primary" />
+            Info@zarghoon.pk
+          </a>
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 text-foreground/40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <span className="text-[10px] tracking-[0.2em] uppercase font-medium">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+        >
+          <ChevronDown size={18} />
+        </motion.div>
+      </motion.div>
     </section>
 
     {/* Stats */}
-    <section className="section-padding border-b border-border">
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section className="border-y border-border">
+      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
         {stats.map((s, i) => (
-          <CounterStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} index={i} />
+          <CounterStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} index={i} icon={s.icon} />
         ))}
       </div>
     </section>
@@ -183,8 +226,11 @@ const Index = () => (
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="bg-card border border-border rounded-lg p-8 card-hover group"
+            className="relative bg-card border border-border rounded-lg p-8 card-hover group overflow-hidden"
           >
+            <span className="absolute top-4 right-5 font-display text-7xl font-black text-foreground/[0.04] leading-none select-none pointer-events-none">
+              {String(i + 1).padStart(2, "0")}
+            </span>
             <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
               <s.icon className="text-primary" size={24} />
             </div>
@@ -281,6 +327,34 @@ const Index = () => (
         <Button variant="hero" size="lg" asChild>
           <Link to="/contact">Start Your Project <ArrowRight className="ml-2" size={18} /></Link>
         </Button>
+
+        {/* Contact cards */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12 pt-8 border-t border-border">
+          <a
+            href="tel:+922134978326"
+            className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-border hover:border-primary/40 card-hover group text-left"
+          >
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+              <Phone size={18} className="text-primary" />
+            </div>
+            <div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Call Us</div>
+              <div className="text-sm font-semibold">+9221-34978326</div>
+            </div>
+          </a>
+          <a
+            href="mailto:Info@zarghoon.pk"
+            className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-border hover:border-primary/40 card-hover group text-left"
+          >
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+              <Mail size={18} className="text-primary" />
+            </div>
+            <div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Email Us</div>
+              <div className="text-sm font-semibold">Info@zarghoon.pk</div>
+            </div>
+          </a>
+        </div>
       </motion.div>
     </section>
   </div>
