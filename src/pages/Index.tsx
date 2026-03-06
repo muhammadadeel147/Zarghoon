@@ -72,9 +72,9 @@ const services = [
 ];
 
 const projects = [
-  { img: highwayImg, title: "Metro Highway M-12", location: "Metropolitan Area", type: "Highway" },
-  { img: bridgeImg, title: "Golden Gate Overpass", location: "Coastal Region", type: "Bridge" },
-  { img: asphaltImg, title: "Industrial Zone Road", location: "Northern District", type: "Urban Road" },
+  { img: highwayImg, title: "N-50 Zhob – Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar – Mughal Kot, Balochistan", type: "Highway" },
+  { img: bridgeImg,  title: "N-70 Loralai – Waigum Rud Road Upgradation", location: "Loralai – Waighum Rud Section, Balochistan", type: "Highway" },
+  { img: asphaltImg, title: "Rohri – Panu Aqil Road Rehabilitation (N-5)", location: "Rohri to Panu Aqil, Sukkur, Sindh", type: "Rehabilitation" },
 ];
 
 const fadeUp = {

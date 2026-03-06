@@ -14,11 +14,12 @@ const fadeUp = {
 };
 
 const milestones = [
-  { year: "1991", title: "Incorporated in Karachi", desc: "Zarghoon Enterprises (Private) Limited (ZEPL) is incorporated in Karachi as a NO LIMIT CONTRACTOR under the Pakistan Engineering Council." },
-  { year: "2004", title: "First Major Highway", desc: "Completed our inaugural 50 km highway stretch — setting a new regional benchmark for surface quality and structural durability." },
-  { year: "2010", title: "100 Projects Milestone", desc: "Reached 100 completed projects across 5 provinces while maintaining a perfect on-site safety record throughout." },
-  { year: "2016", title: "Smart Road Division", desc: "Launched Pakistan's first IoT-integrated road infrastructure division, merging civil engineering with intelligent technology." },
-  { year: "2024", title: "500+ KM Delivered", desc: "Surpassed 500 km of roads built — cementing our position as Pakistan's premier road infrastructure contractor." },
+  { year: "1991", title: "Incorporated in Karachi", desc: "Zarghoon Enterprises (Private) Limited (ZEPL) is incorporated in Karachi as a NO LIMIT CONTRACTOR under the Pakistan Engineering Council in categories CE-01, CE-02, CE-04, CE-09, EE-06 and CE-10." },
+  { year: "2004", title: "Ziarat–Khanozai Road Widening", desc: "Completed the 14 km Ziarat More to Khanozai road widening in Balochistan for NHA — our first major national highway widening project under Government of Pakistan funding." },
+  { year: "2009", title: "Dual NHA Projects Underway", desc: "Simultaneously executed the Head Muhammad Wala Approach Road (Multan) and the Lakhi–Naudero–Larkana Road Improvement, totalling over 37 km of major national highway works." },
+  { year: "2013", title: "ADB Partnership Begins", desc: "Awarded the Rohri–Panu Aqil Road Rehabilitation (N-5) by the Asian Development Bank — the start of a long-term partnership with ADB on Pakistan's national road network." },
+  { year: "2016", title: "Largest Contracts Secured", desc: "Commenced two simultaneous ADB-funded upgradation projects: N-70 Loralai–Waighum Rud (49 km) and N-50 Zhob–Mughalkot (32 km) — totalling over PKR 7.8 billion in contract value." },
+  { year: "2021", title: "PKR 11 Billion Active Portfolio", desc: "Running the DHA Quetta Sector A-2 housing project and the 53 km N-50 Kuchlak–Zhob dualization (PKR 8.7 billion) concurrently — the largest active portfolio in company history." },
 ];
 
 const values = [
