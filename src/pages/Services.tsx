@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Building2, Truck, Wrench, BarChart3, Shield, Zap, ArrowUpRight } from "lucide-react";
 
 const cardVariants = {
@@ -14,7 +14,7 @@ const services = [
   {
     icon: Building2,
     title: "Highway Construction",
-    desc: "Multi-lane highways engineered for heavy traffic, maximum safety, and decades of durability â€” from initial planning through final surfacing.",
+    desc: "Multi-lane highways engineered for heavy traffic, maximum safety, and decades of durability — from initial planning through final surfacing.",
     features: ["Multi-lane expressways", "Interchanges & ramps", "Safety barriers"],
     gold: false,
   },
@@ -100,11 +100,11 @@ const Services = () => (
               transition={{ delay: 0.38, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-md"
             >
-              Comprehensive civil road construction and infrastructure services â€” powered by modern engineering and 35+ years of on-the-ground experience across Pakistan.
+              Comprehensive civil road construction and infrastructure services — powered by modern engineering and 35+ years of on-the-ground experience across Pakistan.
             </motion.p>
           </div>
 
-          {/* Right â€” glassmorphic stat grid */}
+          {/* Right — glassmorphic stat grid */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -158,7 +158,7 @@ const Services = () => (
                 : "border-border hover:border-primary/35 hover:shadow-[0_12px_48px_-8px_hsl(122,47%,40%,0.28)]"
             }`}
           >
-            {/* Gradient top accent line â€” expands on hover */}
+            {/* Gradient top accent line — expands on hover */}
             <div
               className={`absolute top-0 left-8 right-8 h-[2px] rounded-b-full transition-all duration-500 ${
                 s.gold

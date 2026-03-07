@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, Clock, CheckCircle2, AlertCircle, Loader2, ArrowUpRight } from "lucide-react";
 
@@ -11,10 +11,10 @@ const cardVariants = {
 };
 
 const contactCards = [
-  { icon: Phone,  label: "Call Us",       value: "+92-21-34978326",  sub: "Monâ€“Sat, 9amâ€“6pm PKT",   href: "tel:+922134978326",       gold: false },
+  { icon: Phone,  label: "Call Us",       value: "+92-21-34978326",  sub: "Mon–Sat, 9am–6pm PKT",   href: "tel:+922134978326",       gold: false },
   { icon: Mail,   label: "Email Us",      value: "Info@zarghoon.pk", sub: "We reply within 24 hours", href: "mailto:Info@zarghoon.pk", gold: true  },
-  { icon: MapPin, label: "Head Office",   value: "B-97, Block 4-A, Gulshan-e-Iqbal", sub: "Karachi Â· +92-21-34978326, 34987588", href: null, gold: false },
-  { icon: MapPin, label: "Regional Office", value: "House #198, Phase 1, Shahbaz Town", sub: "Quetta Â· +92-81-2820470-1", href: null, gold: false },
+  { icon: MapPin, label: "Head Office",   value: "B-97, Block 4-A, Gulshan-e-Iqbal", sub: "Karachi · +92-21-34978326, 34987588", href: null, gold: false },
+  { icon: MapPin, label: "Regional Office", value: "House #198, Phase 1, Shahbaz Town", sub: "Quetta · +92-81-2820470-1", href: null, gold: false },
 ];
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -55,7 +55,7 @@ const Contact = () => {
   return (
     <div className="pt-[68px]">
 
-      {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden py-24 px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,90%)]" />
         <div
@@ -136,7 +136,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* â”€â”€ FORM SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── FORM SECTION ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden pb-28 px-6">
         <div
           className="absolute inset-0 opacity-[0.022] pointer-events-none"
@@ -147,7 +147,7 @@ const Contact = () => {
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
 
-            {/* Left â€” info + why contact */}
+            {/* Left — info + why contact */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -169,7 +169,7 @@ const Contact = () => {
                   "Free project consultation",
                   "Response within 24 hours",
                   "Detailed quote provided",
-                  "Full privacy â€” your info stays with us",
+                  "Full privacy — your info stays with us",
                 ].map((point) => (
                   <div key={point} className="flex items-center gap-2.5 text-[13px] text-gray-600">
                     <CheckCircle2 size={14} className="text-primary shrink-0" />
@@ -179,7 +179,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Right â€” form */}
+            {/* Right — form */}
             <motion.div
               custom={0}
               initial="hidden"
@@ -197,7 +197,7 @@ const Contact = () => {
                 {/* Corner glow */}
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/[0.08] rounded-full blur-[50px] pointer-events-none" />
 
-                {/* Honeypot â€” invisible to humans, filled by bots */}
+                {/* Honeypot — invisible to humans, filled by bots */}
                 <div className="absolute opacity-0 pointer-events-none w-0 h-0 overflow-hidden" aria-hidden="true">
                   <input
                     type="text"
@@ -266,7 +266,7 @@ const Contact = () => {
                       rows={5}
                       value={form.message}
                       onChange={set("message")}
-                      placeholder="Tell us about your project â€” scope, location, timeline..."
+                      placeholder="Tell us about your project — scope, location, timeline..."
                       className="w-full px-4 py-2.5 rounded-xl bg-gray-100 border border-gray-200 text-[14px] text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary/50 focus:bg-primary/[0.04] transition-all duration-200 resize-none leading-relaxed"
                     />
                   </div>
@@ -299,7 +299,7 @@ const Contact = () => {
                     className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl bg-primary hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed text-[14px] font-bold text-white tracking-wide shadow-[0_0_28px_-6px_hsl(122,47%,40%,0.6)] hover:shadow-[0_0_40px_-4px_hsl(122,47%,40%,0.8)] transition-all duration-300"
                   >
                     {status === "loading" ? (
-                      <><Loader2 size={16} className="animate-spin" /> Sendingâ€¦</>
+                      <><Loader2 size={16} className="animate-spin" /> Sending…</>
                     ) : (
                       <>Send Message <Send size={15} /></>
                     )}

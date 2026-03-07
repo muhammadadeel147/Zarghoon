@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import equipmentImg from "@/assets/equipment.jpg";
 import { Cog, Gauge, Cpu, ScanLine, Truck, Factory, CheckCircle2, ArrowUpRight, X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -18,24 +18,24 @@ const equipment = [
   {
     icon: Truck,    name: "Asphalt Pavers",    category: "Paving",
     desc: "GPS-guided precision paving machines delivering millimetre-accurate surface uniformity at highway speeds.",
-    specs: ["GPS Â±2 mm accuracy", "Up to 10 m paving width", "Digital grade control"],
+    specs: ["GPS ±2 mm accuracy", "Up to 10 m paving width", "Digital grade control"],
     gold: false,
   },
   {
     icon: Gauge,    name: "Road Rollers",       category: "Compaction",
     desc: "Vibratory and static compaction rollers ensuring optimal density ratios for every road layer from sub-base to wearing course.",
-    specs: ["Vibratory & static modes", "Real-time density readout", "12â€“26 tonne capacity"],
+    specs: ["Vibratory & static modes", "Real-time density readout", "12–26 tonne capacity"],
     gold: true,
   },
   {
     icon: Cog,      name: "Excavators",         category: "Earthworks",
     desc: "Heavy-duty hydraulic excavators handling bulk earthworks, trench cutting, and sub-grade preparation at full project scale.",
-    specs: ["20â€“50 tonne class", "GPS 3D grade control", "Quick coupler attachments"],
+    specs: ["20–50 tonne class", "GPS 3D grade control", "Quick coupler attachments"],
     gold: false,
   },
   {
     icon: Factory,  name: "Asphalt Plants",     category: "Production",
-    desc: "Mobile and stationary drum-mix and batch plants producing 100â€“300 TPH of hot-mix asphalt to exact recipe specifications.",
+    desc: "Mobile and stationary drum-mix and batch plants producing 100–300 TPH of hot-mix asphalt to exact recipe specifications.",
     specs: ["300 TPH capacity", "Recycled asphalt capable", "Remote mix monitoring"],
     gold: true,
   },
@@ -47,7 +47,7 @@ const equipment = [
   },
   {
     icon: Cpu,      name: "IoT Road Sensors",   category: "Smart",
-    desc: "Embedded pavement sensors monitoring surface stress, temperature, and moisture â€” feeding live analytics to our operations centre.",
+    desc: "Embedded pavement sensors monitoring surface stress, temperature, and moisture — feeding live analytics to our operations centre.",
     specs: ["24/7 live monitoring", "Predictive maintenance", "Cloud dashboard"],
     gold: true,
   },
@@ -56,7 +56,7 @@ const equipment = [
 const Equipment = () => (
   <div className="pt-[68px]">
 
-    {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+    {/* ── HERO ────────────────────────────────────────────────── */}
     <section className="relative overflow-hidden py-24 px-6">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,90%)]" />
       <div
@@ -98,7 +98,7 @@ const Equipment = () => (
               transition={{ delay: 0.38, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-md mb-8"
             >
-              State-of-the-art machinery and intelligent engineering technology powering every kilometre Zarghoon builds â€” from sub-grade to surface.
+              State-of-the-art machinery and intelligent engineering technology powering every kilometre Zarghoon builds — from sub-grade to surface.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -115,7 +115,7 @@ const Equipment = () => (
             </motion.div>
           </div>
 
-          {/* Right â€” cinematic image */}
+          {/* Right — cinematic image */}
           <motion.div
             initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
             animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
@@ -146,7 +146,7 @@ const Equipment = () => (
       </div>
     </section>
 
-    {/* â”€â”€ EQUIPMENT GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+    {/* ── EQUIPMENT GRID ─────────────────────────────────────── */}
     <section className="relative overflow-hidden pb-28 px-6">
       <div
         className="absolute inset-0 opacity-[0.022] pointer-events-none"
@@ -235,7 +235,7 @@ const Equipment = () => (
       </div>
     </section>
 
-    {/* â”€â”€ PHOTO GALLERY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+    {/* ── PHOTO GALLERY ──────────────────────────────────────── */}
     <GallerySection />
 
   </div>
@@ -277,7 +277,7 @@ function GallerySection() {
           </p>
         </motion.div>
 
-        {/* Uniform grid â€” 4-column, fixed aspect ratio, perfect alignment */}
+        {/* Uniform grid — 4-column, fixed aspect ratio, perfect alignment */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
           {galleryImages.map((src, i) => (
             <motion.div
