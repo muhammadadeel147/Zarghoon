@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
-import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Users, Milestone, Waves, CloudRain, Droplets } from "lucide-react";
 import heroImage from "@/assets/hero-road.jpg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
@@ -13,7 +13,7 @@ import JalilImg from "@/assets/jalil.jpeg";
 import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
 
 const stats = [
-  { value: 500, suffix: "+", label: "KM Roads Built", icon: MapPin },
+  { value: 1000, suffix: "+", label: "KM Roads Built", icon: MapPin },
   { value: 50, suffix: "+", label: "Projects Completed", icon: Layers },
   { value: 200, suffix: "+", label: "Machinery & Plants", icon: Truck },
   { value: 300, suffix: "+", label: "Employees", icon: Users },
@@ -69,6 +69,10 @@ const services = [
   { icon: BarChart3, title: "Bridge Construction", desc: "Engineered bridges connecting communities." },
   { icon: Shield, title: "Infrastructure Dev", desc: "Complete infrastructure development solutions." },
   { icon: Zap, title: "Smart Roads", desc: "IoT-enabled intelligent road systems." },
+  { icon: Milestone, title: "Underpasses", desc: "Reinforced concrete underpasses for safer traffic flow." },
+  { icon: Waves, title: "Dams", desc: "Dam and barrage construction for flood control and irrigation." },
+  { icon: CloudRain, title: "Storm Water Drainage", desc: "Drainage networks that protect roads and communities from flooding." },
+  { icon: Droplets, title: "Sewerage & Water Supply", desc: "Pipelines, pump stations, and water supply schemes." },
 ];
 
 const projects = [
@@ -186,11 +190,11 @@ const Index = () => (
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-8 text-sm"
         >
           <a
-            href="tel:+922134978326"
+            href="tel:+923009295315"
             className="flex items-center gap-2 text-white/70 hover:text-accent transition-colors duration-200"
           >
             <Phone size={14} className="text-accent" />
-            +9221-34978326
+            +923009295315
           </a>
           <span className="hidden sm:block w-px h-4 bg-white/25" />
           <a
@@ -199,6 +203,14 @@ const Index = () => (
           >
             <Mail size={14} className="text-accent" />
             Info@zarghoon.pk
+          </a>
+          <span className="hidden sm:block w-px h-4 bg-white/25" />
+          <a
+            href="mailto:zepl_38@yahoo.com"
+            className="flex items-center gap-2 text-white/70 hover:text-accent transition-colors duration-200"
+          >
+            <Mail size={14} className="text-accent" />
+            zepl_38@yahoo.com
           </a>
         </motion.div>
       </div>
@@ -265,7 +277,7 @@ const Index = () => (
           </div>
           <div className="flex items-center gap-5 shrink-0">
             <div className="text-right hidden sm:block">
-              <p className="font-display text-5xl font-black text-gradient leading-none">06</p>
+              <p className="font-display text-5xl font-black text-gradient leading-none">10</p>
               <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">Capabilities</p>
             </div>
             <Button variant="outline" asChild className="shrink-0 border-gray-800 text-gray-800 hover:bg-gray-100">
@@ -651,10 +663,10 @@ const Index = () => (
           <div className="flex flex-col gap-4">
             {[
               {
-                href: "tel:+922134978326",
+                href: "tel:+923009295315",
                 icon: Phone,
                 label: "Call Us Directly",
-                value: "+9221-34978326",
+                value: "+923009295315",
                 sub: "Available Mon–Sat, 9am–6pm",
                 delay: 0.15,
               },
@@ -665,6 +677,14 @@ const Index = () => (
                 value: "Info@zarghoon.pk",
                 sub: "We reply within 24 hours",
                 delay: 0.3,
+              },
+              {
+                href: "mailto:zepl_38@yahoo.com",
+                icon: Mail,
+                label: "Alternative Email",
+                value: "zepl_38@yahoo.com",
+                sub: "Alternative email address",
+                delay: 0.45,
               },
             ].map((item) => (
               <motion.a

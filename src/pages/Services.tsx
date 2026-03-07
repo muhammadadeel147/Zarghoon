@@ -1,5 +1,29 @@
-import { motion } from "framer-motion";
-import { Building2, Truck, Wrench, BarChart3, Shield, Zap, ArrowUpRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { Building2, Truck, Wrench, BarChart3, Shield, Zap, ArrowUpRight, Milestone, Waves, CloudRain, Droplets } from "lucide-react";
+
+type CounterProps = { value: number; suffix?: string };
+
+const Counter = ({ value, suffix = "" }: CounterProps) => {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const [display, setDisplay] = useState(0);
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+    const duration = 1200;
+    const start = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(value * eased));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [isInView, value]);
+
+  return <span ref={ref}>{display}{suffix}</span>;
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 52 },
@@ -51,6 +75,34 @@ const services = [
     title: "Smart Road Technology",
     desc: "IoT sensors, intelligent lighting, and real-time traffic management systems integrated seamlessly into modern road infrastructure.",
     features: ["IoT sensors", "Smart lighting", "Traffic analytics"],
+    gold: true,
+  },
+  {
+    icon: Milestone,
+    title: "Underpasses",
+    desc: "Design and construction of reinforced concrete underpasses for pedestrians and vehicles, improving traffic flow and safety at major intersections.",
+    features: ["Pedestrian underpasses", "Vehicular underpasses", "Structural waterproofing"],
+    gold: false,
+  },
+  {
+    icon: Waves,
+    title: "Dams",
+    desc: "Construction of dams and barrages for flood control, irrigation, and water storage — engineered to withstand extreme hydrological conditions.",
+    features: ["Earthen dams", "Spill structures", "Flood control"],
+    gold: true,
+  },
+  {
+    icon: CloudRain,
+    title: "Storm Water Drainage",
+    desc: "Comprehensive stormwater drainage networks designed to manage runoff, prevent urban flooding, and protect road infrastructure from water damage.",
+    features: ["Culverts & channels", "Detention basins", "Urban drainage"],
+    gold: false,
+  },
+  {
+    icon: Droplets,
+    title: "Sewerage & Water Supply",
+    desc: "End-to-end sewerage and water supply schemes including pipelines, pump stations, and treatment facilities for urban and rural communities.",
+    features: ["Pipeline networks", "Pump stations", "Water treatment"],
     gold: true,
   },
 ];
@@ -112,14 +164,16 @@ const Services = () => (
             className="grid grid-cols-2 gap-3"
           >
             {[
-              { value: "06",   label: "Service Domains",  gold: false },
-              { value: "35+",  label: "Years Experience",  gold: true  },
-              { value: "120+", label: "Projects Delivered", gold: false },
-              { value: "ISO",  label: "Certified Quality",  gold: true  },
+              { num: 10,   suffix: "",   label: "Service Domains",  gold: false },
+              { num: 35,   suffix: "+",  label: "Years Experience",  gold: true  },
+              { num: 50,   suffix: "+",  label: "Projects Delivered", gold: false },
+              { num: null, suffix: "",   label: "Certified Quality",  text: "ISO", gold: true  },
             ].map((s) => (
               <div key={s.label} className={`relative rounded-2xl p-6 border backdrop-blur-sm overflow-hidden ${ s.gold ? "bg-accent/[0.06] border-accent/[0.18]" : "bg-primary/[0.06] border-primary/[0.18]" }`}>
                 <div className={`absolute -top-5 -right-5 w-24 h-24 rounded-full blur-[36px] pointer-events-none ${ s.gold ? "bg-accent/25" : "bg-primary/25" }`} />
-                <div className={`font-display text-[42px] font-black leading-none mb-1 ${ s.gold ? "text-accent" : "text-primary" }`}>{s.value}</div>
+                <div className={`font-display text-[42px] font-black leading-none mb-1 ${ s.gold ? "text-accent" : "text-primary" }`}>
+                  {s.num !== null ? <Counter value={s.num} suffix={s.suffix} /> : s.text}
+                </div>
                 <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gray-500">{s.label}</div>
               </div>
             ))}

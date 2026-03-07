@@ -74,7 +74,7 @@ const team = [
   },
 ];
 const heroStats = [
-  { value: 500, suffix: "+", label: "KM Roads" },
+  { value: 1000, suffix: "+", label: "KM Roads" },
   { value: 50, suffix: "+", label: "Projects" },
   { value: 200, suffix: "+", label: "Machinery & Plants" },
   { value: 300, suffix: "+", label: "Employees" },

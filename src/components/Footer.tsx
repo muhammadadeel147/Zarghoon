@@ -44,13 +44,17 @@ const Footer = () => (
         <div>
           <h4 className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-2 sm:mb-3">Contact</h4>
           <div className="flex flex-col gap-2">
-            <a href="tel:+922134978326" className="flex items-center gap-2 text-[12px] sm:text-[13px] text-gray-600 hover:text-primary transition-colors duration-200">
+            <a href="tel:+923009295315" className="flex items-center gap-2 text-[12px] sm:text-[13px] text-gray-600 hover:text-primary transition-colors duration-200">
               <Phone size={12} className="text-primary shrink-0" />
-              +9221-34978326
+              +92-300-9295315
             </a>
             <a href="mailto:Info@zarghoon.pk" className="flex items-center gap-2 text-[12px] sm:text-[13px] text-gray-600 hover:text-primary transition-colors duration-200">
               <Mail size={12} className="text-primary shrink-0" />
               Info@zarghoon.pk
+            </a>
+            <a href="mailto:zepl_38@yahoo.com" className="flex items-center gap-2 text-[12px] sm:text-[13px] text-gray-600 hover:text-primary transition-colors duration-200">
+              <Mail size={12} className="text-primary shrink-0" />
+              zepl_38@yahoo.com
             </a>
             <span className="flex items-start gap-2.5 text-[13px] text-gray-600">
               <MapPin size={13} className="text-primary shrink-0 mt-[2px]" />

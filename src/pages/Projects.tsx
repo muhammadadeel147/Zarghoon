@@ -1,5 +1,29 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { MapPin, Calendar, Building2, Users, CheckCircle2, Clock, ArrowRight } from "lucide-react";
+
+type CounterProps = { value: number; suffix?: string };
+
+const Counter = ({ value, suffix = "" }: CounterProps) => {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const [display, setDisplay] = useState(0);
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+    const duration = 1200;
+    const start = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(value * eased));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [isInView, value]);
+
+  return <span ref={ref}>{display}{suffix}</span>;
+};
 import highwayImg  from "@/assets/highway-project.jpg";
 import bridgeImg   from "@/assets/bridge-project.jpg";
 import asphaltImg  from "@/assets/asphalt-paving.jpg";
@@ -378,7 +402,9 @@ const SectionDivider = ({ label, count, isOngoing = false }: { label: string; co
       </h2>
     </div>
     <div className={`hidden sm:flex items-center gap-3 shrink-0 px-5 py-3 rounded-2xl border ${isOngoing ? "bg-accent/[0.06] border-accent/20" : "bg-primary/[0.06] border-primary/20"}`}>
-      <span className={`font-display text-4xl font-black leading-none ${isOngoing ? "text-accent" : "text-gradient"}`}>{String(count).padStart(2, "0")}</span>
+      <span className={`font-display text-4xl font-black leading-none ${isOngoing ? "text-accent" : "text-gradient"}`}>
+        <Counter value={count} />
+      </span>
       <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-500 leading-tight">{isOngoing ? "Active\nProjects" : "Completed\nProjects"}</span>
     </div>
   </motion.div>
@@ -440,17 +466,19 @@ const Projects = () => (
             className="grid grid-cols-2 gap-3"
           >
             {[
-              { value: "13",   label: "Completed Projects", gold: false },
-              { value: "4",    label: "Active Projects",    gold: true  },
-              { value: "500+", label: "KM Roads Built",     gold: true  },
-              { value: "300+", label: "Employees",          gold: false },
+              { num: 13,   suffix: "",   label: "Completed Projects", gold: false },
+              { num: 4,    suffix: "",   label: "Active Projects",    gold: true  },
+              { num: 1000, suffix: "+",  label: "KM Roads Built",     gold: true  },
+              { num: 300,  suffix: "+",  label: "Employees",          gold: false },
             ].map((s) => (
               <div
                 key={s.label}
                 className={`relative rounded-2xl p-6 border backdrop-blur-sm overflow-hidden ${s.gold ? "bg-accent/[0.06] border-accent/[0.18]" : "bg-primary/[0.06] border-primary/[0.18]"}`}
               >
                 <div className={`absolute -top-5 -right-5 w-24 h-24 rounded-full blur-[36px] pointer-events-none ${s.gold ? "bg-accent/25" : "bg-primary/25"}`} />
-                <div className={`font-display text-[40px] font-black leading-none mb-1 ${s.gold ? "text-accent" : "text-primary"}`}>{s.value}</div>
+                <div className={`font-display text-[40px] font-black leading-none mb-1 ${s.gold ? "text-accent" : "text-primary"}`}>
+                  <Counter value={s.num} suffix={s.suffix} />
+                </div>
                 <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gray-500">{s.label}</div>
               </div>
             ))}
