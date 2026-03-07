@@ -52,13 +52,12 @@ const Footer = () => (
               <Mail size={12} className="text-primary shrink-0" />
               Info@zarghoon.pk
             </a>
-            <span className="flex items-start gap-2 text-[12px] sm:text-[13px] text-gray-600">
-              <MapPin size={12} className="text-primary shrink-0 mt-[2px]" />
+            <span className="flex items-start gap-2.5 text-[13px] text-gray-600">
+              <MapPin size={13} className="text-primary shrink-0 mt-[2px]" />
               <span className="leading-snug">
-                Gulshan-e-Iqbal, Karachi
-                <br className="hidden sm:block" />
-                <span className="sm:hidden"> · </span>
-                Shahbaz Town, Quetta
+                <span className="font-semibold">Head Office:</span> B-97, Block 4-A, Gulshan-e-Iqbal, Karachi.
+                <br />
+                <span className="font-semibold">Regional Office:</span> House #198, Phase 1, Shahbaz Town, Quetta.
               </span>
             </span>
           </div>
