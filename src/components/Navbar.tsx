@@ -10,6 +10,7 @@ const navLinks = [
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
   { to: "/equipment", label: "Equipment" },
+  { to: "/iso-certification", label: "ISO Certification" },
   { to: "/contact", label: "Contact" },
 ];
 

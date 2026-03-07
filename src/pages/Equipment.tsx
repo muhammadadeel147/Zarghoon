@@ -106,7 +106,7 @@ const Equipment = () => (
               transition={{ delay: 0.52 }}
               className="flex flex-wrap gap-2.5"
             >
-              {["GPS-Guided Machinery", "Drone Surveying", "IoT Monitoring", "50+ Machines"].map((tag) => (
+              {["GPS-Guided Machinery", "Drone Surveying", "IoT Monitoring", "200+ Machinery & Plants"].map((tag) => (
                 <span key={tag} className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-600">
                   <CheckCircle2 size={11} className="text-primary shrink-0" />
                   {tag}
@@ -138,8 +138,8 @@ const Equipment = () => (
             ))}
             <div className="absolute bottom-6 left-6">
               <span className="inline-block text-[10px] font-black tracking-[0.25em] uppercase px-2.5 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary backdrop-blur-sm">Active Fleet</span>
-              <p className="font-display text-2xl font-bold text-gray-900 mt-2">50+ Machines</p>
-              <p className="text-gray-500 text-xs">Across all project sites</p>
+              <p className="font-display text-2xl font-bold text-white mt-2">200+ Machinery & Plants</p>
+              <p className="text-white/70 text-xs">Across all project sites</p>
             </div>
           </motion.div>
         </div>

@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { MapPin, Calendar, Building2, Users, CheckCircle2, Clock, ArrowRight } from "lucide-react";
 import highwayImg  from "@/assets/highway-project.jpg";
 import bridgeImg   from "@/assets/bridge-project.jpg";
@@ -24,7 +24,7 @@ type Project = {
 const completedProjects: Project[] = [
   {
     number: 1,
-    title: "Defence Officers Housing Authority Quetta â€” Sector A-2",
+    title: "Defence Officers Housing Authority Quetta — Sector A-2",
     location: "DHA Quetta",
     fundingAgency: "DHA Quetta",
     employer: "DHA Quetta",
@@ -47,11 +47,11 @@ const completedProjects: Project[] = [
   },
   {
     number: 3,
-    title: "N-70 Loralai â€“ Waigum Rud Road Upgradation",
-    location: "Loralai â€“ Waighum Rud Section",
+    title: "N-70 Loralai – Waigum Rud Road Upgradation",
+    location: "Loralai – Waighum Rud Section",
     fundingAgency: "Asian Development Bank",
     employer: "National Highway Authority",
-    contractor: "Maqbool â€“ Zarghoon JV",
+    contractor: "Maqbool – Zarghoon JV",
     commencementDate: "17 August 2016",
     completionDate: "April 2020",
     totalLength: "49 KM",
@@ -59,11 +59,11 @@ const completedProjects: Project[] = [
   },
   {
     number: 4,
-    title: "N-50 Zhob â€“ Mughalkot Road Upgradation",
-    location: "Killi Khuda-e-Nazar â€“ Mughal Kot Section",
+    title: "N-50 Zhob – Mughalkot Road Upgradation",
+    location: "Killi Khuda-e-Nazar – Mughal Kot Section",
     fundingAgency: "Asian Development Bank",
     employer: "National Highway Authority",
-    contractor: "Maqbool â€“ Zarghoon JV",
+    contractor: "Maqbool – Zarghoon JV",
     commencementDate: "30 August 2016",
     completionDate: "December 2020",
     totalLength: "32 KM",
@@ -71,7 +71,7 @@ const completedProjects: Project[] = [
   },
   {
     number: 5,
-    title: "Rohri â€“ Panu Aqil Road Rehabilitation (N-5)",
+    title: "Rohri – Panu Aqil Road Rehabilitation (N-5)",
     location: "Rohri to Panu Aqil near Sukkur, Sindh",
     fundingAgency: "Asian Development Bank",
     employer: "National Highway Authority",
@@ -95,7 +95,7 @@ const completedProjects: Project[] = [
   },
   {
     number: 7,
-    title: "Sujawal â€“ Jati Road Reconstruction",
+    title: "Sujawal – Jati Road Reconstruction",
     location: "District Thatta, Sindh",
     fundingAgency: "Asian Development Bank",
     employer: "Government of Sindh (Works & Services Dept.)",
@@ -119,7 +119,7 @@ const completedProjects: Project[] = [
   },
   {
     number: 9,
-    title: "Lakhi â€“ Naudero â€“ Larkana Road Improvement",
+    title: "Lakhi – Naudero – Larkana Road Improvement",
     location: "Lakhi to Madeji including Madeji Bypass",
     fundingAgency: "Government of Pakistan",
     employer: "National Highway Authority",
@@ -154,7 +154,7 @@ const completedProjects: Project[] = [
   },
   {
     number: 12,
-    title: "Khanozai â€“ Muslim Bagh Highway Improvement",
+    title: "Khanozai – Muslim Bagh Highway Improvement",
     location: "Balochistan",
     fundingAgency: "Government of Pakistan",
     employer: "National Highway Authority",
@@ -181,11 +181,11 @@ const completedProjects: Project[] = [
 const ongoingProjects: Project[] = [
   {
     number: 1,
-    title: "Dualization of Kuchlakâ€“Zhob Section of N-50 (Package-5): Khanozai to Kuchlak",
+    title: "Dualization of Kuchlak–Zhob Section of N-50 (Package-5): Khanozai to Kuchlak",
     location: "Khanozai to Kuchlak (KM 245+00 to KM 298+00)",
     fundingAgency: "NHA",
     employer: "National Highway Authority",
-    contractor: "JHCEC â€“ ZEPL Joint Venture",
+    contractor: "JHCEC – ZEPL Joint Venture",
     commencementDate: "22 May 2021",
     completionDate: "2026",
     totalLength: "53 KM",
@@ -209,7 +209,7 @@ const ongoingProjects: Project[] = [
     location: "District DI Khan",
     fundingAgency: "World Bank",
     employer: "C&W Department Peshawar",
-    contractor: "NKBâ€“ZEPL Joint Venture",
+    contractor: "NKB–ZEPL Joint Venture",
     commencementDate: "08 January 2025",
     completionDate: "02 July 2026",
     totalLength: "25.46 KM",
@@ -221,7 +221,7 @@ const ongoingProjects: Project[] = [
     location: "District Naushahro Feroze & Shaheed Benazirabad",
     fundingAgency: "Asian Development Bank",
     employer: "Works & Services Dept. Hyderabad Sindh",
-    contractor: "SPGEC â€“ ZEPL Joint Venture",
+    contractor: "SPGEC – ZEPL Joint Venture",
     commencementDate: "25 January 2024",
     completionDate: "January 2026",
     totalLength: "60.36 KM",
@@ -258,7 +258,7 @@ const ProjectCard = ({
       viewport={{ once: true, margin: "-50px" }}
       className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-gray-300 transition-all duration-400 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.12)]"
     >
-      {/* â”€â”€ IMAGE HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── IMAGE HEADER ─────────────────────────────────── */}
       <div className="relative overflow-hidden" style={{ aspectRatio: "16/7" }}>
         <img
           src={img}
@@ -276,7 +276,7 @@ const ProjectCard = ({
           />
         </div>
 
-        {/* â”€â”€ TOP ROW badges â”€â”€ */}
+        {/* ── TOP ROW badges ── */}
         <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
           {/* Project number */}
           <span className="font-display text-[11px] font-black tracking-[0.35em] uppercase px-3 py-1.5 rounded-full bg-black/50 border border-gray-200 text-gray-500 backdrop-blur-sm">
@@ -300,10 +300,10 @@ const ProjectCard = ({
           )}
         </div>
 
-        {/* Length badge â€“ bottom-left of image */}
+        {/* Length badge – bottom-left of image */}
         {project.totalLength && (
           <div className="absolute bottom-4 left-4">
-            <span className={`inline-flex items-center gap-1 text-[11px] font-black tracking-[0.15em] uppercase px-3 py-1 rounded-full backdrop-blur-sm border ${isOngoing ? "bg-accent/15 border-accent/30 text-accent" : "bg-primary/15 border-primary/30 text-primary"}`}>
+            <span className="inline-flex items-center gap-1 text-[11px] font-black tracking-[0.15em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-black/55 border border-white/25 text-white">
               <ArrowRight size={9} />
               {project.totalLength}
             </span>
@@ -319,7 +319,7 @@ const ProjectCard = ({
         ))}
       </div>
 
-      {/* â”€â”€ TITLE STRIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── TITLE STRIP ──────────────────────────────────── */}
       <div className="px-5 pt-4 pb-3 border-b border-white/[0.055]">
         <h3 className="font-display text-[15.5px] font-bold leading-snug text-gray-900 group-hover:text-gray-900 transition-colors duration-200 line-clamp-2">
           {project.title}
@@ -330,7 +330,7 @@ const ProjectCard = ({
         </div>
       </div>
 
-      {/* â”€â”€ INFO GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── INFO GRID ────────────────────────────────────── */}
       <div className="grid grid-cols-2 divide-x divide-white/[0.055]">
         {[
           { label: "Employer",      value: project.employer,         icon: Building2 },
@@ -351,7 +351,7 @@ const ProjectCard = ({
         ))}
       </div>
 
-      {/* â”€â”€ BOTTOM ACCENT LINE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── BOTTOM ACCENT LINE ──────────────────────────── */}
       <div className={`h-[2px] bg-gradient-to-r from-transparent via-current to-transparent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-600 ${isOngoing ? "text-accent/50" : "text-primary/50"}`} />
     </motion.article>
   );
@@ -387,7 +387,7 @@ const SectionDivider = ({ label, count, isOngoing = false }: { label: string; co
 const Projects = () => (
   <div className="pt-[68px]">
 
-    {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+    {/* ── HERO ─────────────────────────────────────────────────── */}
     <section className="relative overflow-hidden py-24 px-6">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(122,30%,90%)]" />
       <div
@@ -443,7 +443,7 @@ const Projects = () => (
               { value: "13",   label: "Completed Projects", gold: false },
               { value: "4",    label: "Active Projects",    gold: true  },
               { value: "500+", label: "KM Roads Built",     gold: true  },
-              { value: "35+",  label: "Years Experience",   gold: false },
+              { value: "300+", label: "Employees",          gold: false },
             ].map((s) => (
               <div
                 key={s.label}
@@ -459,7 +459,7 @@ const Projects = () => (
       </div>
     </section>
 
-    {/* â”€â”€ COMPLETED PROJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+    {/* ── COMPLETED PROJECTS ───────────────────────────────────── */}
     <section className="relative overflow-hidden py-20 px-6">
       <div
         className="absolute inset-0 opacity-[0.018] pointer-events-none"
@@ -475,7 +475,7 @@ const Projects = () => (
       </div>
     </section>
 
-    {/* â”€â”€ ONGOING PROJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+    {/* ── ONGOING PROJECTS ─────────────────────────────────────── */}
     <section className="relative overflow-hidden py-20 pb-28 px-6">
       <div className="absolute inset-0 bg-[hsl(210,40%,96%)]" />
       <div

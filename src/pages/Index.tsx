@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
-import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Trophy, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Users } from "lucide-react";
 import heroImage from "@/assets/hero-road.jpg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
@@ -14,9 +14,9 @@ import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
 
 const stats = [
   { value: 500, suffix: "+", label: "KM Roads Built", icon: MapPin },
-  { value: 120, suffix: "+", label: "Projects Completed", icon: Layers },
-  { value: 35, suffix: "+", label: "Years Experience", icon: Trophy },
-  { value: 50, suffix: "+", label: "Expert Engineers", icon: Users },
+  { value: 50, suffix: "+", label: "Projects Completed", icon: Layers },
+  { value: 200, suffix: "+", label: "Machinery & Plants", icon: Truck },
+  { value: 300, suffix: "+", label: "Employees", icon: Users },
 ];
 
 const teamMembers = [
@@ -72,9 +72,9 @@ const services = [
 ];
 
 const projects = [
-  { img: highwayImg, title: "N-50 Zhob â€“ Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar â€“ Mughal Kot, Balochistan", type: "Highway" },
-  { img: bridgeImg,  title: "N-70 Loralai â€“ Waigum Rud Road Upgradation", location: "Loralai â€“ Waighum Rud Section, Balochistan", type: "Highway" },
-  { img: asphaltImg, title: "Rohri â€“ Panu Aqil Road Rehabilitation (N-5)", location: "Rohri to Panu Aqil, Sukkur, Sindh", type: "Rehabilitation" },
+  { img: highwayImg, title: "N-50 Zhob – Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar – Mughal Kot, Balochistan", type: "Highway" },
+  { img: bridgeImg,  title: "N-70 Loralai – Waigum Rud Road Upgradation", location: "Loralai – Waighum Rud Section, Balochistan", type: "Highway" },
+  { img: asphaltImg, title: "Rohri – Panu Aqil Road Rehabilitation (N-5)", location: "Rohri to Panu Aqil, Sukkur, Sindh", type: "Rehabilitation" },
 ];
 
 const fadeUp = {
@@ -268,7 +268,7 @@ const Index = () => (
               <p className="font-display text-5xl font-black text-gradient leading-none">06</p>
               <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">Capabilities</p>
             </div>
-            <Button variant="heroOutline" asChild className="shrink-0">
+            <Button variant="outline" asChild className="shrink-0 border-gray-800 text-gray-800 hover:bg-gray-100">
               <Link to="/services">All Services <ArrowRight size={14} className="ml-1.5" /></Link>
             </Button>
           </div>
@@ -380,7 +380,7 @@ const Index = () => (
               <p className="font-display text-5xl font-black text-gradient leading-none">03</p>
               <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">Selected Works</p>
             </div>
-            <Button variant="heroOutline" asChild className="shrink-0">
+            <Button variant="outline" asChild className="shrink-0 border-gray-800 text-gray-800 hover:bg-gray-100">
               <Link to="/projects">View All <ArrowRight size={14} className="ml-1.5" /></Link>
             </Button>
           </div>
@@ -389,12 +389,12 @@ const Index = () => (
         {/* Asymmetric bento grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
-          {/* Large hero card â€” clip-path wipe from bottom */}
+          {/* Large hero card */}
           <motion.div
-            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
-            whileInView={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "0px" }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] rounded-2xl overflow-hidden group cursor-pointer"
           >
             <img
@@ -404,7 +404,7 @@ const Index = () => (
             />
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
-            {/* Shimmer sweep â€” always running subtly */}
+            {/* Shimmer sweep — always running subtly */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div
                 className="absolute inset-y-0 w-[55%] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent -skew-x-12"
@@ -412,7 +412,7 @@ const Index = () => (
                 transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", repeatDelay: 2.5 }}
               />
             </div>
-            {/* Corner brackets â€” expand on hover */}
+            {/* Corner brackets — expand on hover */}
             {[
               "top-4 left-4 border-t-[2px] border-l-[2px]",
               "top-4 right-4 border-t-[2px] border-r-[2px]",
@@ -432,7 +432,7 @@ const Index = () => (
                 {projects[0].type}
               </span>
             </div>
-            {/* Bottom info â€” subtle lift on hover */}
+            {/* Bottom info — subtle lift on hover */}
             <div className="absolute bottom-0 inset-x-0 p-6 lg:p-8 translate-y-1 group-hover:translate-y-0 transition-transform duration-300 ease-out">
               <h3 className="font-display text-2xl lg:text-3xl font-bold text-white mb-1.5">{projects[0].title}</h3>
               <div className="flex items-center gap-1.5 text-white/65 text-sm">
@@ -450,21 +450,15 @@ const Index = () => (
             </div>
           </motion.div>
 
-          {/* Right column â€” two stacked cards with opposing wipe directions */}
+          {/* Right column — two stacked cards with opposing wipe directions */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             {projects.slice(1).map((p, i) => (
               <motion.div
                 key={p.title}
-                initial={{
-                  clipPath: i === 0 ? "inset(0 100% 0 0)" : "inset(100% 0 0 0)",
-                  opacity: 0,
-                }}
-                whileInView={{
-                  clipPath: i === 0 ? "inset(0 0% 0 0)" : "inset(0% 0 0 0)",
-                  opacity: 1,
-                }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.95, delay: 0.1 + i * 0.14, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "0px" }}
+                transition={{ duration: 0.75, delay: 0.1 + i * 0.14, ease: [0.16, 1, 0.3, 1] }}
                 className="relative flex-1 min-h-[245px] rounded-2xl overflow-hidden group cursor-pointer"
               >
                 <img
@@ -622,7 +616,7 @@ const Index = () => (
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* Left â€” headline */}
+          {/* Left — headline */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -637,7 +631,7 @@ const Index = () => (
               <span className="text-gradient">Something Great?</span>
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
-              From planning to delivery â€” our experienced team turns ambitious infrastructure visions into lasting reality.
+              From planning to delivery — our experienced team turns ambitious infrastructure visions into lasting reality.
             </p>
             <Link
               to="/contact"
@@ -653,7 +647,7 @@ const Index = () => (
             </Link>
           </motion.div>
 
-          {/* Right â€” contact cards */}
+          {/* Right — contact cards */}
           <div className="flex flex-col gap-4">
             {[
               {
@@ -661,7 +655,7 @@ const Index = () => (
                 icon: Phone,
                 label: "Call Us Directly",
                 value: "+9221-34978326",
-                sub: "Available Monâ€“Sat, 9amâ€“6pm",
+                sub: "Available Mon–Sat, 9am–6pm",
                 delay: 0.15,
               },
               {
@@ -714,7 +708,7 @@ const Index = () => (
               className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
             />
             <p className="text-center text-[12px] text-gray-400 tracking-wide">
-              Karachi, Pakistan &nbsp;Â·&nbsp; Est. 1991
+              Karachi, Pakistan &nbsp;·&nbsp; Est. 1991
             </p>
           </div>
         </div>

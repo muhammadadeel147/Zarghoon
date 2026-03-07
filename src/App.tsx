@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Equipment from "./pages/Equipment";
 import Contact from "./pages/Contact";
+import Iso from "./pages/Iso";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/equipment" element={<Equipment />} />
+          <Route path="/iso-certification" element={<Iso />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
