@@ -24,13 +24,22 @@ const Counter = ({ value, suffix = "" }: CounterProps) => {
 
   return <span ref={ref}>{display}{suffix}</span>;
 };
-import highwayImg  from "@/assets/highway-project.jpg";
-import bridgeImg   from "@/assets/bridge-project.jpg";
-import asphaltImg  from "@/assets/asphalt-paving.jpg";
-import heroImg     from "@/assets/hero-road.jpg";
-import sustainImg  from "@/assets/sustainability.jpg";
-
-const placeholderImages = [highwayImg, heroImg, asphaltImg, bridgeImg, sustainImg];
+import imgDhaA2      from "@/assets/projects/DHA A-2.jpeg";
+import imgDhaExpress from "@/assets/projects/DHA Express.jpeg";
+import imgDha        from "@/assets/projects/DHA.jpeg";
+import imgN70        from "@/assets/projects/N-70.jpeg";
+import imgN50        from "@/assets/projects/N-50.jpeg";
+import imgN50Muslim  from "@/assets/projects/N-50Muslimbagh.jpeg";
+import imgRhbN50     from "@/assets/projects/RHB N-50.jpeg";
+import imgBadin      from "@/assets/projects/Badin.jpeg";
+import imgMultan     from "@/assets/projects/Multan.jpeg";
+import imgLakhi      from "@/assets/projects/Lakhi Naudero.jpeg";
+import imgAirstrip   from "@/assets/projects/Airstrip.jpeg";
+import imgZiarat     from "@/assets/projects/Ziarat ROad.jpeg";
+import imgCadet      from "@/assets/projects/CadetCollege.jpeg";
+import imgPackage5   from "@/assets/projects/Package-5.jpeg";
+import imgFortMunro  from "@/assets/projects/Fort Munro.jpeg";
+import imgN40        from "@/assets/projects/N-40.jpeg";
 
 type Project = {
   number: number;
@@ -43,6 +52,7 @@ type Project = {
   completionDate: string;
   totalLength?: string;
   status: "Completed" | "Ongoing";
+  image: string;
 };
 
 const completedProjects: Project[] = [
@@ -56,6 +66,7 @@ const completedProjects: Project[] = [
     commencementDate: "19 July 2021",
     completionDate: "24 October 2025",
     status: "Completed",
+    image: imgDhaA2,
   },
   {
     number: 2,
@@ -68,6 +79,7 @@ const completedProjects: Project[] = [
     completionDate: "15 October 2022",
     totalLength: "3 KM",
     status: "Completed",
+    image: imgDhaExpress,
   },
   {
     number: 3,
@@ -80,6 +92,7 @@ const completedProjects: Project[] = [
     completionDate: "April 2020",
     totalLength: "49 KM",
     status: "Completed",
+    image: imgN70,
   },
   {
     number: 4,
@@ -92,6 +105,7 @@ const completedProjects: Project[] = [
     completionDate: "December 2020",
     totalLength: "32 KM",
     status: "Completed",
+    image: imgN50,
   },
   {
     number: 5,
@@ -104,6 +118,7 @@ const completedProjects: Project[] = [
     completionDate: "30 April 2015",
     totalLength: "27.96 KM",
     status: "Completed",
+    image: imgN40,
   },
   {
     number: 6,
@@ -116,6 +131,7 @@ const completedProjects: Project[] = [
     completionDate: "30 October 2015",
     totalLength: "26.4 KM",
     status: "Completed",
+    image: imgBadin,
   },
   {
     number: 7,
@@ -128,6 +144,7 @@ const completedProjects: Project[] = [
     completionDate: "25 March 2013",
     totalLength: "30 KM",
     status: "Completed",
+    image: imgLakhi,
   },
   {
     number: 8,
@@ -140,6 +157,7 @@ const completedProjects: Project[] = [
     completionDate: "14 December 2011",
     totalLength: "7.39 KM",
     status: "Completed",
+    image: imgMultan,
   },
   {
     number: 9,
@@ -152,6 +170,7 @@ const completedProjects: Project[] = [
     completionDate: "31 March 2012",
     totalLength: "30 KM",
     status: "Completed",
+    image: imgLakhi,
   },
   {
     number: 10,
@@ -164,6 +183,7 @@ const completedProjects: Project[] = [
     completionDate: "June 2009",
     totalLength: "10 KM",
     status: "Completed",
+    image: imgRhbN50,
   },
   {
     number: 11,
@@ -175,6 +195,7 @@ const completedProjects: Project[] = [
     commencementDate: "13 August 2007",
     completionDate: "11 November 2007",
     status: "Completed",
+    image: imgAirstrip,
   },
   {
     number: 12,
@@ -187,6 +208,7 @@ const completedProjects: Project[] = [
     completionDate: "31 January 2009",
     totalLength: "50 KM",
     status: "Completed",
+    image: imgN50Muslim,
   },
   {
     number: 13,
@@ -199,6 +221,7 @@ const completedProjects: Project[] = [
     completionDate: "15 October 2005",
     totalLength: "14 KM",
     status: "Completed",
+    image: imgZiarat,
   },
   {
     number: 14,
@@ -210,6 +233,7 @@ const completedProjects: Project[] = [
     commencementDate: "25 November 2021",
     completionDate: "02 December 2024",
     status: "Completed",
+    image: imgCadet,
   },
   {
     number: 15,
@@ -221,6 +245,7 @@ const completedProjects: Project[] = [
     commencementDate: "25 November 2021",
     completionDate: "31 March 2024",
     status: "Completed",
+    image: imgCadet,
   },
 ];
 
@@ -236,6 +261,7 @@ const ongoingProjects: Project[] = [
     completionDate: "2026",
     totalLength: "53 KM",
     status: "Ongoing",
+    image: imgPackage5,
   },
   {
     number: 2,
@@ -248,6 +274,7 @@ const ongoingProjects: Project[] = [
     completionDate: "22 January 2026",
     totalLength: "33.05 KM",
     status: "Ongoing",
+    image: imgFortMunro,
   },
   {
     number: 3,
@@ -260,6 +287,7 @@ const ongoingProjects: Project[] = [
     completionDate: "02 July 2026",
     totalLength: "25.46 KM",
     status: "Ongoing",
+    image: imgFortMunro,
   },
   {
     number: 4,
@@ -272,6 +300,7 @@ const ongoingProjects: Project[] = [
     completionDate: "January 2026",
     totalLength: "60.36 KM",
     status: "Ongoing",
+    image: imgN40,
   },
   {
     number: 5,
@@ -283,6 +312,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "01 November 2024",
     completionDate: "30 April 2026",
     status: "Ongoing",
+    image: imgDha,
   },
   {
     number: 6,
@@ -294,6 +324,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "24 November 2025",
     completionDate: "TBD",
     status: "Ongoing",
+    image: imgDhaExpress,
   },
   {
     number: 7,
@@ -306,6 +337,7 @@ const ongoingProjects: Project[] = [
     completionDate: "TBD",
     totalLength: "52 KM",
     status: "Ongoing",
+    image: imgN50,
   },
   {
     number: 8,
@@ -317,6 +349,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "20 February 2026",
     completionDate: "February 2027",
     status: "Ongoing",
+    image: imgMultan,
   },
   {
     number: 9,
@@ -328,6 +361,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "20 February 2026",
     completionDate: "February 2027",
     status: "Ongoing",
+    image: imgLakhi,
   },
   {
     number: 10,
@@ -339,6 +373,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
+    image: imgRhbN50,
   },
   {
     number: 11,
@@ -350,6 +385,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
+    image: imgBadin,
   },
   {
     number: 12,
@@ -361,6 +397,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
+    image: imgMultan,
   },
   {
     number: 13,
@@ -372,6 +409,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
+    image: imgMultan,
   },
 ];
 
@@ -386,14 +424,12 @@ const cardVariants = {
 const ProjectCard = ({
   project,
   index,
-  imageIndex,
 }: {
   project: Project;
   index: number;
-  imageIndex: number;
 }) => {
   const isOngoing = project.status === "Ongoing";
-  const img = placeholderImages[imageIndex % placeholderImages.length];
+  const img = project.image;
 
   return (
     <motion.article
@@ -619,7 +655,7 @@ const Projects = () => (
         <SectionDivider label="Track Record" count={completedProjects.length} />
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {completedProjects.map((p, i) => (
-            <ProjectCard key={p.number} project={p} index={i} imageIndex={i} />
+            <ProjectCard key={p.number} project={p} index={i} />
           ))}
         </div>
       </div>
@@ -637,7 +673,7 @@ const Projects = () => (
         <SectionDivider label="Live Work" count={ongoingProjects.length} isOngoing />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {ongoingProjects.map((p, i) => (
-            <ProjectCard key={p.number} project={p} index={i} imageIndex={i + 2} />
+            <ProjectCard key={p.number} project={p} index={i} />
           ))}
         </div>
       </div>

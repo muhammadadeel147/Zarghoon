@@ -11,7 +11,9 @@ const Footer = () => (
 
         {/* Brand — full width on mobile */}
         <div className="col-span-2 md:col-span-1 flex items-center gap-3 md:block">
-          <img src={logoSrc} alt="Zarghoon Enterprises (Pvt.) Ltd." className="h-8 sm:h-10 w-auto shrink-0" />
+          <div className="bg-gradient-to-br from-[hsl(122,47%,22%)] to-[hsl(122,47%,13%)] rounded-2xl px-4 py-2 inline-block shrink-0 shadow-[0_2px_14px_-3px_rgba(0,90,0,0.4)] ring-1 ring-white/10">
+            <img src={logoSrc} alt="Zarghoon Enterprises (Pvt.) Ltd." className="h-7 sm:h-9 w-auto" />
+          </div>
           <p className="text-[12px] sm:text-[13px] text-gray-500 leading-relaxed md:mt-3 md:max-w-[220px]">
             Building roads that connect communities across Pakistan since 1991.
           </p>

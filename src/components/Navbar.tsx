@@ -10,7 +10,7 @@ const navLinks = [
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
   { to: "/equipment", label: "Equipment" },
-  { to: "/iso-certification", label: "ISO Certification" },
+  { to: "/iso-certification", label: "Certifications" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -41,11 +41,13 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0 group">
-            <img
-              src={logoSrc}
-              alt="Zarghoon Enterprises (Pvt.) Ltd."
-              className="h-11 w-auto transition-transform duration-300 group-hover:scale-[1.03]"
-            />
+            <div className="bg-gradient-to-br from-[hsl(122,47%,22%)] to-[hsl(122,47%,13%)] rounded-2xl px-4 py-2 shadow-[0_2px_14px_-3px_rgba(0,90,0,0.45)] ring-1 ring-white/10 transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_4px_20px_-3px_rgba(0,90,0,0.6)]">
+              <img
+                src={logoSrc}
+                alt="Zarghoon Enterprises (Pvt.) Ltd."
+                className="h-9 w-auto"
+              />
+            </div>
           </Link>
 
           {/* Desktop links */}
