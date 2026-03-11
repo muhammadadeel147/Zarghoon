@@ -33,6 +33,11 @@ import imgN50Muslim  from "@/assets/projects/N-50Muslimbagh.jpeg";
 import imgRhbN50     from "@/assets/projects/RHB N-50.jpeg";
 import imgBadin      from "@/assets/projects/Badin.jpeg";
 import imgMultan     from "@/assets/projects/Multan.jpeg";
+import highwayImg    from "@/assets/highway-project.jpg";
+import bridgeImg     from "@/assets/bridge-project.jpg";
+import asphaltImg    from "@/assets/asphalt-paving.jpg";
+import heroImg       from "@/assets/hero-road.jpg";
+import sustainImg    from "@/assets/sustainability.jpg";
 import imgLakhi      from "@/assets/projects/Lakhi Naudero.jpeg";
 import imgAirstrip   from "@/assets/projects/Airstrip.jpeg";
 import imgZiarat     from "@/assets/projects/Ziarat ROad.jpeg";
@@ -40,6 +45,7 @@ import imgCadet      from "@/assets/projects/CadetCollege.jpeg";
 import imgPackage5   from "@/assets/projects/Package-5.jpeg";
 import imgFortMunro  from "@/assets/projects/Fort Munro.jpeg";
 import imgN40        from "@/assets/projects/N-40.jpeg";
+import img1          from "@/assets/projects/1.jpeg";
 
 type Project = {
   number: number;
@@ -144,7 +150,7 @@ const completedProjects: Project[] = [
     completionDate: "25 March 2013",
     totalLength: "30 KM",
     status: "Completed",
-    image: imgLakhi,
+    image: highwayImg,
   },
   {
     number: 8,
@@ -245,7 +251,7 @@ const completedProjects: Project[] = [
     commencementDate: "25 November 2021",
     completionDate: "31 March 2024",
     status: "Completed",
-    image: imgCadet,
+    image: bridgeImg,
   },
 ];
 
@@ -287,7 +293,7 @@ const ongoingProjects: Project[] = [
     completionDate: "02 July 2026",
     totalLength: "25.46 KM",
     status: "Ongoing",
-    image: imgFortMunro,
+    image: img1,
   },
   {
     number: 4,
@@ -300,7 +306,7 @@ const ongoingProjects: Project[] = [
     completionDate: "January 2026",
     totalLength: "60.36 KM",
     status: "Ongoing",
-    image: imgN40,
+    image: heroImg,
   },
   {
     number: 5,
@@ -324,7 +330,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "24 November 2025",
     completionDate: "TBD",
     status: "Ongoing",
-    image: imgDhaExpress,
+    image: sustainImg,
   },
   {
     number: 7,
@@ -337,7 +343,7 @@ const ongoingProjects: Project[] = [
     completionDate: "TBD",
     totalLength: "52 KM",
     status: "Ongoing",
-    image: imgN50,
+    image: highwayImg,
   },
   {
     number: 8,
@@ -349,7 +355,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "20 February 2026",
     completionDate: "February 2027",
     status: "Ongoing",
-    image: imgMultan,
+    image: bridgeImg,
   },
   {
     number: 9,
@@ -361,7 +367,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "20 February 2026",
     completionDate: "February 2027",
     status: "Ongoing",
-    image: imgLakhi,
+    image: sustainImg,
   },
   {
     number: 10,
@@ -373,7 +379,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
-    image: imgRhbN50,
+    image: asphaltImg,
   },
   {
     number: 11,
@@ -385,7 +391,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
-    image: imgBadin,
+    image: heroImg,
   },
   {
     number: 12,
@@ -397,7 +403,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
-    image: imgMultan,
+    image: bridgeImg,
   },
   {
     number: 13,
@@ -409,7 +415,7 @@ const ongoingProjects: Project[] = [
     commencementDate: "27 January 2026",
     completionDate: "January 2027",
     status: "Ongoing",
-    image: imgMultan,
+    image: heroImg,
   },
 ];
 

@@ -89,7 +89,7 @@ $emailSafe   = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 $messageSafe = nl2br(htmlspecialchars(strip_tags($message), ENT_QUOTES, 'UTF-8'));
 
 // ── Build email ───────────────────────────────────────────────────
-$to      = 'Info@zarghoon.pk';
+$to      = 'zarghoonenterprises@yahoo.com';
 $headers = implode("\r\n", [
     'From: Zarghoon Website <noreply@zarghoon.pk>',
     'Reply-To: ' . $nameSafe . ' <' . $email . '>',

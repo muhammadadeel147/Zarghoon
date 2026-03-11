@@ -12,7 +12,7 @@ const cardVariants = {
 
 const contactCards = [
   { icon: Phone,  label: "Call Us",       value: "+92-300-9295315",  sub: "Mon–Sat, 9am–6pm PKT",   href: "tel:+92-300-9295315",       gold: false },
-  { icon: Mail,   label: "Email Us",      value: "Info@zarghoon.pk", sub: "zepl_38@yahoo.com", href: "mailto:Info@zarghoon.pk", gold: true  },
+  { icon: Mail,   label: "Email Us",      value: "zarghoonenterprises@yahoo.com", sub: "zepl_38@yahoo.com", href: "mailto:zarghoonenterprises@yahoo.com", gold: true  },
   { icon: MapPin, label: "Head Office",   value: "B-97, Block 4-A, Gulshan-e-Iqbal", sub: "Karachi · +923009295315", href: null, gold: false },
   { icon: MapPin, label: "Regional Office", value: "House #198, Phase 1, Shahbaz Town", sub: "Quetta · +92-81-2820470-1", href: null, gold: false },
 ];

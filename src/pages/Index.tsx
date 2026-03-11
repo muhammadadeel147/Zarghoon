@@ -8,6 +8,9 @@ import heroImage from "@/assets/hero-road.jpg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
 import asphaltImg from "@/assets/asphalt-paving.jpg";
+import imgN50 from "@/assets/projects/N-50.jpeg";
+import imgN70 from "@/assets/projects/N-70.jpeg";
+import imgFortMunro from "@/assets/projects/Fort Munro.jpeg";
 import MunirAhmedImg from "@/assets/MunirAhmed.jpeg";
 import JalilImg from "@/assets/jalil.jpeg";
 import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
@@ -39,7 +42,7 @@ const teamMembers = [
   },
   {
     name: "Jamil A. Kakar",
-    role: "Director",
+    role: "Director Operations",
     initials: "JAK",
     bio: "Oversees business development and key stakeholder relationships across Zarghoon's project portfolio.",
     image: Jameel as string | null,
@@ -47,16 +50,16 @@ const teamMembers = [
   },
   {
     name: "Akhlaq A. Kakar",
-    role: "General Manager",
+    role: "Director Finance",
     initials: "AK",
     bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
     image: Akhlaq as string | null,
     gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
   },
   {
-    name: "Eng. Bashir Ahmed",
+    name: "Bashir A. Kakar",
     role: "Director",
-    initials: "BE",
+    initials: "BK",
     bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
     image: EngBashirAhmedImg as string | null,
     gradient: "from-[#7a3a0a] via-[#9a5015] to-[#5c2a08]",
@@ -77,9 +80,9 @@ const services = [
 ];
 
 const projects = [
-  { img: highwayImg, title: "N-50 Zhob – Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar – Mughal Kot, Balochistan", type: "Highway" },
-  { img: bridgeImg,  title: "N-70 Loralai – Waigum Rud Road Upgradation", location: "Loralai – Waighum Rud Section, Balochistan", type: "Highway" },
-  { img: asphaltImg, title: "Rohri – Panu Aqil Road Rehabilitation (N-5)", location: "Rohri to Panu Aqil, Sukkur, Sindh", type: "Rehabilitation" },
+  { img: imgFortMunro, title: "KP Rural Accessibility Project (Package-8)", location: "District Karak, Kohat, Kurram, and Orakzai", type: "Road Rehabilitation" },
+  { img: imgN50, title: "N-50 Zhob \u2013 Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar \u2013 Mughal Kot, Balochistan", type: "Highway" },
+  { img: imgN70, title: "N-70 Loralai \u2013 Waigum Rud Road Upgradation", location: "Loralai \u2013 Waighum Rud Section, Balochistan", type: "Highway" },
 ];
 
 const fadeUp = {
@@ -199,11 +202,11 @@ const Index = () => (
           </a>
           <span className="hidden sm:block w-px h-4 bg-white/25" />
           <a
-            href="mailto:Info@zarghoon.pk"
+            href="mailto:zarghoonenterprises@yahoo.com"
             className="flex items-center gap-2 text-white/70 hover:text-accent transition-colors duration-200"
           >
             <Mail size={14} className="text-accent" />
-            Info@zarghoon.pk
+            zarghoonenterprises@yahoo.com
           </a>
           <span className="hidden sm:block w-px h-4 bg-white/25" />
           <a
@@ -672,10 +675,10 @@ const Index = () => (
                 delay: 0.15,
               },
               {
-                href: "mailto:Info@zarghoon.pk",
+                href: "mailto:zarghoonenterprises@yahoo.com",
                 icon: Mail,
                 label: "Drop an Email",
-                value: "Info@zarghoon.pk",
+                value: "zarghoonenterprises@yahoo.com",
                 sub: "We reply within 24 hours",
                 delay: 0.3,
               },

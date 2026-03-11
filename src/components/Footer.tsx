@@ -50,9 +50,9 @@ const Footer = () => (
               <Phone size={12} className="text-primary shrink-0" />
               +92-300-9295315
             </a>
-            <a href="mailto:Info@zarghoon.pk" className="flex items-center gap-2 text-[12px] sm:text-[13px] text-gray-600 hover:text-primary transition-colors duration-200">
+            <a href="mailto:zarghoonenterprises@yahoo.com" className="flex items-center gap-2 text-[12px] sm:text-[13px] text-gray-600 hover:text-primary transition-colors duration-200">
               <Mail size={12} className="text-primary shrink-0" />
-              Info@zarghoon.pk
+              zarghoonenterprises@yahoo.com
             </a>
             <a href="mailto:zepl_38@yahoo.com" className="flex items-center gap-2 text-[12px] sm:text-[13px] text-gray-600 hover:text-primary transition-colors duration-200">
               <Mail size={12} className="text-primary shrink-0" />
