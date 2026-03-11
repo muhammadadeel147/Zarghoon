@@ -12,6 +12,7 @@ import MunirAhmedImg from "@/assets/MunirAhmed.jpeg";
 import JalilImg from "@/assets/jalil.jpeg";
 import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
 import Akhlaq  from "@/assets/akhlaq.jpeg";
+import Jameel  from "@/assets/Jameel.jpeg";
 const stats = [
   { value: 1000, suffix: "+", label: "KM Roads Built", icon: MapPin },
   { value: 50, suffix: "+", label: "Projects Completed", icon: Layers },
@@ -41,7 +42,7 @@ const teamMembers = [
     role: "Director",
     initials: "JAK",
     bio: "Oversees business development and key stakeholder relationships across Zarghoon's project portfolio.",
-    image: null,
+    image: Jameel as string | null,
     gradient: "from-[#264653] via-[#2a5f70] to-[#1a3a45]",
   },
   {

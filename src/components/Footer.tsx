@@ -28,7 +28,7 @@ const Footer = () => (
               { label: "Services", path: "/services" },
               { label: "Projects", path: "/projects" },
               { label: "Equipment", path: "/equipment" },
-              { label: "ISO Certification", path: "/iso-certification" },
+              { label: "Certifications", path: "/iso-certification" },
               { label: "Contact", path: "/contact" },
             ].map((l) => (
               <Link
