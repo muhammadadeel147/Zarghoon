@@ -43,7 +43,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center shrink-0 group">
             <img
               src={logoSrc}
-              alt="Zarghoon Construction"
+              alt="Zarghoon Enterprises (Pvt.) Ltd."
               className="h-11 w-auto transition-transform duration-300 group-hover:scale-[1.03]"
             />
           </Link>

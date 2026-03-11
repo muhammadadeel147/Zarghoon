@@ -11,7 +11,7 @@ import asphaltImg from "@/assets/asphalt-paving.jpg";
 import MunirAhmedImg from "@/assets/MunirAhmed.jpeg";
 import JalilImg from "@/assets/jalil.jpeg";
 import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
-
+import Akhlaq  from "@/assets/akhlaq.jpeg";
 const stats = [
   { value: 1000, suffix: "+", label: "KM Roads Built", icon: MapPin },
   { value: 50, suffix: "+", label: "Projects Completed", icon: Layers },
@@ -49,7 +49,7 @@ const teamMembers = [
     role: "General Manager",
     initials: "AK",
     bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
-    image: null,
+    image: Akhlaq as string | null,
     gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
   },
   {
@@ -69,10 +69,10 @@ const services = [
   { icon: BarChart3, title: "Bridge Construction", desc: "Engineered bridges connecting communities." },
   { icon: Shield, title: "Infrastructure Dev", desc: "Complete infrastructure development solutions." },
   { icon: Zap, title: "Smart Roads", desc: "IoT-enabled intelligent road systems." },
-  { icon: Milestone, title: "Underpasses", desc: "Reinforced concrete underpasses for safer traffic flow." },
-  { icon: Waves, title: "Dams", desc: "Dam and barrage construction for flood control and irrigation." },
-  { icon: CloudRain, title: "Storm Water Drainage", desc: "Drainage networks that protect roads and communities from flooding." },
-  { icon: Droplets, title: "Sewerage & Water Supply", desc: "Pipelines, pump stations, and water supply schemes." },
+    // { icon: Milestone, title: "Underpasses", desc: "Reinforced concrete underpasses for safer traffic flow." },
+    // { icon: Waves, title: "Dams", desc: "Dam and barrage construction for flood control and irrigation." },
+    // { icon: CloudRain, title: "Storm Water Drainage", desc: "Drainage networks that protect roads and communities from flooding." },
+    // { icon: Droplets, title: "Sewerage & Water Supply", desc: "Pipelines, pump stations, and water supply schemes." },
 ];
 
 const projects = [
@@ -148,7 +148,7 @@ const Index = () => (
           transition={{ delay: 0.2 }}
           className="inline-block text-xs font-semibold tracking-[0.3em] uppercase text-accent mb-6"
         >
-          Zarghoon Construction
+          Zarghoon Enterprises (Pvt.) Ltd.
         </motion.span>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

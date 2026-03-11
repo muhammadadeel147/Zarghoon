@@ -4,6 +4,7 @@ import { Target, Eye, Award, Users, CheckCircle2, Zap, Shield, Clock } from "luc
 import MunirAhmedImg from "@/assets/MunirAhmed.jpeg";
 import JalilImg from "@/assets/jalil.jpeg";
 import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
+import Akhlaq  from "@/assets/akhlaq.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
@@ -61,7 +62,7 @@ const team = [
     role: "General Manager",
     initials: "AK",
     bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
-    image: null,
+    image: Akhlaq as string | null,
     gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
   },
   {
@@ -159,7 +160,7 @@ const About = () => (
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-muted-foreground text-[15px] leading-relaxed max-w-lg mb-8"
             >
-              For over 35 years, Zarghoon Construction has been Pakistan's foremost road infrastructure company  transforming landscapes, connecting communities, and setting engineering benchmarks that others strive to follow.
+              For over 35 years, Zarghoon Enterprises (Pvt.) Ltd. has been Pakistan's foremost road infrastructure company  transforming landscapes, connecting communities, and setting engineering benchmarks that others strive to follow.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}

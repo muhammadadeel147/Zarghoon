@@ -11,7 +11,7 @@ const Footer = () => (
 
         {/* Brand — full width on mobile */}
         <div className="col-span-2 md:col-span-1 flex items-center gap-3 md:block">
-          <img src={logoSrc} alt="Zarghoon Construction" className="h-8 sm:h-10 w-auto shrink-0" />
+          <img src={logoSrc} alt="Zarghoon Enterprises (Pvt.) Ltd." className="h-8 sm:h-10 w-auto shrink-0" />
           <p className="text-[12px] sm:text-[13px] text-gray-500 leading-relaxed md:mt-3 md:max-w-[220px]">
             Building roads that connect communities across Pakistan since 1991.
           </p>
@@ -71,7 +71,7 @@ const Footer = () => (
       {/* Bottom bar */}
       <div className="mt-6 pt-5 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-1.5">
         <p className="text-[11px] text-gray-400">
-          © {new Date().getFullYear()} Zarghoon Construction. All rights reserved.
+          © {new Date().getFullYear()} Zarghoon Enterprises (Pvt.) Ltd. All rights reserved.
         </p>
         <p className="text-[11px] text-gray-300">Karachi · Est. 1991</p>
       </div>
