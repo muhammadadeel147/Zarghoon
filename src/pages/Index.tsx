@@ -82,23 +82,23 @@ const services = [
 const projects = [
   {
     img: imgFortMunro,
-    title: "KP Rural Accessibility Project (Package-8)",
-    location: "District Karak, Kohat, Kurram, and Orakzai",
-    type: "Road Rehabilitation",
-    status: "Ongoing" as const,
-    employer: "C&W Department Peshawar",
-    fundingAgency: "World Bank",
-    commencementDate: "29 October 2024",
-    completionDate: "22 January 2026",
-    totalLength: "33.05 KM",
-    contractor: "Zarghoon Enterprises (Private) Limited",
+    title: "Widening and Strengthening of National Highway N-70 (Rakhi \u2013 Gajj \u2013 Bewata Section)",
+    location: "Rakhi \u2013 Gajj Bewata Section, Balochistan",
+    type: "Highway Widening",
+    status: "Completed" as "Completed" | "Ongoing",
+    employer: "Taisei Corporation",
+    fundingAgency: "Asian Development Bank",
+    commencementDate: "11 July 2016",
+    completionDate: "14 March 2023",
+    totalLength: "33 KM",
+    contractor: "Zarghoon Enterprises (Pvt.) Ltd.",
   },
   {
     img: imgN50,
     title: "N-50 Zhob \u2013 Mughalkot Road Upgradation",
     location: "Killi Khuda-e-Nazar \u2013 Mughal Kot, Balochistan",
     type: "Highway",
-    status: "Completed" as const,
+    status: "Completed" as "Completed" | "Ongoing",
     employer: "National Highway Authority",
     fundingAgency: "Asian Development Bank",
     commencementDate: "30 August 2016",
@@ -111,7 +111,7 @@ const projects = [
     title: "N-70 Loralai \u2013 Waigum Rud Road Upgradation",
     location: "Loralai \u2013 Waighum Rud Section, Balochistan",
     type: "Highway",
-    status: "Completed" as const,
+    status: "Completed" as "Completed" | "Ongoing",
     employer: "National Highway Authority",
     fundingAgency: "Asian Development Bank",
     commencementDate: "17 August 2016",
@@ -173,7 +173,7 @@ const CounterStat = ({ value, suffix, label, index, icon: Icon }: { value: numbe
   );
 };
 
-type FeaturedProject = typeof projects[0];
+type FeaturedProject = typeof projects[number];
 
 const FeaturedProjectModal = ({ project, onClose }: { project: FeaturedProject; onClose: () => void }) => {
   const isOngoing = project.status === "Ongoing";

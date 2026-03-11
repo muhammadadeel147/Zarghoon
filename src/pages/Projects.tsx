@@ -253,6 +253,19 @@ const completedProjects: Project[] = [
     status: "Completed",
     image: bridgeImg,
   },
+  {
+    number: 16,
+    title: "Widening and Strengthening of National Highway N-70 (Rakhi \u2013 Gajj \u2013 Bewata Section)",
+    location: "Rakhi \u2013 Gajj Bewata Section (KM 7+600 to KM 19+500), Balochistan",
+    fundingAgency: "Asian Development Bank",
+    employer: "Taisei Corporation",
+    contractor: "Zarghoon Enterprises (Pvt.) Ltd.",
+    commencementDate: "11 July 2016",
+    completionDate: "14 March 2023",
+    totalLength: "33 KM",
+    status: "Completed",
+    image: imgFortMunro,
+  },
 ];
 
 const ongoingProjects: Project[] = [
@@ -280,7 +293,7 @@ const ongoingProjects: Project[] = [
     completionDate: "22 January 2026",
     totalLength: "33.05 KM",
     status: "Ongoing",
-    image: imgFortMunro,
+    image: highwayImg,
   },
   {
     number: 3,
@@ -737,7 +750,7 @@ const Projects = () => {
             className="grid grid-cols-2 gap-3"
           >
             {[
-              { num: 15,   suffix: "",   label: "Completed Projects", gold: false },
+              { num: 16,   suffix: "",   label: "Completed Projects", gold: false },
               { num: 13,   suffix: "",   label: "Active Projects",    gold: true  },
               { num: 1000, suffix: "+",  label: "KM Roads Built",     gold: true  },
               { num: 300,  suffix: "+",  label: "Employees",          gold: false },
