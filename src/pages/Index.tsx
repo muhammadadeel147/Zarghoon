@@ -1,9 +1,9 @@
-﻿import { motion, useInView } from "framer-motion";
+﻿import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect, ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
-import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Users, Milestone, Waves, CloudRain, Droplets } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Users, Milestone, Waves, CloudRain, Droplets, X, Calendar, Clock, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-road.jpg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
@@ -80,9 +80,45 @@ const services = [
 ];
 
 const projects = [
-  { img: imgFortMunro, title: "KP Rural Accessibility Project (Package-8)", location: "District Karak, Kohat, Kurram, and Orakzai", type: "Road Rehabilitation" },
-  { img: imgN50, title: "N-50 Zhob \u2013 Mughalkot Road Upgradation", location: "Killi Khuda-e-Nazar \u2013 Mughal Kot, Balochistan", type: "Highway" },
-  { img: imgN70, title: "N-70 Loralai \u2013 Waigum Rud Road Upgradation", location: "Loralai \u2013 Waighum Rud Section, Balochistan", type: "Highway" },
+  {
+    img: imgFortMunro,
+    title: "KP Rural Accessibility Project (Package-8)",
+    location: "District Karak, Kohat, Kurram, and Orakzai",
+    type: "Road Rehabilitation",
+    status: "Ongoing" as const,
+    employer: "C&W Department Peshawar",
+    fundingAgency: "World Bank",
+    commencementDate: "29 October 2024",
+    completionDate: "22 January 2026",
+    totalLength: "33.05 KM",
+    contractor: "Zarghoon Enterprises (Private) Limited",
+  },
+  {
+    img: imgN50,
+    title: "N-50 Zhob \u2013 Mughalkot Road Upgradation",
+    location: "Killi Khuda-e-Nazar \u2013 Mughal Kot, Balochistan",
+    type: "Highway",
+    status: "Completed" as const,
+    employer: "National Highway Authority",
+    fundingAgency: "Asian Development Bank",
+    commencementDate: "30 August 2016",
+    completionDate: "December 2020",
+    totalLength: "32 KM",
+    contractor: "Maqbool \u2013 Zarghoon JV",
+  },
+  {
+    img: imgN70,
+    title: "N-70 Loralai \u2013 Waigum Rud Road Upgradation",
+    location: "Loralai \u2013 Waighum Rud Section, Balochistan",
+    type: "Highway",
+    status: "Completed" as const,
+    employer: "National Highway Authority",
+    fundingAgency: "Asian Development Bank",
+    commencementDate: "17 August 2016",
+    completionDate: "April 2020",
+    totalLength: "49 KM",
+    contractor: "Maqbool \u2013 Zarghoon JV",
+  },
 ];
 
 const fadeUp = {
@@ -137,8 +173,91 @@ const CounterStat = ({ value, suffix, label, index, icon: Icon }: { value: numbe
   );
 };
 
-const Index = () => (
-  <div>
+type FeaturedProject = typeof projects[0];
+
+const FeaturedProjectModal = ({ project, onClose }: { project: FeaturedProject; onClose: () => void }) => {
+  const isOngoing = project.status === "Ongoing";
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.22 }}
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6"
+      onClick={onClose}
+    >
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-[6px]" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.93, y: 28 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.93, y: 28 }}
+        transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-2xl rounded-2xl overflow-hidden bg-white shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* image hero */}
+        <div className="relative" style={{ aspectRatio: "16/7" }}>
+          <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+          <div className="absolute top-4 left-4">
+            <span className={`inline-flex items-center gap-1.5 text-[10px] font-black tracking-[0.22em] uppercase px-3 py-1.5 rounded-full backdrop-blur-sm border ${
+              isOngoing ? "bg-accent/20 border-accent/35 text-accent" : "bg-primary/20 border-primary/35 text-primary"
+            }`}>
+              {isOngoing
+                ? <motion.span className="w-1.5 h-1.5 rounded-full bg-accent" animate={{ opacity: [1, 0.3, 1] }} transition={{ repeat: Infinity, duration: 1.4 }} />
+                : <CheckCircle2 size={9} />}
+              {isOngoing ? "Ongoing" : "Completed"}
+            </span>
+          </div>
+          <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/50 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/70 transition-colors">
+            <X size={14} />
+          </button>
+          <div className="absolute bottom-0 inset-x-0 p-5">
+            {project.totalLength && (
+              <span className="inline-flex items-center gap-1 text-[11px] font-black tracking-[0.15em] uppercase px-2.5 py-1 rounded-full bg-black/55 border border-white/25 text-white mb-2.5">
+                <ArrowRight size={9} />{project.totalLength}
+              </span>
+            )}
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white leading-snug mb-1.5">{project.title}</h2>
+            <div className="flex items-center gap-1.5 text-white/65 text-sm"><MapPin size={12} />{project.location}</div>
+          </div>
+        </div>
+        {/* detail grid */}
+        <div className="p-5 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { icon: Building2, label: "Employer",       value: project.employer },
+              { icon: Users,     label: "Funding Agency", value: project.fundingAgency },
+              { icon: Calendar,  label: "Commenced",      value: project.commencementDate },
+              { icon: Clock,     label: "Completion",     value: project.completionDate },
+              { icon: ArrowRight, label: "Contractor",     value: project.contractor },
+            ].map(({ icon: Icon, label, value }) => (
+              <div key={label} className={`flex gap-3 p-3.5 rounded-xl border bg-gray-50 border-gray-100 ${label === "Contractor" ? "sm:col-span-2" : ""}`}>
+                <div className={`mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isOngoing ? "bg-accent/10" : "bg-primary/10"}`}>
+                  <Icon size={13} className={isOngoing ? "text-accent" : "text-primary"} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-0.5">{label}</p>
+                  <p className="text-[13px] font-semibold text-gray-800 leading-snug">{value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const Index = () => {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  return (
+    <>
+      <div>
     {/* Hero */}
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
@@ -412,6 +531,7 @@ const Index = () => (
             viewport={{ once: true, margin: "0px" }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] rounded-2xl overflow-hidden group cursor-pointer"
+            onClick={() => setSelectedProject(projects[0])}
           >
             <img
               src={projects[0].img}
@@ -476,6 +596,7 @@ const Index = () => (
                 viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.75, delay: 0.1 + i * 0.14, ease: [0.16, 1, 0.3, 1] }}
                 className="relative flex-1 min-h-[245px] rounded-2xl overflow-hidden group cursor-pointer"
+                onClick={() => setSelectedProject(p)}
               >
                 <img
                   src={p.img}
@@ -738,7 +859,13 @@ const Index = () => (
         </div>
       </div>
     </section>
-  </div>
-);
+      </div>
+
+      <AnimatePresence>
+        {selectedProject && <FeaturedProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
+      </AnimatePresence>
+    </>
+  );
+};
 
 export default Index;

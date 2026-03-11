@@ -1,6 +1,6 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { MapPin, Calendar, Building2, Users, CheckCircle2, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, Building2, Users, CheckCircle2, Clock, ArrowRight, X } from "lucide-react";
 
 type CounterProps = { value: number; suffix?: string };
 
@@ -430,9 +430,11 @@ const cardVariants = {
 const ProjectCard = ({
   project,
   index,
+  onClick,
 }: {
   project: Project;
   index: number;
+  onClick?: () => void;
 }) => {
   const isOngoing = project.status === "Ongoing";
   const img = project.image;
@@ -444,7 +446,8 @@ const ProjectCard = ({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-gray-300 transition-all duration-400 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.12)]"
+      className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-gray-300 transition-all duration-400 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.12)] cursor-pointer"
+      onClick={onClick}
     >
       {/* ── IMAGE HEADER ─────────────────────────────────── */}
       <div className="relative overflow-hidden" style={{ aspectRatio: "16/7" }}>
@@ -545,6 +548,106 @@ const ProjectCard = ({
   );
 };
 
+const ProjectDetailModal = ({ project, onClose }: { project: Project; onClose: () => void }) => {
+  const isOngoing = project.status === "Ongoing";
+  // lock body scroll
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+  return (
+    <motion.div
+      key="backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.22 }}
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6"
+      onClick={onClose}
+    >
+      {/* blurred backdrop */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-[6px]" />
+
+      {/* panel */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.93, y: 28 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.93, y: 28 }}
+        transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-2xl rounded-2xl overflow-hidden bg-white shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* ── image hero ── */}
+        <div className="relative" style={{ aspectRatio: "16/7" }}>
+          <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+          {/* status */}
+          <div className="absolute top-4 left-4">
+            <span className={`inline-flex items-center gap-1.5 text-[10px] font-black tracking-[0.22em] uppercase px-3 py-1.5 rounded-full backdrop-blur-sm border ${
+              isOngoing
+                ? "bg-accent/20 border-accent/35 text-accent"
+                : "bg-primary/20 border-primary/35 text-primary"
+            }`}>
+              {isOngoing ? (
+                <motion.span className="w-1.5 h-1.5 rounded-full bg-accent" animate={{ opacity: [1, 0.3, 1] }} transition={{ repeat: Infinity, duration: 1.4 }} />
+              ) : (
+                <CheckCircle2 size={9} />
+              )}
+              {isOngoing ? "Ongoing" : "Completed"}
+            </span>
+          </div>
+          {/* close */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/50 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+          >
+            <X size={14} />
+          </button>
+          {/* title + location */}
+          <div className="absolute bottom-0 inset-x-0 p-5">
+            {project.totalLength && (
+              <span className="inline-flex items-center gap-1 text-[11px] font-black tracking-[0.15em] uppercase px-2.5 py-1 rounded-full bg-black/55 border border-white/25 text-white mb-2.5">
+                <ArrowRight size={9} />{project.totalLength}
+              </span>
+            )}
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white leading-snug mb-1.5">{project.title}</h2>
+            <div className="flex items-center gap-1.5 text-white/65 text-sm">
+              <MapPin size={12} />{project.location}
+            </div>
+          </div>
+        </div>
+
+        {/* ── detail grid ── */}
+        <div className="p-5 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { icon: Building2, label: "Employer",       value: project.employer },
+              { icon: Users,     label: "Funding Agency", value: project.fundingAgency },
+              { icon: Calendar,  label: "Commenced",      value: project.commencementDate },
+              { icon: Clock,     label: "Completion",     value: project.completionDate },
+              ...(project.contractor ? [{ icon: ArrowRight, label: "Contractor", value: project.contractor }] : []),
+            ].map(({ icon: Icon, label, value }) => (
+              <div key={label} className={`flex gap-3 p-3.5 rounded-xl border bg-gray-50 border-gray-100 ${
+                label === "Contractor" ? "sm:col-span-2" : ""
+              }`}>
+                <div className={`mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
+                  isOngoing ? "bg-accent/10" : "bg-primary/10"
+                }`}>
+                  <Icon size={13} className={isOngoing ? "text-accent" : "text-primary"} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-0.5">{label}</p>
+                  <p className="text-[13px] font-semibold text-gray-800 leading-snug">{value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const SectionDivider = ({ label, count, isOngoing = false }: { label: string; count: number; isOngoing?: boolean }) => (
   <motion.div
     initial={{ opacity: 0, y: 22 }}
@@ -574,8 +677,12 @@ const SectionDivider = ({ label, count, isOngoing = false }: { label: string; co
   </motion.div>
 );
 
-const Projects = () => (
-  <div className="pt-[68px]">
+const Projects = () => {
+  const [selected, setSelected] = useState<Project | null>(null);
+  return (
+    <>
+
+      <div className="pt-[68px]">
 
     {/* ── HERO ─────────────────────────────────────────────────── */}
     <section className="relative overflow-hidden py-24 px-6">
@@ -661,7 +768,7 @@ const Projects = () => (
         <SectionDivider label="Track Record" count={completedProjects.length} />
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {completedProjects.map((p, i) => (
-            <ProjectCard key={p.number} project={p} index={i} />
+            <ProjectCard key={p.number} project={p} index={i} onClick={() => setSelected(p)} />
           ))}
         </div>
       </div>
@@ -679,13 +786,19 @@ const Projects = () => (
         <SectionDivider label="Live Work" count={ongoingProjects.length} isOngoing />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {ongoingProjects.map((p, i) => (
-            <ProjectCard key={p.number} project={p} index={i} />
+            <ProjectCard key={p.number} project={p} index={i} onClick={() => setSelected(p)} />
           ))}
         </div>
       </div>
     </section>
 
-  </div>
-);
+    </div>
+
+    <AnimatePresence>
+      {selected && <ProjectDetailModal project={selected} onClose={() => setSelected(null)} />}
+    </AnimatePresence>
+  </>
+  );
+};
 
 export default Projects;
