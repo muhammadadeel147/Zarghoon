@@ -50,6 +50,14 @@ const team = [
     gradient: "from-[#0f3d5c] via-[#1a5c8a] to-[#092d44]",
   },
   {
+    name: "Bashir A. Kakar",
+    role: "Director",
+    initials: "BK",
+    bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
+    image: EngBashirAhmedImg as string | null,
+    gradient: "from-[#7a3a0a] via-[#9a5015] to-[#5c2a08]",
+  },
+  {
     name: "Jamil A. Kakar",
     role: "Director Operations",
     initials: "JAK",
@@ -64,14 +72,6 @@ const team = [
     bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
     image: Akhlaq as string | null,
     gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
-  },
-  {
-    name: "Bashir A. Kakar",
-    role: "Director",
-    initials: "BK",
-    bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
-    image: EngBashirAhmedImg as string | null,
-    gradient: "from-[#7a3a0a] via-[#9a5015] to-[#5c2a08]",
   },
 ];
 const heroStats = [

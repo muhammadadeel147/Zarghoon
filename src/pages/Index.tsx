@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowRight, ArrowUpRight, Building2, Truck, Wrench, BarChart3, Shield, Zap, Phone, Mail, ChevronDown, MapPin, Layers, Users, Milestone, Waves, CloudRain, Droplets, X, Calendar, Clock, CheckCircle2 } from "lucide-react";
-import heroImage from "@/assets/hero-road.jpg";
+import heroImage from "@/assets/hero.jpeg";
 import bridgeImg from "@/assets/bridge-project.jpg";
 import highwayImg from "@/assets/highway-project.jpg";
 import asphaltImg from "@/assets/asphalt-paving.jpg";
@@ -41,6 +41,14 @@ const teamMembers = [
     gradient: "from-[#0f3d5c] via-[#1a5c8a] to-[#092d44]",
   },
   {
+    name: "Bashir A. Kakar",
+    role: "Director",
+    initials: "BK",
+    bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
+    image: EngBashirAhmedImg as string | null,
+    gradient: "from-[#7a3a0a] via-[#9a5015] to-[#5c2a08]",
+  },
+  {
     name: "Jamil A. Kakar",
     role: "Director Operations",
     initials: "JAK",
@@ -56,14 +64,7 @@ const teamMembers = [
     image: Akhlaq as string | null,
     gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
   },
-  {
-    name: "Bashir A. Kakar",
-    role: "Director",
-    initials: "BK",
-    bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
-    image: EngBashirAhmedImg as string | null,
-    gradient: "from-[#7a3a0a] via-[#9a5015] to-[#5c2a08]",
-  },
+  
 ];
 
 const services = [
