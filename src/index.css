@@ -107,3 +107,9 @@
   scrollbar-width: thin;
   scrollbar-color: hsl(122, 47%, 45%) hsl(210, 40%, 94%);
 }
+
+/* ── Clients marquee ──────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

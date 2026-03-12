@@ -16,6 +16,31 @@ import JalilImg from "@/assets/jalil.jpeg";
 import EngBashirAhmedImg from "@/assets/EngBashirAhmed.jpeg";
 import Akhlaq  from "@/assets/akhlaq.jpeg";
 import Jameel  from "@/assets/Jameel.jpeg";
+import imgBiwr  from "@/assets/client/biwr.jpeg";
+import imgCwdb  from "@/assets/client/cwdb.jpeg";
+import imgDhaq  from "@/assets/client/dhaq.jpeg";
+import imgFwo   from "@/assets/client/fwo.jpeg";
+import imgNha   from "@/assets/client/nha.jpeg";
+import imgPrmsc from "@/assets/client/prmsc.jpeg";
+import imgPtcl  from "@/assets/client/ptcl.jpeg";
+import imgSca   from "@/assets/client/sca.jpeg";
+import imgTccp  from "@/assets/client/tccp.jpeg";
+import imgTesei from "@/assets/client/tesei.jpeg";
+import imgWsds  from "@/assets/client/wsds.jpeg";
+const clients = [
+  { name: "BIWRMDP",                      logo: imgBiwr  },
+  { name: "C&W Dept. Balochistan",         logo: imgCwdb  },
+  { name: "DHA Quetta",                    logo: imgDhaq  },
+  { name: "FWO",                           logo: imgFwo   },
+  { name: "National Highway Authority",    logo: imgNha   },
+  { name: "PRMSC",                         logo: imgPrmsc },
+  { name: "PTV Network",                   logo: imgPtcl  },
+  { name: "Sindh Coal Authority",          logo: imgSca   },
+  { name: "Tethyan Copper Company",        logo: imgTccp  },
+  { name: "TAISEI Corporation",            logo: imgTesei },
+  { name: "Works & Services Dept. Sindh",  logo: imgWsds  },
+];
+
 const stats = [
   { value: 1000, suffix: "+", label: "KM Roads Built", icon: MapPin },
   { value: 50, suffix: "+", label: "Projects Completed", icon: Layers },
@@ -41,7 +66,7 @@ const teamMembers = [
     gradient: "from-[#0f3d5c] via-[#1a5c8a] to-[#092d44]",
   },
   {
-    name: "Bashir A. Kakar",
+    name: "Engr. Bashir A. Kakar",
     role: "Director",
     initials: "BK",
     bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",
@@ -731,6 +756,85 @@ const Index = () => {
 
               <div className="pointer-events-none absolute top-0 inset-x-6 h-[2px] bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 group-hover:opacity-100 group-hover:inset-x-0 transition-all duration-400" />
             </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Clients */}
+    <section className="relative overflow-hidden py-24 border-y border-border/50 bg-[hsl(215,25%,97%)]">
+      {/* Subtle diagonal hatching */}
+      <div
+        className="absolute inset-0 opacity-[0.028] pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(-55deg, hsl(122,47%,40%) 0, hsl(122,47%,40%) 1px, transparent 0, transparent 50%)`,
+          backgroundSize: "20px 20px",
+        }}
+      />
+      {/* Central glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[180px] bg-primary/[0.06] rounded-full blur-[90px] pointer-events-none" />
+
+      {/* Header */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.3em] uppercase text-primary mb-4">
+            <span className="w-8 h-px bg-primary/60 inline-block" />
+            Trusted By
+            <span className="w-8 h-px bg-primary/60 inline-block" />
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+            Our <span className="text-gradient">Clients</span>
+          </h2>
+          <p className="text-muted-foreground text-sm max-w-md mx-auto mb-10 leading-relaxed">
+            Government bodies, development authorities, and international organisations who trust Zarghoon to deliver.
+          </p>
+          {/* Stats strip */}
+          {/* <div className="inline-flex items-stretch rounded-2xl border border-border/70 overflow-hidden bg-white shadow-md">
+            {[
+              { value: "11", label: "Partners",    accent: false },
+              { value: "4",  label: "Int'l Funders", accent: true  },
+              { value: "4",  label: "Provinces",    accent: false },
+            ].map(({ value, label, accent }, i) => (
+              <div key={i} className={`px-8 py-4 text-center ${i > 0 ? "border-l border-border/70" : ""}`}>
+                <p className={`font-display text-3xl font-black leading-none mb-1 ${
+                  accent ? "text-accent" : "text-gradient"
+                }`}>{value}</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">{label}</p>
+              </div>
+            ))}
+          </div> */}
+        </motion.div>
+      </div>
+
+      {/* Seamless marquee — single row, pause on hover */}
+      {/* Each card: w-[280px] + mr-[28px] = 308px per item. 11 items × 308 = 3388px per set. 2 sets = 6776px. -50% = -3388px = exactly 1 set. */}
+      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] [&:hover_.clients-track]:[animation-play-state:paused]">
+        <div
+          className="clients-track flex"
+          style={{ animation: "marquee 42s linear infinite" }}
+        >
+          {[...clients, ...clients].map((c, i) => (
+            <div
+              key={i}
+              className="shrink-0 w-[280px] h-[140px] mr-[28px] bg-white rounded-2xl border border-gray-100 shadow-[0_2px_18px_-4px_rgba(0,0,0,0.07)] p-6 flex flex-col items-center justify-center gap-3 hover:shadow-[0_10px_36px_-8px_rgba(0,0,0,0.13)] hover:border-primary/25 hover:scale-[1.03] transition-all duration-400 cursor-default group/card"
+            >
+              <div className="h-11 w-full flex items-center justify-center">
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  title={c.name}
+                  className="max-h-14 max-w-[200px] w-auto object-contain transition-all duration-500"
+                />
+              </div>
+              <p className="text-[10px] font-semibold text-center leading-tight text-gray-400 group-hover/card:text-gray-600 transition-colors duration-300 line-clamp-2">
+                {c.name}
+              </p>
+            </div>
           ))}
         </div>
       </div>

@@ -50,7 +50,7 @@ const team = [
     gradient: "from-[#0f3d5c] via-[#1a5c8a] to-[#092d44]",
   },
   {
-    name: "Bashir A. Kakar",
+    name: "Engr. Bashir A. Kakar",
     role: "Director",
     initials: "BK",
     bio: "Leads engineering design validation, site supervision and quality audits on major civil works.",

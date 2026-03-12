@@ -1,6 +1,6 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { MapPin, Calendar, Building2, Users, CheckCircle2, Clock, ArrowRight, X } from "lucide-react";
+import { MapPin, Calendar, Building2, Users, CheckCircle2, Clock, ArrowRight, X, Banknote } from "lucide-react";
 
 type CounterProps = { value: number; suffix?: string };
 
@@ -46,6 +46,7 @@ import imgPackage5   from "@/assets/projects/Package-5.jpeg";
 import imgFortMunro  from "@/assets/projects/Fort Munro.jpeg";
 import imgN40        from "@/assets/projects/N-40.jpeg";
 import img1          from "@/assets/projects/1.jpeg";
+import Lot2          from "@/assets/projects/lot2.jpeg";
 
 type Project = {
   number: number;
@@ -57,6 +58,7 @@ type Project = {
   commencementDate: string;
   completionDate: string;
   totalLength?: string;
+  totalProjectCost?: string;
   status: "Completed" | "Ongoing";
   image: string;
 };
@@ -239,7 +241,7 @@ const completedProjects: Project[] = [
     commencementDate: "25 November 2021",
     completionDate: "02 December 2024",
     status: "Completed",
-    image: imgCadet,
+    image: Lot2,
   },
   {
     number: 15,
@@ -265,6 +267,19 @@ const completedProjects: Project[] = [
     totalLength: "33 KM",
     status: "Completed",
     image: imgFortMunro,
+  },
+  {
+    number: 17,
+    title: "Construction of Cadet College Zhob at Kila Saifullah",
+    location: "Kila Saifullah, Balochistan",
+    fundingAgency: "Government of Pakistan",
+    employer: "Pakistan Public Works Department Quetta",
+    contractor: "Zarghoon Enterprises (Private) Limited",
+    commencementDate: "10 February 2006",
+    completionDate: "15 April 2009",
+    totalProjectCost: "PKR 113,187,000/-",
+    status: "Completed",
+    image: imgCadet,
   },
 ];
 
@@ -639,9 +654,10 @@ const ProjectDetailModal = ({ project, onClose }: { project: Project; onClose: (
               { icon: Calendar,  label: "Commenced",      value: project.commencementDate },
               { icon: Clock,     label: "Completion",     value: project.completionDate },
               ...(project.contractor ? [{ icon: ArrowRight, label: "Contractor", value: project.contractor }] : []),
+              ...(project.totalProjectCost ? [{ icon: Banknote, label: "Project Cost", value: project.totalProjectCost }] : []),
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className={`flex gap-3 p-3.5 rounded-xl border bg-gray-50 border-gray-100 ${
-                label === "Contractor" ? "sm:col-span-2" : ""
+                label === "Contractor" || label === "Project Cost" ? "sm:col-span-2" : ""
               }`}>
                 <div className={`mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
                   isOngoing ? "bg-accent/10" : "bg-primary/10"
@@ -750,7 +766,7 @@ const Projects = () => {
             className="grid grid-cols-2 gap-3"
           >
             {[
-              { num: 16,   suffix: "",   label: "Completed Projects", gold: false },
+              { num: 17,   suffix: "",   label: "Completed Projects", gold: false },
               { num: 13,   suffix: "",   label: "Active Projects",    gold: true  },
               { num: 1000, suffix: "+",  label: "KM Roads Built",     gold: true  },
               { num: 1000,  suffix: "+",  label: "Employees",          gold: false },
