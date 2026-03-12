@@ -69,7 +69,7 @@ const team = [
     name: "Akhlaq A. Kakar",
     role: "Director Finance",
     initials: "AK",
-    bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
+    bio: "Oversees the company\u2019s financial strategy, budgeting, cash flow, and financial compliance to ensure strong financial performance and stability.",
     image: Akhlaq as string | null,
     gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
   },

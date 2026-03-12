@@ -27,6 +27,7 @@ import imgSca   from "@/assets/client/sca.jpeg";
 import imgTccp  from "@/assets/client/tccp.jpeg";
 import imgTesei from "@/assets/client/tesei.jpeg";
 import imgWsds  from "@/assets/client/wsds.jpeg";
+import imgKPK   from "@/assets/client/kpk.jpeg";
 const clients = [
   { name: "BIWRMDP",                      logo: imgBiwr  },
   { name: "C&W Dept. Balochistan",         logo: imgCwdb  },
@@ -39,6 +40,8 @@ const clients = [
   { name: "Tethyan Copper Company",        logo: imgTccp  },
   { name: "TAISEI Corporation",            logo: imgTesei },
   { name: "Works & Services Dept. Sindh",  logo: imgWsds  },
+  { name: "Government of Khyber Pakhtunkhwa", logo: imgKPK   },
+
 ];
 
 const stats = [
@@ -85,7 +88,7 @@ const teamMembers = [
     name: "Akhlaq A. Kakar",
     role: "Director Finance",
     initials: "AK",
-    bio: "Manages day-to-day operations and ensures seamless coordination across all active construction sites.",
+    bio: "Oversees the company\u2019s financial strategy, budgeting, cash flow, and financial compliance to ensure strong financial performance and stability.",
     image: Akhlaq as string | null,
     gradient: "from-[#7b2cbf] via-[#9d44d6] to-[#5a1f99]",
   },
@@ -811,24 +814,27 @@ const Index = () => {
         </motion.div>
       </div>
 
-      {/* Seamless marquee — single row, pause on hover */}
-      {/* Each card: w-[280px] + mr-[28px] = 308px per item. 11 items × 308 = 3388px per set. 2 sets = 6776px. -50% = -3388px = exactly 1 set. */}
-      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] [&:hover_.clients-track]:[animation-play-state:paused]">
+      {/* Seamless marquee — smooth infinite scroll */}
+      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]">
         <div
           className="clients-track flex"
-          style={{ animation: "marquee 42s linear infinite" }}
+          style={{
+            animation: "marquee 50s linear infinite",
+            width: "fit-content"
+          }}
         >
-          {[...clients, ...clients].map((c, i) => (
+          {[...clients, ...clients, ...clients].map((c, i) => (
             <div
               key={i}
-              className="shrink-0 w-[280px] h-[140px] mr-[28px] bg-white rounded-2xl border border-gray-100 shadow-[0_2px_18px_-4px_rgba(0,0,0,0.07)] p-6 flex flex-col items-center justify-center gap-3 hover:shadow-[0_10px_36px_-8px_rgba(0,0,0,0.13)] hover:border-primary/25 hover:scale-[1.03] transition-all duration-400 cursor-default group/card"
+              className="shrink-0 w-[260px] h-[130px] mx-4 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_18px_-4px_rgba(0,0,0,0.07)] p-5 flex flex-col items-center justify-center gap-3 hover:shadow-[0_10px_36px_-8px_rgba(0,0,0,0.13)] hover:border-primary/25 transition-shadow duration-300 cursor-default group/card"
             >
               <div className="h-11 w-full flex items-center justify-center">
                 <img
                   src={c.logo}
                   alt={c.name}
                   title={c.name}
-                  className="max-h-14 max-w-[200px] w-auto object-contain transition-all duration-500"
+                  loading="eager"
+                  className="max-h-14 max-w-[180px] w-auto object-contain"
                 />
               </div>
               <p className="text-[10px] font-semibold text-center leading-tight text-gray-400 group-hover/card:text-gray-600 transition-colors duration-300 line-clamp-2">
