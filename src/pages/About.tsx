@@ -78,7 +78,7 @@ const heroStats = [
   { value: 1000, suffix: "+", label: "KM Roads" },
   { value: 50, suffix: "+", label: "Projects" },
   { value: 200, suffix: "+", label: "Machinery & Plants" },
-  { value: 300, suffix: "+", label: "Employees" },
+  { value: 1000, suffix: "+", label: "Employees" },
 ];
 
 type CounterProps = {
@@ -168,7 +168,7 @@ const About = () => (
               transition={{ delay: 0.55 }}
               className="flex flex-wrap gap-2.5"
             >
-              {["ISO Certified", "AASHTO Standards", "300+ Employees", "Karachi Based"].map((tag) => (
+              {["ISO Certified", "AASHTO Standards", "1000+ Employees", "Karachi Based"].map((tag) => (
                 <span key={tag} className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-600">
                   <CheckCircle2 size={11} className="text-primary shrink-0" />
                   {tag}

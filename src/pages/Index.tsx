@@ -20,7 +20,7 @@ const stats = [
   { value: 1000, suffix: "+", label: "KM Roads Built", icon: MapPin },
   { value: 50, suffix: "+", label: "Projects Completed", icon: Layers },
   { value: 200, suffix: "+", label: "Machinery & Plants", icon: Truck },
-  { value: 300, suffix: "+", label: "Employees", icon: Users },
+  { value: 1000, suffix: "+", label: "Employees", icon: Users },
 ];
 
 const teamMembers = [

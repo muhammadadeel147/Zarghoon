@@ -753,7 +753,7 @@ const Projects = () => {
               { num: 16,   suffix: "",   label: "Completed Projects", gold: false },
               { num: 13,   suffix: "",   label: "Active Projects",    gold: true  },
               { num: 1000, suffix: "+",  label: "KM Roads Built",     gold: true  },
-              { num: 300,  suffix: "+",  label: "Employees",          gold: false },
+              { num: 1000,  suffix: "+",  label: "Employees",          gold: false },
             ].map((s) => (
               <div
                 key={s.label}
