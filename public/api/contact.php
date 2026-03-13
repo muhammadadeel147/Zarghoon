@@ -35,7 +35,7 @@ if (!empty($data['website'])) {
 }
 
 // ── IP-based rate limiting (max 1 submission per 60 seconds) ─────
-$rawIp    = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+$rawIp    = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
 $ip       = preg_replace('/[^0-9a-fA-F.:_\-]/', '', $rawIp);
 $rateFile = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'zrg_' . md5($ip) . '.dat';
 
@@ -77,7 +77,7 @@ if (strlen($name) > 100 || strlen($subject) > 200 || strlen($message) > 5000 || 
 }
 
 // ── Sanitize — strip newlines to prevent SMTP header injection ────
-function sanitizeHeader(string $val): string
+function sanitizeHeader($val)
 {
     return preg_replace('/[\r\n\t]/', '', htmlspecialchars($val, ENT_QUOTES, 'UTF-8'));
 }
@@ -86,13 +86,17 @@ $nameSafe    = sanitizeHeader($name);
 $subjectSafe = sanitizeHeader($subject);
 $phoneSafe   = sanitizeHeader($phone);
 $emailSafe   = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
+$emailHeader = sanitizeHeader($email);
 $messageSafe = nl2br(htmlspecialchars(strip_tags($message), ENT_QUOTES, 'UTF-8'));
 
 // ── Build email ───────────────────────────────────────────────────
 $to      = 'zarghoonenterprises@yahoo.com';
+$from    = 'noreply@zarghoon.pk';
 $headers = implode("\r\n", [
-    'From: Zarghoon Website <noreply@zarghoon.pk>',
-    'Reply-To: ' . $nameSafe . ' <' . $email . '>',
+  'From: Zarghoon Website <' . $from . '>',
+  'Reply-To: ' . $nameSafe . ' <' . $emailHeader . '>',
+  'Return-Path: <' . $from . '>',
+  'X-Mailer: PHP/' . phpversion(),
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
 ]);
@@ -142,13 +146,25 @@ HTML;
 
 // ── Send ──────────────────────────────────────────────────────────
 $mailSubject = 'Website Enquiry: ' . $subjectSafe;
-$sent        = mail($to, $mailSubject, $body, $headers);
+$sent        = mail($to, $mailSubject, $body, $headers, '-f' . $from);
+
+// Optional diagnostic log for cPanel troubleshooting
+$mailLog = sprintf(
+  "[%s] sent=%s ip=%s to=%s from=%s subject=%s\n",
+  date('c'),
+  $sent ? 'true' : 'false',
+  $ip,
+  $to,
+  $from,
+  preg_replace('/\s+/', ' ', $subjectSafe)
+);
+@file_put_contents(sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'zrg_mail.log', $mailLog, FILE_APPEND);
 
 if ($sent) {
     file_put_contents($rateFile, (string) time());
     echo json_encode([
         'success' => true,
-        'message' => "Thank you, {$nameSafe}! Your message has been sent. We\u2019ll get back to you within 24 hours.",
+    'message' => "Thank you, {$nameSafe}! Your message has been sent. We'll get back to you within 24 hours.",
     ]);
 } else {
     http_response_code(500);

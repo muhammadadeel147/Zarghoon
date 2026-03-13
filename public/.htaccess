@@ -1,5 +1,10 @@
 Options -MultiViews -Indexes
 
+# ── Force PHP handler (prevents .php source from being served as text) ───────
+<IfModule mime_module>
+    AddHandler application/x-httpd-ea-php84 .php .php8 .phtml
+</IfModule>
+
 # ── Redirect favicon.ico to logo.png ─────────────────────────────
 <IfModule mod_rewrite.c>
     RewriteEngine On

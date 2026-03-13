@@ -23,6 +23,7 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "", website: "" });
   const [status, setStatus]   = useState<Status>("idle");
   const [feedback, setFeedback] = useState("");
+  const contactEndpoint = `${import.meta.env.BASE_URL}api/contact.php`;
 
   const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [field]: e.target.value }));
@@ -32,11 +33,21 @@ const Contact = () => {
     setStatus("loading");
     setFeedback("");
     try {
-      const res  = await fetch("/api/contact.php", {
+      const res = await fetch(contactEndpoint, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify(form),
       });
+
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        const bodyPreview = (await res.text()).slice(0, 220);
+        if (bodyPreview.includes("<?php")) {
+          throw new Error("Server configuration issue: PHP is not executing for /api/contact.php. Please enable PHP handler in cPanel.");
+        }
+        throw new Error(`Unexpected response from server (${res.status}). Please check server logs in cPanel.`);
+      }
+
       const data = await res.json();
       if (data.success) {
         setStatus("success");
@@ -46,9 +57,9 @@ const Contact = () => {
         setStatus("error");
         setFeedback(data.message || "Something went wrong. Please try again.");
       }
-    } catch {
+    } catch (error) {
       setStatus("error");
-      setFeedback("Network error. Please check your connection and try again.");
+      setFeedback(error instanceof Error ? error.message : "Network error. Please check your connection and try again.");
     }
   };
 
