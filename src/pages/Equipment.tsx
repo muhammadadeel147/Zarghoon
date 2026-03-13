@@ -18,7 +18,7 @@ const equipment = [
   {
     icon: Truck,    name: "Asphalt Pavers",    category: "Paving",
     desc: "GPS-guided precision paving machines delivering millimetre-accurate surface uniformity at highway speeds.",
-    specs: ["GPS ±2 mm accuracy", "Up to 10 m paving width", "Digital grade control"],
+    specs: ["GPS ±2 mm accuracy", "Up to 8.5 m paving width", "Digital grade control"],
     gold: false,
   },
   {
@@ -30,19 +30,19 @@ const equipment = [
   {
     icon: Cog,      name: "Excavators",         category: "Earthworks",
     desc: "Heavy-duty hydraulic excavators handling bulk earthworks, trench cutting, and sub-grade preparation at full project scale.",
-    specs: ["20–50 tonne class", "GPS 3D grade control", "Quick coupler attachments"],
+    specs: ["20–50 tonne operating-weight class", "GPS 3D grade control", "Quick coupler attachments"],
     gold: false,
   },
   {
     icon: Factory,  name: "Asphalt Plants",     category: "Production",
-    desc: "Mobile and stationary drum-mix and batch plants producing 100–300 TPH of hot-mix asphalt to exact recipe specifications.",
-    specs: ["300 TPH capacity", "Recycled asphalt capable", "Remote mix monitoring"],
+    desc: "Mobile and stationary drum-mix and batch plants producing 100–160 TPH of hot-mix asphalt to exact recipe specifications.",
+    specs: ["100–160 TPH capacity", "Recycled asphalt capable", "Remote mix monitoring"],
     gold: true,
   },
   {
     icon: ScanLine, name: "Drone Surveying",    category: "Tech",
     desc: "Aerial photogrammetry drones generating centimetre-accurate 3D site models for planning, progress tracking, and quality assurance.",
-    specs: ["1 cm GSD accuracy", "300 ha/flight coverage", "Real-time orthomosaic"],
+    specs: ["1-3 cm GSD (mission-dependent)", "120-300 ha/flight (mission-dependent)", "Real-time orthomosaic"],
     gold: false,
   },
   {

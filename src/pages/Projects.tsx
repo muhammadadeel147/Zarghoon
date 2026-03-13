@@ -66,7 +66,7 @@ type Project = {
 const completedProjects: Project[] = [
   {
     number: 1,
-    title: "Defence Officers Housing Authority Quetta — Sector A-2",
+    title: "Defence Housing Society Quetta — Sector A-2",
     location: "DHA Quetta",
     fundingAgency: "DHA Quetta",
     employer: "DHA Quetta",
